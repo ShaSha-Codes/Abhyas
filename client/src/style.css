@@ -1,0 +1,16 @@
+
+.indexpart1>h1{
+    color:#8934eb;
+    font-size: 50px;
+}
+.index-body{
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    margin:0%;
+}
+.indexpart1:disabled{
+    box-shadow: none;
+    border: none;
+
+}
