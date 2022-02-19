@@ -10,15 +10,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 
-import NavBar from "./NavBar";
-
 const drawerWidth = 240;
 
 export default function Sidebar() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <NavBar />
       {/* TODO: Make a copy of the below drawer with one 'temporary' for mobile devices */}
       <Drawer
         variant="permanent"
