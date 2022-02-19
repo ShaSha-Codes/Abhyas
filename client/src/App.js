@@ -3,6 +3,7 @@ import React from 'react'
 // import Paper from '@mui/material/Paper';
 // import { styled } from '@mui/material/styles';
 import TeacherClass from './pages/TeacherClass';
+import Test from './pages/Test';
 import './style.css'
 
 // const Item = styled(Paper)(({ theme }) => ({
@@ -16,7 +17,7 @@ import './style.css'
 export default function App(){
     return(
         <div>
-              <TeacherClass/>
+              <Test/>
         </div>
         
       

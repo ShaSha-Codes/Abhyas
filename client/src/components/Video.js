@@ -3,28 +3,31 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import ThumbNail from '../tempImages/Thumbnail.png'
 import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
 
 
-function Video() {
-  return (
+function Video(props) {
+
+  const {thumbnail,title,desc}=props.data
+  return (                     
     <Grid item xs={12} sm={6} md={3}>
         <Card  padding={5}>
+          <Box p={1}>
             <CardMedia  
             component="img"
             height="100%"
-            image={ThumbNail}
-            alt="green iguana"/>
+            image={thumbnail}
+            />
             <CardContent>
                 <Typography variant="h6" component="p">
-                    React
+                    {title}
                 </Typography>
                 <Typography variant="subtitle2" component="p">
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. 
+                    {desc}
                 </Typography>
-        </CardContent>
+          </CardContent>
+        </Box>
     </Card>
 
     </Grid>

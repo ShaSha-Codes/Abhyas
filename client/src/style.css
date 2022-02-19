@@ -14,3 +14,20 @@
     border: none;
 
 }
+
+.Assignment{
+    display:flex;
+    align-items: center;
+}
+
+.User{
+    display: Flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.UserPic{
+    width:70%;
+}
+
