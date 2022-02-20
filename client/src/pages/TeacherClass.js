@@ -34,9 +34,9 @@ function TeacherClass(props) {
         gender:"male"
     },
     {
-        firstName:"Jazib",
-        lastName:"Dawre",
-        gender:"male"
+      firstName: "Mihir",
+      lastName: "Tayshete",
+      gender: "male",
     },
     {
         firstName:"Aman",
@@ -48,7 +48,6 @@ function TeacherClass(props) {
 
 
   return (
-    
     <div>
         <Container maxWidth="xl">
             <VideoUpload/>
@@ -115,7 +114,7 @@ function TeacherClass(props) {
             <GoLive/>
         </Container>
     </div>
-  )
+  );
 }
 
-export default TeacherClass
+export default TeacherClass;
