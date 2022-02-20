@@ -23,20 +23,25 @@ export default function Sidebar() {
           display: { xs: "none", sm: "block" },
           width: drawerWidth,
           flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box" },
+          [`& .MuiDrawer-paper`]: {
+            width: drawerWidth,
+            boxSizing: "border-box",
+          },
         }}
       >
         <Toolbar /> {/* So just for spacing? */}
         <Box sx={{ overflow: "auto" }}>
           <List>
-            {["Videos", "Assignments", "Quizzes", "Notes"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
+            {["Videos", "Assignments", "Quizzes", "Notes"].map(
+              (text, index) => (
+                <ListItem button key={text}>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItem>
+              )
+            )}
           </List>
           <Divider />
           <List>
