@@ -9,30 +9,31 @@ import User from '../components/User';
 import Box from '@mui/material/Box';
 
 
-//Testing
+
 
 
   
 
 
-function TeacherClass() {
+function TeacherClass(props) {
 
-    
-  const data={
-      thumbnail:ThumbNail,
-      title:"React",
-      desc:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros"
-  }
+    const visibility=props.visibility
 
-  const userData=[{
-      firstName:"Shaurya",
-      lastName:"Sharma",
-      gender:"male"
-  },
-  {
-    firstName:"Mihir",
-    lastName:"Tayshete",
-    gender:"male"
+    const data={
+        thumbnail:ThumbNail,
+        title:"React",
+        desc:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros"
+    }
+
+    const userData=[{
+        firstName:"Shaurya",
+        lastName:"Sharma",
+        gender:"male"
+    },
+    {
+        firstName:"Mihir",
+        lastName:"Tayshete",
+        gender:"male"
     },
     {
         firstName:"Jazib",
@@ -44,7 +45,7 @@ function TeacherClass() {
         lastName:"Vishwakarma",
         gender:"male"
     }
-]
+    ]
 
 
 
@@ -52,6 +53,7 @@ function TeacherClass() {
     
     <div>
         <Container maxWidth="xl">
+            {visibility.videos &&
             <Box mb={10}>
                 <Typography variant="h4" sx={{margin:"1em"}} component="h2">
                     Videos
@@ -64,7 +66,8 @@ function TeacherClass() {
                     <Video data={data}/>
                 </Grid>
             </Box>
-
+            }
+            {visibility.assignments &&
             <Box mb={10}>
                 <Typography variant="h4" sx={{margin:"1em"}} component="h2">
                     Assignments
@@ -79,7 +82,9 @@ function TeacherClass() {
                     <Assignment/>
                 </Grid>
             </Box>
+            }
 
+            {visibility.students &&
             <Box mb={10}>
                 <Typography variant="h4" sx={{margin:"1em"}} component="h2">
                     Students
@@ -105,6 +110,7 @@ function TeacherClass() {
                     <User userData={userData[3]}/>
                 </Grid>
             </Box>
+            }
         </Container>
     </div>
   )
