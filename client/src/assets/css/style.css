@@ -31,3 +31,8 @@
     width:70%;
 }
 
+.GoLive{
+    position:fixed;
+    right:10px;
+    top:100px;
+}

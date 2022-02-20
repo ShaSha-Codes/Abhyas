@@ -7,13 +7,11 @@ import ThumbNail from '../tempImages/Thumbnail.png'
 import Assignment from '../components/Assignment';
 import User from '../components/User';
 import Box from '@mui/material/Box';
-
-
-
-
+import VideoAssignment from '../components/VideoAssignment';
+import GoLive from '../components/GoLive';
+import VideoUpload from '../components/VideoUpload';
 
   
-
 
 function TeacherClass(props) {
 
@@ -53,6 +51,8 @@ function TeacherClass(props) {
     
     <div>
         <Container maxWidth="xl">
+            <VideoUpload/>
+            <VideoAssignment/>
             {visibility.videos &&
             <Box mb={10}>
                 <Typography variant="h4" sx={{margin:"1em"}} component="h2">
@@ -88,10 +88,11 @@ function TeacherClass(props) {
             <Box mb={10}>
                 <Typography variant="h4" sx={{margin:"1em"}} component="h2">
                     Students
+                    
                     <hr/>
                 </Typography>
                 
-                <Grid container spacing={5} justify="center">
+                <Grid container spacing={2} justify="center">
                     <User userData={userData[0]}/>
                     <User userData={userData[1]}/>
                     <User userData={userData[2]}/>
@@ -111,6 +112,7 @@ function TeacherClass(props) {
                 </Grid>
             </Box>
             }
+            <GoLive/>
         </Container>
     </div>
   )

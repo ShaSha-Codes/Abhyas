@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 function Video(props) {
 
   const {thumbnail,title,desc}=props.data
+  const desci=desc.substring(0,100)+"..."
   return (                     
     <Grid item xs={12} sm={6} md={3}>
         <Card  padding={5}>
@@ -24,7 +25,7 @@ function Video(props) {
                     {title}
                 </Typography>
                 <Typography variant="subtitle2" component="p">
-                    {desc}
+                    {desci}
                 </Typography>
           </CardContent>
         </Box>
