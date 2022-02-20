@@ -1,16 +1,76 @@
 
+
+/* Index Page */
 .indexpart1>h1{
     color:#8934eb;
-    font-size: 50px;
+    font-size: 60px;
+    width: 100%;
+    font-family: 'Tillana', cursive;
+    margin-bottom:0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-.index-body{
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    margin:0%;
-}
-.indexpart1:disabled{
-    box-shadow: none;
-    border: none;
 
+
+body{
+    margin:0%;
+    height:100%;
+    background: linear-gradient(-45deg, #e7e6e9, #d6d4d4, #edf0ef, #d7ecec);
+    background-size: 400% 400%;
+    animation: gradient 30s ease infinite;
+   
+    
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+html{
+    height:100%;
+    
+}
+
+
+/* Category component */
+.category{ 
+    margin:20px;
+    width:80px;
+    height:60px;
+    word-wrap:break-word;
+    border-radius:10px;
+    border:none;
+    margin-top: 10%;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.274);
+    cursor: pointer;
+    padding-bottom: 67px;
+    
+}
+
+.inline-box{
+    display: inline;
+    width: 95%;
+}
+.inline{
+    display: inline;
+    height: 100%;
+}
+
+.formPart{
+    margin-top:15%;
+    background-color:white;
+    max-width: 50%;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    padding:40px;
+    border-radius:10px;
 }
