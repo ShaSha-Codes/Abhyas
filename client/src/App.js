@@ -7,6 +7,8 @@ import Login from './components/Login'
 import Certify from './components/Certify';
 import './style.css'
 
+
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -18,23 +20,28 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function App(){
 
     const [formType, setFormType] = React.useState(1)
-    
+    const [darkMode, setDarkMode] = React.useState(false);    
     function selectForm(custom){
         setFormType(parseInt(custom));
+    }// console.log(formType)
+React.useEffect(()=>{
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('body-dark');
+        setDarkMode(true);
     }
-
-    console.log(formType)
+},[])
+    
 
     return(
             
           <Grid container  >
             <Grid item xs={12} md={6} >
-                <Item disabled sx={{border:0,boxShadow:0,marginTop:'10%',backgroundColor:'transparent',padding:0}} className="indexpart1"><h1>Abhyas</h1>
-                <h2>A place to learn and share</h2>
+                <Item disabled sx={{border:0,boxShadow:0,marginTop:'28%',backgroundColor:'transparent',padding:0}} className="indexpart1"><h1>Abhyas</h1>
+                <h2 sx={{color:'#fff'}}>A place to learn and share</h2>
                 </Item>
             </Grid>
             <Grid item xs={12} md={6} sx={{padding:0}} >
-                <Item sx={{border:0,boxShadow:0,backgroundColor:'transparent',padding:0}} className="indexpart2">
+                <Item sx={{border:0,boxShadow:0,backgroundColor:'transparent',padding:0,marginTop:'10%'}} className="indexpart2">
                     <Category name="Student" type="1" selectForm={selectForm} />
                     <Category name="Teacher" type="2" selectForm={selectForm}/>
                     <Category name="Certificate" type="3" selectForm={selectForm}/>
