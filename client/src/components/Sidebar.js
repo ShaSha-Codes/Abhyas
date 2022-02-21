@@ -9,26 +9,26 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
-import TeacherClass from "../pages/TeacherClass"
+import TeacherClass from "../pages/TeacherClass";
 
 const drawerWidth = 240;
 
 export default function Sidebar(props) {
+  const [visibility, setVisibility] = React.useState({
+    videos: true,
+    assignments: true,
+    students: true,
+  });
 
-  const [visibility,setVisibility]=React.useState({videos:true,assignments:true,students:true})
-
-  function toggler(text){
-    setVisibility(prevVisility=>{
-      const data={}
-      for(let key in visibility){
-        data[key]=false
+  function toggler(text) {
+    setVisibility((prevVisility) => {
+      const data = {};
+      for (let key in visibility) {
+        data[key] = false;
       }
-      data[text.toLowerCase()]=true
-      return data
-    })
-    
-    
-    
+      data[text.toLowerCase()] = true;
+      return data;
+    });
   }
   return (
     <Box sx={{ display: "flex" }}>
@@ -49,19 +49,33 @@ export default function Sidebar(props) {
         <Toolbar /> {/* So just for spacing? */}
         <Box sx={{ overflow: "auto" }}>
           <List>
-            {["Videos", "Assignments", "Quizzes", "Notes"].map((text, index) => (
-              <ListItem button key={text} onClick={(event)=>{toggler(text)}}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
+            {["Videos", "Assignments", "Quizzes", "Notes"].map(
+              (text, index) => (
+                <ListItem
+                  button
+                  key={text}
+                  onClick={(event) => {
+                    toggler(text);
+                  }}
+                >
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItem>
+              )
+            )}
           </List>
           <Divider />
           <List>
             {["Students"].map((text, index) => (
-              <ListItem button key={text} onClick={(event)=>{toggler(text)}}>
+              <ListItem
+                button
+                key={text}
+                onClick={(event) => {
+                  toggler(text);
+                }}
+              >
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
@@ -72,9 +86,8 @@ export default function Sidebar(props) {
         </Box>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <TeacherClass visibility={visibility}/>
+        <TeacherClass visibility={visibility} />
       </Box>
-      
     </Box>
   );
 }
