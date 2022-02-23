@@ -82,6 +82,7 @@ function TeacherClass(props) {
               Assignments
               <hr />
             </Typography>
+<<<<<<< HEAD
             <Grid container spacing={2} justify="center" >
               <Assignment data={objectAssignments}/>
               <Assignment data={objectQuiz}/>
@@ -91,6 +92,15 @@ function TeacherClass(props) {
               <Assignment data={objectQuiz}/>
               <Assignment data={objectAssignments}/>
               <Assignment data={objectQuiz}/>
+=======
+            <Grid container spacing={2} justify="center">
+              <Assignment />
+              <Assignment />
+              <Assignment />
+              <Assignment />
+              <Assignment />
+              <Assignment />
+>>>>>>> 52e58586bd80d9d73641ffb3ff8852666bdfa08b
             </Grid>
           </Box>
         )}
