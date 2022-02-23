@@ -13,7 +13,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 const drawerWidth = 240;
 
 export default function Sidebar(props) {
-  const toggler=props.toggler
+  const toggler = props.toggler;
 
   return (
     <Box sx={{ display: "flex" }}>
