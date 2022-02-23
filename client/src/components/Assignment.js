@@ -7,20 +7,20 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import AssignmentIcon from "@mui/icons-material/Assignment";
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 
 function Assignment() {
   const theme = createTheme({
     breakpoints: {
       values: {
-        mdlg:700
+        mdlg: 700,
       },
     },
   });
   return (
     <Grid item xs={12} smd={12} mdlg={12} lg={6}>
-      <Card sx={{minHeight:"160px",minWidth:"300px",maxWidth:"600px"}}>
-        <Box p={3} sx={{ display:"flex"}}>
+      <Card sx={{ minHeight: "160px", minWidth: "300px", maxWidth: "600px" }}>
+        <Box p={3} sx={{ display: "flex" }}>
           <Box>
             <Typography variant="subtitle1" component="p">
               Overline
@@ -31,10 +31,12 @@ function Assignment() {
             <Typography variant="subtitle2" component="h5">
               Greyhound divisively hello coldly wonderfully..
             </Typography>
-            <Button sx={{marginTop:"20px"}} variant="outlined">View</Button>
+            <Button sx={{ marginTop: "20px" }} variant="outlined">
+              View
+            </Button>
           </Box>
-          <Box  ml={10} sx={{alignSelf: "center"}}>
-            <AssignmentIcon sx={{fontSize:"60px"}}fontSize="large"  />
+          <Box ml={10} sx={{ alignSelf: "center" }}>
+            <AssignmentIcon sx={{ fontSize: "60px" }} fontSize="large" />
           </Box>
         </Box>
       </Card>
@@ -43,7 +45,6 @@ function Assignment() {
 }
 
 export default Assignment;
-
 
 // <Grid item xs={12} sm={4} md={3}>
 // <Card>
