@@ -34,13 +34,8 @@ function Assignment(props) {
               View
             </Button>
           </Box>
-<<<<<<< HEAD
           <Box  ml={10} sx={{alignSelf: "center"}}>
             {icon}
-=======
-          <Box ml={10} sx={{ alignSelf: "center" }}>
-            <AssignmentIcon sx={{ fontSize: "60px" }} fontSize="large" />
->>>>>>> 52e58586bd80d9d73641ffb3ff8852666bdfa08b
           </Box>
         </Box>
       </Card>
@@ -50,21 +45,3 @@ function Assignment(props) {
 
 export default Assignment;
 
-<<<<<<< HEAD
-=======
-// <Grid item xs={12} sm={4} md={3}>
-// <Card>
-//   <Box sx={{ textAlign: "center" }}>
-//     <AssignmentIcon style={{ fontSize: "60px" }} />
-//     <CardContent>
-//       <Typography variant="h4" component="h2">
-//         Test
-//       </Typography>
-//       <Typography variant="subtitle1" component="p">
-//         Testing
-//       </Typography>
-//     </CardContent>
-//   </Box>
-// </Card>
-// </Grid>
->>>>>>> 52e58586bd80d9d73641ffb3ff8852666bdfa08b
