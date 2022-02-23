@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import TeacherClass from "../pages/TeacherClass";
 import TeacherDashboard from "../pages/TeacherDashboard";
@@ -12,3 +13,13 @@ export default function App() {
     </>
   );
 }
+=======
+import React from 'react'
+import Main from '../pages/Main'
+export default function App(){
+
+    return(
+            <Main/>
+    )
+}
+>>>>>>> Mihir
