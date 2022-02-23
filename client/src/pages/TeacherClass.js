@@ -1,115 +1,32 @@
-import React from "react";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import Video from "../components/Video";
-import Typography from "@mui/material/Typography";
-import ThumbNail from "../tempImages/Thumbnail.png";
-import Assignment from "../components/Assignment";
-import User from "../components/User";
-import Box from "@mui/material/Box";
-import VideoAssignment from "../components/VideoAssignment";
-import GoLive from "../components/GoLive";
-import VideoUpload from "../components/VideoUpload";
+import React from 'react';
+import NavBar from '../components/NavBar';
+import Sidebar from '../components/Sidebar';
+import TeacherClassContent from '../components/TeacherClassContent';
 
-function TeacherClass(props) {
-  const visibility = props.visibility;
 
-  const data = {
-    thumbnail: ThumbNail,
-    title: "React",
-    desc: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros",
-  };
-
-  const userData = [
-    {
-      firstName: "Shaurya",
-      lastName: "Sharma",
-      gender: "male",
-    },
-    {
-      firstName: "Mihir",
-      lastName: "Tayshete",
-      gender: "male",
-    },
-    {
-      firstName: "Mihir",
-      lastName: "Tayshete",
-      gender: "male",
-    },
-    {
-      firstName: "Aman",
-      lastName: "Vishwakarma",
-      gender: "male",
-    },
-  ];
-
+function TeacherClass() {
+    const [visibility, setVisibility] = React.useState({
+        videos: true,
+        assignments: true,
+        students: true,
+      });
+    
+      function toggler(text) {
+        setVisibility((prevVisility) => {
+          const data = {};
+          for (let key in visibility) {
+            data[key] = false;
+          }
+          data[text.toLowerCase()] = true;
+          return data;
+        });
+      }
   return (
-    <div>
-      <Container maxWidth="xl">
-        <VideoUpload />
-        <VideoAssignment />
-        {visibility.videos && (
-          <Box mb={10}>
-            <Typography variant="h4" sx={{ margin: "1em" }} component="h2">
-              Videos
-              <hr />
-            </Typography>
-            <Grid container spacing={5} justify="center">
-              <Video data={data} />
-              <Video data={data} />
-              <Video data={data} />
-              <Video data={data} />
-            </Grid>
-          </Box>
-        )}
-        {visibility.assignments && (
-          <Box mb={10}>
-            <Typography variant="h4" sx={{ margin: "1em" }} component="h2">
-              Assignments
-              <hr />
-            </Typography>
-            <Grid container spacing={5} justify="center">
-              <Assignment />
-              <Assignment />
-              <Assignment />
-              <Assignment />
-              <Assignment />
-              <Assignment />
-            </Grid>
-          </Box>
-        )}
-
-        {visibility.students && (
-          <Box mb={10}>
-            <Typography variant="h4" sx={{ margin: "1em" }} component="h2">
-              Students
-              <hr />
-            </Typography>
-
-            <Grid container spacing={2} justify="center">
-              <User userData={userData[0]} />
-              <User userData={userData[1]} />
-              <User userData={userData[2]} />
-              <User userData={userData[3]} />
-              <User userData={userData[0]} />
-              <User userData={userData[1]} />
-              <User userData={userData[2]} />
-              <User userData={userData[3]} />
-              <User userData={userData[0]} />
-              <User userData={userData[1]} />
-              <User userData={userData[2]} />
-              <User userData={userData[3]} />
-              <User userData={userData[0]} />
-              <User userData={userData[1]} />
-              <User userData={userData[2]} />
-              <User userData={userData[3]} />
-            </Grid>
-          </Box>
-        )}
-        <GoLive />
-      </Container>
-    </div>
-  );
+    <>
+        <NavBar/>
+        <Sidebar toggler={toggler} component={<TeacherClassContent visibility={visibility}/>}/>
+    </>
+  )
 }
 
-export default TeacherClass;
+export default TeacherClass

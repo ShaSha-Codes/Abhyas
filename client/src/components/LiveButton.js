@@ -1,7 +1,7 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
-import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
-function GoLive() {
+
+function GoLive(props) {
   return (
     <label htmlFor="icon-button-file" className="GoLive">
       <IconButton
@@ -10,7 +10,7 @@ function GoLive() {
         aria-label="Go Live"
         component="span"
       >
-        <VideoCameraFrontIcon fontSize="large" />
+      {props.icon}  
       </IconButton>
     </label>
   );

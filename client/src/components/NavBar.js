@@ -155,7 +155,7 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box mb={5} sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
@@ -235,6 +235,8 @@ export default function PrimarySearchAppBar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      </Box>
     </Box>
   );
 }

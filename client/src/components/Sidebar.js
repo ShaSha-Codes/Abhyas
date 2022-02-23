@@ -9,27 +9,12 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
-import TeacherClass from "../pages/TeacherClass";
 
 const drawerWidth = 240;
 
 export default function Sidebar(props) {
-  const [visibility, setVisibility] = React.useState({
-    videos: true,
-    assignments: true,
-    students: true,
-  });
+  const toggler=props.toggler
 
-  function toggler(text) {
-    setVisibility((prevVisility) => {
-      const data = {};
-      for (let key in visibility) {
-        data[key] = false;
-      }
-      data[text.toLowerCase()] = true;
-      return data;
-    });
-  }
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -86,7 +71,7 @@ export default function Sidebar(props) {
         </Box>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <TeacherClass visibility={visibility} />
+        {props.component}
       </Box>
     </Box>
   );
