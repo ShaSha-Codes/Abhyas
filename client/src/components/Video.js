@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 function Video(props) {
   const { thumbnail, title, desc } = props.data;
   return (
-    <Grid item xs={12} sm={6} md={3}>
+    <Grid item xs={12} sm={12} md={6} lg={4}>
       <Card padding={5}>
         <Box p={1}>
           <CardMedia component="img" height="100%" image={thumbnail} />

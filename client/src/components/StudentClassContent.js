@@ -65,7 +65,7 @@ function TeacherClass(props) {
               Assignments
               <hr />
             </Typography>
-            <Grid container spacing={5} justify="center">
+            <Grid container spacing={2} justify="center">
               <Assignment />
               <Assignment />
               <Assignment />
