@@ -67,7 +67,7 @@ export default function Login(props){
               <Route exact path="/teacherregister" element={
                 <Dialog PaperProps={{
                   style: { borderRadius: 18 }
-                }} fullWidth={true} open={teacherOpen} onClose={handleTeacherClose}>
+                }}fullWidth={true} open={teacherOpen} onClose={handleTeacherClose}>
                 <DialogTitle>Teacher Register</DialogTitle>
                 <DialogContent>
                 <Stack spacing={2}>

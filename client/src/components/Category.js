@@ -12,7 +12,7 @@ export default function Category(props){
            <br/>
             {Photo===1 && <SchoolIcon/>}
             {Photo===2 && <CoPresentIcon/>}
-            {Photo===3 && <CardMembershipIcon/>}
+            {Photo===3 && <CardMembershipIcon/>}<br/>
            {props.name}</button>
         </div>
           )
