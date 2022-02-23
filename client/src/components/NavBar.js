@@ -235,8 +235,7 @@ export default function PrimarySearchAppBar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-      </Box>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}></Box>
     </Box>
   );
 }

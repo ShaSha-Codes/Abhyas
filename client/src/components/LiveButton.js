@@ -10,7 +10,7 @@ function GoLive(props) {
         aria-label="Go Live"
         component="span"
       >
-      {props.icon}  
+        {props.icon}
       </IconButton>
     </label>
   );

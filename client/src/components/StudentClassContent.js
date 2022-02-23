@@ -8,7 +8,7 @@ import Assignment from "./Assignment";
 import User from "./User";
 import Box from "@mui/material/Box";
 import LiveButton from "./LiveButton";
-import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
+import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 
 function TeacherClass(props) {
   const visibility = props.visibility;
@@ -46,7 +46,7 @@ function TeacherClass(props) {
     <div>
       <Container maxWidth="xl">
         {visibility.videos && (
-          <Box  mb={10}>
+          <Box mb={10}>
             <Typography variant="h4" sx={{ margin: "1em" }} component="h2">
               Videos
               <hr />

@@ -8,7 +8,7 @@ import AssignmentIcon from "@mui/icons-material/AssignmentReturned";
 
 function VideoAssignment() {
   return (
-    <Box  sx={{ textAlign: "center" }}>
+    <Box sx={{ textAlign: "center" }}>
       <Typography variant="h5" sx={{ margin: "1em" }} component="h2">
         <ButtonGroup
           variant="contained"
