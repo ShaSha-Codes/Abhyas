@@ -12,9 +12,46 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-
+import axios from "axios";
+import bcryptjs from "bcryptjs"
 
 export default function Login(props){
+
+
+  const [formData,setFormData]=React.useState({name:"",email:"",password:"",confirm:"",type:""})
+
+  const handleForm=(event)=>{
+    setFormData((prevFormData)=>{
+      return {...prevFormData,[event.target.name]:event.target.value}
+    })
+  }
+  
+   const submitForm=async()=>{
+    if(formData.password.length>=8){
+      if(formData.name!="" && formData.email!=""){
+          if(formData.password===formData.confirm){
+            const result={
+              password:"",
+              name:formData.name,
+              email:formData.email,
+              type:"student",
+              courses:[]
+            }
+            await bcryptjs.hash("Shaurya",10).then(val=>{result.password=val})
+            await axios.post("http://localhost:3000/",result)
+            
+        }else{
+          console.log("Passwords dont match")
+        }
+      }else{
+        console.log("All entries required")
+      }
+    }else{
+      console.log("Password Length Must be atleast 8")
+    }
+    
+  }
+  
 
   const [studentOpen, setStudentOpen] = React.useState(false);
   const handleStudentClickOpen = () => {
@@ -51,15 +88,15 @@ export default function Login(props){
                 <DialogTitle>Student Register</DialogTitle>
                 <DialogContent>
                 <Stack spacing={2}>
-                <TextField sx={{marginTop:"5px"}} id="outlined-basic" label="Full Name" variant="outlined" />
-                <TextField id="outlined-basic" label="Email ID" variant="outlined" />
-                <TextField id="outlined-basic" label="Password" variant="outlined" type="password"/>
-                <TextField id="outlined-basic" label="Confirm Password" variant="outlined" type="password"/>
+                <TextField sx={{marginTop:"5px"}} id="outlined-basic" label="Full Name" variant="outlined" value={formData.name} name="name" onChange={handleForm} />
+                <TextField id="outlined-basic" label="Email ID" variant="outlined" type="email" value={formData.email} name="email" onChange={handleForm} />
+                <TextField id="outlined-basic" label="Password" variant="outlined" type="password" value={formData.password} name="password" onChange={handleForm}/>
+                <TextField id="outlined-basic" label="Confirm Password" variant="outlined" type="password" value={formData.confirm} name="confirm" onChange={handleForm}/>
                 </Stack>
                   </DialogContent>
                   <DialogActions>
                       <Button onClick={handleStudentClose}>Cancel</Button>
-                      <Button onClick={handleStudentClose}>Submit</Button>
+                      <Button onClick={submitForm}>Submit</Button>
                    </DialogActions>
                  </Dialog>
               }/>
