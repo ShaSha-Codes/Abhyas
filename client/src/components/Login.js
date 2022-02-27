@@ -1,21 +1,23 @@
-import React from 'react';
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
+import React from "react";
+import TextField from "@mui/material/TextField";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
 import axios from "axios";
-import bcryptjs from "bcryptjs"
+import bcryptjs from "bcryptjs";
 
-export default function Login(props){
+export default function Login(props) {
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    password: "",
+    confirm: "",
+    type: "",
+  });
 
   //Form Data State
   const [formData,setFormData]=React.useState({name:"",email:"",password:"",confirm:"",type:"",pin:""})
@@ -56,11 +58,11 @@ export default function Login(props){
         }else{
           console.log("Passwords dont match")
         }
-      }else{
-        console.log("All entries required")
+      } else {
+        console.log("All entries required");
       }
-    }else{
-      console.log("Password Length Must be atleast 8")
+    } else {
+      console.log("Password Length Must be atleast 8");
     }
     
   }
@@ -108,7 +110,6 @@ export default function Login(props){
     setFormData({name:"",email:"",password:"",confirm:"",type:"",pin:""})
   };
 
-
   const [teacherOpen, setTeacherOpen] = React.useState(false);
   const handleTeacherClickOpen = () => {
     setTeacherOpen(true);
@@ -118,21 +119,50 @@ export default function Login(props){
     setFormData({name:"",email:"",password:"",confirm:"",type:"",pin:""})
   };
 
-    return(
-      <>
-        <Stack spacing={2}>
+  return (
+    <>
+      <Stack spacing={2}>
         <TextField id="outlined-basic" label={props.title} variant="outlined" />
-        <TextField id="outlined-basic" label="Password" variant="outlined" type="password"/>
-        <Button variant="contained" color="secondary">Login</Button>
+        <TextField
+          id="outlined-basic"
+          label="Password"
+          variant="outlined"
+          type="password"
+        />
+        <Button variant="contained" color="secondary">
+          Login
+        </Button>
       </Stack>
       <Router>
-      {props.name==="student" && <h4>New User? <Link to="/studentregister" onClick={handleStudentClickOpen}>register</Link></h4>}
-      {props.name==="teacher" && <h4>New User? <Link to="/teacherregister"onClick={handleTeacherClickOpen}>register</Link></h4>}
-      <Routes>
-              <Route exact path="/studentregister" element={
-                <Dialog  PaperProps={{
-                  style: { borderRadius: 18 }
-                }} fullWidth={true} open={studentOpen} onClose={handleStudentClose} >
+        {props.name === "student" && (
+          <h4>
+            New User?{" "}
+            <Link to="/studentregister" onClick={handleStudentClickOpen}>
+              register
+            </Link>
+          </h4>
+        )}
+        {props.name === "teacher" && (
+          <h4>
+            New User?{" "}
+            <Link to="/teacherregister" onClick={handleTeacherClickOpen}>
+              register
+            </Link>
+          </h4>
+        )}
+        <Routes>
+          <Route
+            exact
+            path="/studentregister"
+            element={
+              <Dialog
+                PaperProps={{
+                  style: { borderRadius: 18 },
+                }}
+                fullWidth={true}
+                open={studentOpen}
+                onClose={handleStudentClose}
+              >
                 <DialogTitle>Student Register</DialogTitle>
                 <form>
                   <DialogContent>
@@ -177,8 +207,7 @@ export default function Login(props){
               
               
         </Routes>
-        </Router>
-      </>
-      
-    )
+      </Router>
+    </>
+  );
 }

@@ -4,11 +4,10 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 
 function Assignment(props) {
-
-  const {type,title,desc,icon}=props.data
+  const { type, title, desc, icon } = props.data;
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -34,7 +33,7 @@ function Assignment(props) {
               View
             </Button>
           </Box>
-          <Box  ml={10} sx={{alignSelf: "center"}}>
+          <Box ml={10} sx={{ alignSelf: "center" }}>
             {icon}
           </Box>
         </Box>
@@ -44,4 +43,3 @@ function Assignment(props) {
 }
 
 export default Assignment;
-

@@ -9,7 +9,7 @@ import User from "./User";
 import Box from "@mui/material/Box";
 import VideoAssignment from "./VideoAssignment";
 import AssignmentIcon from "@mui/icons-material/Assignment";
-import QuizIcon from '@mui/icons-material/Quiz';
+import QuizIcon from "@mui/icons-material/Quiz";
 import VideoUpload from "./VideoUpload";
 import LiveButton from "./LiveButton";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
@@ -22,18 +22,18 @@ function TeacherClass(props) {
     title: "React",
     desc: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros",
   };
-  const objectAssignments={
-    type:"Assignment",
-    title:"Headline 5",
-    desc:"Greyhound divisively hello coldly wonderfully..",
-    icon:<AssignmentIcon sx={{fontSize:"60px"}}fontSize="large"/>
-  }
-  const objectQuiz={
-    type:"Quiz",
-    title:"Headline 5",
-    desc:"Greyhound divisively hello coldly wonderfully..",
-    icon:<QuizIcon sx={{fontSize:"60px"}}fontSize="large"/>
-  }
+  const objectAssignments = {
+    type: "Assignment",
+    title: "Headline 5",
+    desc: "Greyhound divisively hello coldly wonderfully..",
+    icon: <AssignmentIcon sx={{ fontSize: "60px" }} fontSize="large" />,
+  };
+  const objectQuiz = {
+    type: "Quiz",
+    title: "Headline 5",
+    desc: "Greyhound divisively hello coldly wonderfully..",
+    icon: <QuizIcon sx={{ fontSize: "60px" }} fontSize="large" />,
+  };
   const userData = [
     {
       firstName: "Shaurya",
@@ -82,15 +82,15 @@ function TeacherClass(props) {
               Assignments
               <hr />
             </Typography>
-            <Grid container spacing={2} justify="center" >
-              <Assignment data={objectAssignments}/>
-              <Assignment data={objectQuiz}/>
-              <Assignment data={objectAssignments}/>
-              <Assignment data={objectQuiz}/>
-              <Assignment data={objectAssignments}/>
-              <Assignment data={objectQuiz}/>
-              <Assignment data={objectAssignments}/>
-              <Assignment data={objectQuiz}/>
+            <Grid container spacing={2} justify="center">
+              <Assignment data={objectAssignments} />
+              <Assignment data={objectQuiz} />
+              <Assignment data={objectAssignments} />
+              <Assignment data={objectQuiz} />
+              <Assignment data={objectAssignments} />
+              <Assignment data={objectQuiz} />
+              <Assignment data={objectAssignments} />
+              <Assignment data={objectQuiz} />
             </Grid>
           </Box>
         )}
