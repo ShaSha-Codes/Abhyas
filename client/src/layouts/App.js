@@ -1,5 +1,14 @@
 import React from "react";
-import Main from "../pages/Main";
+import NavBar from "../components/NavBar";
+import SideBar from "../components/SideBar";
+import Footer from "../components/Footer";
 export default function App() {
-  return <Main />;
+  // React router here
+  return (
+    <>
+      <NavBar />
+      <SideBar />
+      {/* <Footer /> */}
+    </>
+  );
 }

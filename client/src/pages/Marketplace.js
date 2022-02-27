@@ -2,7 +2,6 @@ import React from "react";
 import "../assets/css/style.css";
 
 import NavBar from "../components/NavBar";
-import Sidebar from "../components/Sidebar";
 import MarketItem from "../components/MarketItem";
 import { Grid, Box } from "@mui/material";
 
@@ -53,8 +52,7 @@ export default function Marketplace() {
   return (
     <>
       <NavBar />
-      {/* <Sidebar /> */}
-      <Box component="main" sx={{ flexGrow: 1, p: 10 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Grid container spacing={2}>
           {dummy.map((data) => (
             <Grid item xs={3}>
