@@ -1,15 +1,17 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import SideBar from "../components/SideBar";
-import Footer from "../components/Footer";
+import { Routes, Route } from "react-router-dom";
+
+import Dashboard from "./Dashboard";
+import Landing from "./Landing";
+
 import MarketPlace from "../pages/Marketplace";
-export default function App() {
+
+export default function App(props) {
   // React router here
   return (
-    <>
-      <NavBar />
-      <SideBar component={<MarketPlace />} />
-      {/* <Footer /> */}
-    </>
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/dashboard" element={<Dashboard component={<MarketPlace />} />} />
+    </Routes>
   );
 }

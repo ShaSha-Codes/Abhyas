@@ -15,12 +15,14 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function Main() {
+export default function Landing() {
   const [formType, setFormType] = React.useState(1);
   const [darkMode, setDarkMode] = React.useState(false);
+
   function selectForm(custom) {
     setFormType(parseInt(custom));
-  } // console.log(formType)
+  }
+
   React.useEffect(() => {
     if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
       document.body.classList.add("body-dark");
@@ -70,8 +72,6 @@ export default function Main() {
           </Item>
         </Grid>
       </Grid>
-
-      {/* footer */}
     </>
   );
 }
