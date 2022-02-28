@@ -11,7 +11,10 @@ export default function App(props) {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
-      <Route path="/dashboard" element={<Dashboard component={<MarketPlace />} />} />
+      <Route
+        path="/dashboard"
+        element={<Dashboard component={<MarketPlace />} />}
+      />
     </Routes>
   );
 }

@@ -128,9 +128,19 @@ export const ItemCard = (props) => {
             </Typography>
           </div>
         </Box>
-        <Row className={styles.author} m={0} p={3} pt={2} gap={2} bgcolor={"common.white"}>
+        <Row
+          className={styles.author}
+          m={0}
+          p={3}
+          pt={2}
+          gap={2}
+          bgcolor={"common.white"}
+        >
           <Item>
-            <Avatar className={styles.avatar} src={"https://i.pravatar.cc/300?img=13"} />
+            <Avatar
+              className={styles.avatar}
+              src={"https://i.pravatar.cc/300?img=13"}
+            />
           </Item>
           <Info position={"middle"} useStyles={useNewsInfoStyles}>
             <InfoTitle>{user}</InfoTitle>
