@@ -11,13 +11,6 @@ import axios from "axios";
 import bcryptjs from "bcryptjs";
 
 export default function Login(props) {
-  const [formData, setFormData] = React.useState({
-    name: "",
-    email: "",
-    password: "",
-    confirm: "",
-    type: "",
-  });
 
   //Form Data State
   const [formData, setFormData] = React.useState({
