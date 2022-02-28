@@ -10,8 +10,10 @@ export default function App(props) {
   // React router here
   return (
     <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/dashboard" element={<Dashboard component={<MarketPlace />} />} />
+      <Route path="/">
+        <Route index element={<Landing />} />
+        <Route path="dashboard" element={<Dashboard component={<MarketPlace />} />} />
+      </Route>
     </Routes>
   );
 }
