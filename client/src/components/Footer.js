@@ -4,13 +4,28 @@ import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import { makeStyles, ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  ThemeProvider,
+  createMuiTheme,
+} from "@material-ui/core/styles";
 
 import { ColumnToRow, Item } from "@mui-treasury/components/flex";
 import { NavMenu, NavItem } from "@mui-treasury/components/menu/navigation";
-import { EmailSubscribe, EmailTextInput, SubmitButton } from "@mui-treasury/components/EmailSubscribe";
-import { CategoryProvider, CategoryTitle, CategoryItem } from "@mui-treasury/components/menu/category";
-import { SocialProvider, SocialLink } from "@mui-treasury/components/socialLink";
+import {
+  EmailSubscribe,
+  EmailTextInput,
+  SubmitButton,
+} from "@mui-treasury/components/EmailSubscribe";
+import {
+  CategoryProvider,
+  CategoryTitle,
+  CategoryItem,
+} from "@mui-treasury/components/menu/category";
+import {
+  SocialProvider,
+  SocialLink,
+} from "@mui-treasury/components/socialLink";
 
 import { useMagCategoryMenuStyles } from "@mui-treasury/styles/categoryMenu/mag";
 import { usePoofSocialLinkStyles } from "@mui-treasury/styles/socialLink/poof";
@@ -28,7 +43,8 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     backgroundColor: palette.type === "dark" ? "#192D36" : palette.action.hover,
   },
   bottom: {
-    backgroundColor: palette.type === "dark" ? "#0F2128" : palette.action.selected,
+    backgroundColor:
+      palette.type === "dark" ? "#0F2128" : palette.action.selected,
   },
   newsletterText: {
     color: "#fff",
@@ -95,7 +111,9 @@ export default React.memo(function ArcAppFooter() {
             wrap
           >
             <Item>
-              <Typography className={classes.newsletterText}>Subscribe to our quarterly newsletter</Typography>
+              <Typography className={classes.newsletterText}>
+                Subscribe to our quarterly newsletter
+              </Typography>
             </Item>
             <Item>
               <EmailSubscribe
@@ -126,7 +144,9 @@ export default React.memo(function ArcAppFooter() {
               />
               <Typography className={classes.info}>Jazib Dawre</Typography>
 
-              <Typography className={classes.info}>jazib980[at]gmail[dot]com</Typography>
+              <Typography className={classes.info}>
+                jazib980[at]gmail[dot]com
+              </Typography>
             </Grid>
             <Grid item xs={12} md={8} lg={6}>
               <Grid container spacing={2}>
@@ -177,19 +197,31 @@ export default React.memo(function ArcAppFooter() {
       </Container>
       <Box px={2} py={3} className={classes.bottom}>
         <Container disableGutters>
-          <ColumnToRow at={"md"} columnStyle={{ alignItems: "center" }} rowStyle={{ alignItems: "unset" }}>
+          <ColumnToRow
+            at={"md"}
+            columnStyle={{ alignItems: "center" }}
+            rowStyle={{ alignItems: "unset" }}
+          >
             <Item grow ml={-2} shrink={0}>
               <NavMenu useStyles={usePlainNavigationMenuStyles}>
                 <ColumnToRow at={"sm"}>
-                  <NavItem className={classes.legalLink}>Terms & Conditions</NavItem>
-                  <NavItem className={classes.legalLink}>Privacy Policy</NavItem>
+                  <NavItem className={classes.legalLink}>
+                    Terms & Conditions
+                  </NavItem>
+                  <NavItem className={classes.legalLink}>
+                    Privacy Policy
+                  </NavItem>
                   <NavItem className={classes.legalLink}>Sitemap</NavItem>
                 </ColumnToRow>
               </NavMenu>
             </Item>
             <Item>
               <Box py={1} textAlign={{ xs: "center", md: "right" }}>
-                <Typography component={"p"} variant={"caption"} color={"textSecondary"}>
+                <Typography
+                  component={"p"}
+                  variant={"caption"}
+                  color={"textSecondary"}
+                >
                   Designed with ❤️ by the Sha-Sha Company ;) All right reserved
                 </Typography>
               </Box>

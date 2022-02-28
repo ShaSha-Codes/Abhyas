@@ -24,7 +24,10 @@ export default function Landing() {
   }
 
   React.useEffect(() => {
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
       document.body.classList.add("body-dark");
       setDarkMode(true);
     }
@@ -32,7 +35,11 @@ export default function Landing() {
 
   return (
     <>
-      <Grid container sx={{ minHeight: "100vh", paddingBottom: "4%" }} className="main">
+      <Grid
+        container
+        sx={{ minHeight: "100vh", paddingBottom: "4%" }}
+        className="main"
+      >
         <Grid item xs={12} md={6}>
           <Item
             disabled
