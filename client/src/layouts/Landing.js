@@ -79,6 +79,19 @@ export default function Landing() {
           </Item>
         </Grid>
       </Grid>
+       {/* footer */}
+
+       <Grid container >
+            <Grid item xs={12}  >
+                <Item disabled sx={{border:0,boxShadow:0,backgroundColor:'transparent',padding:0}} className="indexpart1">
+                <footer>
+            <div className="footer-text">
+                <a href="http://www.abhyas.app">Thanks for visiting abhyas.app !</a>
+            </div>
+            </footer>  
+                </Item>
+            </Grid>
+        </Grid>
     </>
   );
 }
