@@ -16,22 +16,19 @@ router.post("/register", async (req, res, next) => {
   }
 });
 
-router.post("/login",(req,res,next)=>{
-  passport.authenticate("local",(err,user,info)=>{
-    if(err)throw err;
-    if(!user) res.send("No User Exists");
-    else{
-      req.login(user,err=>{
-        if(err) throw err;
-        res.send("Successfully Authenticated")
-        console.log(req.user)
-      })
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) throw err;
+    if (!user) res.send("No User Exists");
+    else {
+      req.login(user, (err) => {
+        if (err) throw err;
+        res.send("Successfully Authenticated");
+        console.log(req.user);
+      });
     }
-  })(req,res,next);
-})
-
-
-
+  })(req, res, next);
+});
 
 router.get("/users/:email", async (req, res, next) => {
   const email = req.params.email;

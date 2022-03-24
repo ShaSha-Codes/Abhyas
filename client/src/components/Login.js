@@ -7,7 +7,6 @@ import { Outlet } from "react-router-dom";
 import { Context } from "../context/FormOpen";
 
 export default function Login(props) {
-
   //Form Data State
   const [formData, setFormData] = React.useState({
     name: "",
@@ -18,26 +17,18 @@ export default function Login(props) {
     pin: "",
   });
 
-
-
-
   //Login Data
-  const [loginData,setLoginData]=React.useState({
-    username:"",
-    password:""
-
-  })
-
+  const [loginData, setLoginData] = React.useState({
+    username: "",
+    password: "",
+  });
 
   //Gathering Login Data
   const handleLogin = (event) => {
     setLoginData((prevFormData) => {
       return { ...prevFormData, [event.target.name]: event.target.value };
     });
-    
   };
-
-
 
   //Gathering Form Data
   const handleForm = (event) => {
@@ -46,7 +37,7 @@ export default function Login(props) {
     });
   };
 
-  const submitLoginForm=async ()=>{
+  const submitLoginForm = async () => {
     axios({
       method: "POST",
       data: {
@@ -56,9 +47,7 @@ export default function Login(props) {
       withCredentials: true,
       url: "http://localhost:3000/login",
     }).then((res) => console.log(res));
-  }
-
-
+  };
 
   //Student Form Submit
   const submitStudentForm = async () => {
@@ -148,14 +137,14 @@ export default function Login(props) {
   return (
     <>
       <Stack spacing={2}>
-        <TextField 
-          id="outlined-basic" 
-          label={props.title} 
-          variant="outlined" 
+        <TextField
+          id="outlined-basic"
+          label={props.title}
+          variant="outlined"
           value={loginData.username}
           name="username"
           onChange={handleLogin}
-          />
+        />
         <TextField
           id="outlined-basic"
           label="Password"
@@ -165,168 +154,164 @@ export default function Login(props) {
           name="password"
           onChange={handleLogin}
         />
-        <Button 
-            variant="contained" 
-            color="secondary"
-            onClick={submitLoginForm}
-          >
+        <Button variant="contained" color="secondary" onClick={submitLoginForm}>
           Login
         </Button>
       </Stack>
-    
-        {props.name === "student" && (
-          <h4>
-            New User?{" "}
-            <Link to="/studentregister" onClick={handleStudentClickOpen}>
-              register
-            </Link>
-          </h4>
-        )}
-        {props.name === "teacher" && (
-          <h4>
-            New User?{" "}
-            <Link to="/teacherregister" onClick={handleTeacherClickOpen}>
-              register
-            </Link>
-          </h4>
-        )}
-        <Routes>
-          <Route
-            exact
-            path="/studentregister"
-            element={
-              <Dialog
-                PaperProps={{
-                  style: { borderRadius: 18 },
-                }}
-                fullWidth={true}
-                open={studentOpen}
-                onClose={handleStudentClose}
-              >
-                <DialogTitle>Student Register</DialogTitle>
-                <form>
-                  <DialogContent>
-                    <Stack spacing={2}>
-                      <TextField
-                        sx={{ marginTop: "5px" }}
-                        id="outlined-basic"
-                        label="Full Name"
-                        variant="outlined"
-                        value={formData.name}
-                        name="name"
-                        onChange={handleForm}
-                      />
-                      <TextField
-                        id="outlined-basic"
-                        label="Email ID"
-                        variant="outlined"
-                        type="email"
-                        value={formData.email}
-                        name="email"
-                        onChange={handleForm}
-                      />
-                      <TextField
-                        id="outlined-basic"
-                        label="Password"
-                        variant="outlined"
-                        type="password"
-                        value={formData.password}
-                        name="password"
-                        onChange={handleForm}
-                      />
-                      <TextField
-                        id="outlined-basic"
-                        label="Confirm Password"
-                        variant="outlined"
-                        type="password"
-                        value={formData.confirm}
-                        name="confirm"
-                        onChange={handleForm}
-                      />
-                    </Stack>
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={handleStudentClose}>Cancel</Button>
-                    <Button onClick={submitStudentForm}>Submit</Button>
-                  </DialogActions>
-                </form>
-              </Dialog>
-            }
-          />
 
-          <Route
-            exact
-            path="/teacherregister"
-            element={
-              <Dialog
-                PaperProps={{
-                  style: { borderRadius: 18 },
-                }}
-                fullWidth={true}
-                open={teacherOpen}
-                onClose={handleTeacherClose}
-              >
-                <DialogTitle>Teacher Register</DialogTitle>
-                <form>
-                  <DialogContent>
-                    <Stack spacing={2}>
-                      <TextField
-                        sx={{ marginTop: "5px" }}
-                        id="outlined-basic"
-                        label="Full Name"
-                        variant="outlined"
-                        value={formData.name}
-                        name="name"
-                        onChange={handleForm}
-                      />
-                      <TextField
-                        id="outlined-basic"
-                        label="Secret Pin"
-                        variant="outlined"
-                        type="password"
-                        value={formData.pin}
-                        name="pin"
-                        onChange={handleForm}
-                      />
-                      <TextField
-                        id="outlined-basic"
-                        label="Email ID"
-                        variant="outlined"
-                        type="email"
-                        value={formData.email}
-                        name="email"
-                        onChange={handleForm}
-                      />
-                      <TextField
-                        id="outlined-basic"
-                        label="Password"
-                        variant="outlined"
-                        type="password"
-                        value={formData.password}
-                        name="password"
-                        onChange={handleForm}
-                      />
-                      <TextField
-                        id="outlined-basic"
-                        label="Confirm Password"
-                        variant="outlined"
-                        type="password"
-                        value={formData.confirm}
-                        name="confirm"
-                        onChange={handleForm}
-                      />
-                    </Stack>
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={handleTeacherClose}>Cancel</Button>
-                    <Button onClick={submitTeacherForm}>Submit</Button>
-                  </DialogActions>
-                </form>
-              </Dialog>
-            }
-          />
-        </Routes>
-    
+      {props.name === "student" && (
+        <h4>
+          New User?{" "}
+          <Link to="/studentregister" onClick={handleStudentClickOpen}>
+            register
+          </Link>
+        </h4>
+      )}
+      {props.name === "teacher" && (
+        <h4>
+          New User?{" "}
+          <Link to="/teacherregister" onClick={handleTeacherClickOpen}>
+            register
+          </Link>
+        </h4>
+      )}
+      <Routes>
+        <Route
+          exact
+          path="/studentregister"
+          element={
+            <Dialog
+              PaperProps={{
+                style: { borderRadius: 18 },
+              }}
+              fullWidth={true}
+              open={studentOpen}
+              onClose={handleStudentClose}
+            >
+              <DialogTitle>Student Register</DialogTitle>
+              <form>
+                <DialogContent>
+                  <Stack spacing={2}>
+                    <TextField
+                      sx={{ marginTop: "5px" }}
+                      id="outlined-basic"
+                      label="Full Name"
+                      variant="outlined"
+                      value={formData.name}
+                      name="name"
+                      onChange={handleForm}
+                    />
+                    <TextField
+                      id="outlined-basic"
+                      label="Email ID"
+                      variant="outlined"
+                      type="email"
+                      value={formData.email}
+                      name="email"
+                      onChange={handleForm}
+                    />
+                    <TextField
+                      id="outlined-basic"
+                      label="Password"
+                      variant="outlined"
+                      type="password"
+                      value={formData.password}
+                      name="password"
+                      onChange={handleForm}
+                    />
+                    <TextField
+                      id="outlined-basic"
+                      label="Confirm Password"
+                      variant="outlined"
+                      type="password"
+                      value={formData.confirm}
+                      name="confirm"
+                      onChange={handleForm}
+                    />
+                  </Stack>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleStudentClose}>Cancel</Button>
+                  <Button onClick={submitStudentForm}>Submit</Button>
+                </DialogActions>
+              </form>
+            </Dialog>
+          }
+        />
+
+        <Route
+          exact
+          path="/teacherregister"
+          element={
+            <Dialog
+              PaperProps={{
+                style: { borderRadius: 18 },
+              }}
+              fullWidth={true}
+              open={teacherOpen}
+              onClose={handleTeacherClose}
+            >
+              <DialogTitle>Teacher Register</DialogTitle>
+              <form>
+                <DialogContent>
+                  <Stack spacing={2}>
+                    <TextField
+                      sx={{ marginTop: "5px" }}
+                      id="outlined-basic"
+                      label="Full Name"
+                      variant="outlined"
+                      value={formData.name}
+                      name="name"
+                      onChange={handleForm}
+                    />
+                    <TextField
+                      id="outlined-basic"
+                      label="Secret Pin"
+                      variant="outlined"
+                      type="password"
+                      value={formData.pin}
+                      name="pin"
+                      onChange={handleForm}
+                    />
+                    <TextField
+                      id="outlined-basic"
+                      label="Email ID"
+                      variant="outlined"
+                      type="email"
+                      value={formData.email}
+                      name="email"
+                      onChange={handleForm}
+                    />
+                    <TextField
+                      id="outlined-basic"
+                      label="Password"
+                      variant="outlined"
+                      type="password"
+                      value={formData.password}
+                      name="password"
+                      onChange={handleForm}
+                    />
+                    <TextField
+                      id="outlined-basic"
+                      label="Confirm Password"
+                      variant="outlined"
+                      type="password"
+                      value={formData.confirm}
+                      name="confirm"
+                      onChange={handleForm}
+                    />
+                  </Stack>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleTeacherClose}>Cancel</Button>
+                  <Button onClick={submitTeacherForm}>Submit</Button>
+                </DialogActions>
+              </form>
+            </Dialog>
+          }
+        />
+      </Routes>
+
       {props.name === "student" && (
         <h4>
           New User?{" "}
