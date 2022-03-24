@@ -5,15 +5,12 @@ import Button from "@mui/material/Button";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { Context } from "../context/FormOpen";
-import { ReactSession } from 'react-client-session';
+import { ReactSession } from "react-client-session";
 
 import axios from "axios";
 
-
-
 export default function Login(props) {
   ReactSession.setStoreType("sessionStorage");
-  
 
   //Login Data
   const [loginData, setLoginData] = React.useState({
@@ -28,9 +25,7 @@ export default function Login(props) {
     });
   };
 
-
-
-  const submitLoginForm=async ()=>{
+  const submitLoginForm = async () => {
     axios({
       method: "POST",
       data: {
@@ -41,18 +36,17 @@ export default function Login(props) {
       url: "http://localhost:3000/login",
     }).then((res) => {
       ReactSession.set("data", res.data);
-      console.log(res)});
-  }
+      console.log(res);
+    });
+  };
 
+  const Tester = async () => {
+    console.log(ReactSession.get("data"));
+  };
 
-  const Tester=async()=>{
-      console.log(ReactSession.get("data"))
-  }
-  
- 
   const { studentOpen, setStudentOpen, teacherOpen, setTeacherOpen } =
-  React.useContext(Context);
- 
+    React.useContext(Context);
+
   const handleStudentClickOpen = () => {
     setStudentOpen(true);
   };
@@ -63,8 +57,10 @@ export default function Login(props) {
   return (
     <>
       <Stack spacing={2}>
-        <TextField id="outlined-basic" label={props.title} 
-          variant="outlined" 
+        <TextField
+          id="outlined-basic"
+          label={props.title}
+          variant="outlined"
           value={loginData.username}
           onChange={handleLogin}
           name="username"
