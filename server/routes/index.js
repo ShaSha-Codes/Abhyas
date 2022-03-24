@@ -23,13 +23,16 @@ router.post("/login",(req,res,next)=>{
     else{
       req.login(user,err=>{
         if(err) throw err;
-        res.send("Successfully Authenticated")
+        res.send(user)
         console.log(req.user)
       })
     }
   })(req,res,next);
 })
 
+router.get("/users/timepass", async (req, res, next) => {
+    res.send(req.user)
+});
 
 
 
