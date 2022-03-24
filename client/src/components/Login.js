@@ -11,6 +11,7 @@ import axios from "axios";
 import bcryptjs from "bcryptjs";
 
 export default function Login(props) {
+
   //Form Data State
   const [formData, setFormData] = React.useState({
     name: "",
@@ -21,12 +22,47 @@ export default function Login(props) {
     pin: "",
   });
 
+
+
+
+  //Login Data
+  const [loginData,setLoginData]=React.useState({
+    username:"",
+    password:""
+
+  })
+
+
+  //Gathering Login Data
+  const handleLogin = (event) => {
+    setLoginData((prevFormData) => {
+      return { ...prevFormData, [event.target.name]: event.target.value };
+    });
+    
+  };
+
+
+
   //Gathering Form Data
   const handleForm = (event) => {
     setFormData((prevFormData) => {
       return { ...prevFormData, [event.target.name]: event.target.value };
     });
   };
+
+  const submitLoginForm=async ()=>{
+    axios({
+      method: "POST",
+      data: {
+        username: loginData.username,
+        password: loginData.password,
+      },
+      withCredentials: true,
+      url: "http://localhost:3000/login",
+    }).then((res) => console.log(res));
+  }
+
+
 
   //Student Form Submit
   const submitStudentForm = async () => {
@@ -135,18 +171,32 @@ export default function Login(props) {
   return (
     <>
       <Stack spacing={2}>
-        <TextField id="outlined-basic" label={props.title} variant="outlined" />
+        <TextField 
+          id="outlined-basic" 
+          label={props.title} 
+          variant="outlined" 
+          value={loginData.username}
+          name="username"
+          onChange={handleLogin}
+          />
         <TextField
           id="outlined-basic"
           label="Password"
           variant="outlined"
           type="password"
+          value={loginData.password}
+          name="password"
+          onChange={handleLogin}
         />
-        <Button variant="contained" color="secondary">
+        <Button 
+            variant="contained" 
+            color="secondary"
+            onClick={submitLoginForm}
+          >
           Login
         </Button>
       </Stack>
-      <Router>
+    
         {props.name === "student" && (
           <h4>
             New User?{" "}
@@ -299,7 +349,7 @@ export default function Login(props) {
             }
           />
         </Routes>
-      </Router>
+    
     </>
   );
 }

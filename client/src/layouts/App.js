@@ -9,14 +9,16 @@ import MarketPlace from "../pages/Marketplace";
 export default function App(props) {
   // React router here
   return (
-    <Routes>
-      <Route path="/">
-        <Route index element={<Landing />} />
-        <Route
-          path="dashboard"
-          element={<Dashboard component={<MarketPlace />} />}
-        />
-      </Route>
-    </Routes>
+    <Landing/>
+    // <Routes>
+    //   <Route path="/">
+    //     <Route index element={<Landing />} >
+    //       </Route>
+    //     <Route
+    //       path="dashboard"
+    //       element={<Dashboard component={<MarketPlace />} />}
+    //     />
+    //   </Route>
+    // </Routes>
   );
 }
