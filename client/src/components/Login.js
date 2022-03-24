@@ -16,19 +16,16 @@ export default function Login(props) {
   
 
   //Login Data
-  const [loginData,setLoginData]=React.useState({
-    username:"",
-    password:""
-
-  })
-
+  const [loginData, setLoginData] = React.useState({
+    username: "",
+    password: "",
+  });
 
   //Gathering Login Data
   const handleLogin = (event) => {
     setLoginData((prevFormData) => {
       return { ...prevFormData, [event.target.name]: event.target.value };
     });
-    
   };
 
 
