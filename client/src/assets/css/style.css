@@ -153,3 +153,21 @@ footer{
     top:100px;
 }
 
+.videoform{
+    display:block;
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    background-color: rgb(242, 235, 243);
+    padding:20px;
+    border-radius:15px;
+}
+
+.label{
+    color: #5c5c5c;
+    font-family: 'Inter', sans-serif;
+    font-size:14px;
+    padding-top: 10px;
+    padding-left: 2px;
+}
