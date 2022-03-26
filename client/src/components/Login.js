@@ -5,13 +5,48 @@ import Button from "@mui/material/Button";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { Context } from "../context/FormOpen";
+import { ReactSession } from "react-client-session";
+
+import axios from "axios";
 
 export default function Login(props) {
-  console.log(Context);
+  ReactSession.setStoreType("sessionStorage");
+
+  //Login Data
+  const [loginData, setLoginData] = React.useState({
+    username: "",
+    password: "",
+  });
+
+  //Gathering Login Data
+  const handleLogin = (event) => {
+    setLoginData((prevFormData) => {
+      return { ...prevFormData, [event.target.name]: event.target.value };
+    });
+  };
+
+  const submitLoginForm = async () => {
+    axios({
+      method: "POST",
+      data: {
+        username: loginData.username,
+        password: loginData.password,
+      },
+      withCredentials: true,
+      url: "http://localhost:3000/login",
+    }).then((res) => {
+      ReactSession.set("data", res.data);
+      console.log(res);
+    });
+  };
+
+  const Tester = async () => {
+    console.log(ReactSession.get("data"));
+  };
+
   const { studentOpen, setStudentOpen, teacherOpen, setTeacherOpen } =
     React.useContext(Context);
-  console.log(studentOpen);
-  console.log(teacherOpen);
+
   const handleStudentClickOpen = () => {
     setStudentOpen(true);
   };
@@ -22,15 +57,28 @@ export default function Login(props) {
   return (
     <>
       <Stack spacing={2}>
-        <TextField id="outlined-basic" label={props.title} variant="outlined" />
+        <TextField
+          id="outlined-basic"
+          label={props.title}
+          variant="outlined"
+          value={loginData.username}
+          onChange={handleLogin}
+          name="username"
+        />
         <TextField
           id="outlined-basic"
           label="Password"
           variant="outlined"
           type="password"
+          value={loginData.password}
+          onChange={handleLogin}
+          name="password"
         />
-        <Button variant="contained" color="secondary">
+        <Button variant="contained" color="secondary" onClick={submitLoginForm}>
           Login
+        </Button>
+        <Button variant="contained" color="secondary" onClick={Tester}>
+          Tester
         </Button>
       </Stack>
       {props.name === "student" && (

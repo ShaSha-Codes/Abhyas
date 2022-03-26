@@ -10,25 +10,24 @@ import axios from "axios";
 import bcryptjs from "bcryptjs";
 import { Context } from "../context/FormOpen";
 
-export default function Videofill(){
-    const [videoData, setVideoData] = React.useState({
-        title: "",
-        description: "",
-        upload: "",
-        
-      });
+export default function Videofill() {
+  const [videoData, setVideoData] = React.useState({
+    title: "",
+    description: "",
+    upload: "",
+  });
 
-      const handleForm = (event) => {
-        setVideoData((prevFormData) => {
-          return { ...prevFormData, [event.target.name]: event.target.value };
-        });
-      };
+  const handleForm = (event) => {
+    setVideoData((prevFormData) => {
+      return { ...prevFormData, [event.target.name]: event.target.value };
+    });
+  };
 
-    return(
-        <>
-        <div className="videoform">
+  return (
+    <>
+      <div className="videoform">
         <form>
-            <Stack spacing={2}>
+          <Stack spacing={2}>
             <TextField
               sx={{ marginTop: "5px" }}
               id="outlined-basic"
@@ -56,10 +55,9 @@ export default function Videofill(){
               name="upload"
               onChange={handleForm}
             />
-            </Stack>
+          </Stack>
         </form>
-        </div>
-        </>
-    )
-
+      </div>
+    </>
+  );
 }

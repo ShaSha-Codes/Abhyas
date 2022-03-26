@@ -1,6 +1,8 @@
 var express = require("express");
+const passportConfig = require("../config/passportConfig");
 var router = express.Router();
 var userSchema = require("../models/userSchema");
+const passport = require("passport");
 /* GET home page. */
 
 router.post("/register", async (req, res, next) => {
@@ -12,6 +14,24 @@ router.post("/register", async (req, res, next) => {
   } catch (error) {
     res.status(500).send(error);
   }
+});
+
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) throw err;
+    if (!user) res.send("No User Exists");
+    else {
+      req.login(user, (err) => {
+        if (err) throw err;
+        res.send(user);
+        console.log(req.user);
+      });
+    }
+  })(req, res, next);
+});
+
+router.get("/users/timepass", async (req, res, next) => {
+  res.send(req.user);
 });
 
 router.get("/users/:email", async (req, res, next) => {
