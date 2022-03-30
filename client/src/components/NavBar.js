@@ -1,7 +1,7 @@
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -158,17 +158,14 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
-
   ReactSession.setStoreType("sessionStorage");
   let navigate = useNavigate();
 
-
   function logout() {
-    ReactSession.set("data",undefined);
-    navigate('/')
+    ReactSession.set("data", undefined);
+    navigate("/");
   }
-  
-  
+
   return (
     <Box mb={5} sx={{ flexGrow: 1 }}>
       <AppBar
@@ -231,7 +228,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-             <AccountCircle/>
+              <AccountCircle />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>

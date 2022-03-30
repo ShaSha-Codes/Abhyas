@@ -5,9 +5,8 @@ import { styled } from "@mui/material/styles";
 import Category from "../components/Category";
 import Login from "../components/Login";
 import Certify from "../components/Certify";
-import { useNavigate } from 'react-router';
+import { useNavigate } from "react-router";
 import "../assets/css/style.css";
-
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",

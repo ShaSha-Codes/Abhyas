@@ -6,31 +6,27 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { Context } from "../context/FormOpen";
 import { ReactSession } from "react-client-session";
-import { useNavigate } from 'react-router';
+import { useNavigate } from "react-router";
 import axios from "axios";
-
 
 export default function Login(props) {
   ReactSession.setStoreType("sessionStorage");
-  console.log(ReactSession.get("data"))
+  console.log(ReactSession.get("data"));
   let navigate = useNavigate();
   const [switcher, setSwitcher] = React.useState(0);
 
-
-  React.useEffect(()=>{
-    if(ReactSession.get("data")!==undefined){
-      navigate('/teacher')
+  React.useEffect(() => {
+    if (ReactSession.get("data") !== undefined) {
+      navigate("/teacher");
     }
-  },[switcher])
-
-
+  }, [switcher]);
 
   //Login Data
   const [loginData, setLoginData] = React.useState({
     username: "",
     password: "",
   });
-  
+
   //Gathering Login Data
   const handleLogin = (event) => {
     setLoginData((prevFormData) => {
@@ -49,8 +45,9 @@ export default function Login(props) {
       url: "http://localhost:3000/login",
     }).then((res) => {
       ReactSession.set("data", res.data);
-      setSwitcher((prevSwitcher) => {return !prevSwitcher})
-      
+      setSwitcher((prevSwitcher) => {
+        return !prevSwitcher;
+      });
     });
   };
 
