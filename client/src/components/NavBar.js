@@ -16,10 +16,9 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import User from "./User"
+import User from "./User";
 import { ReactSession } from "react-client-session";
 import { useNavigate } from "react-router-dom";
-
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",

@@ -6,6 +6,7 @@ import { ReactSession } from "react-client-session";
 import { useNavigate } from "react-router-dom";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Box from "@mui/material/Box";
 
 function TeacherDashboard() {
   
@@ -30,12 +31,14 @@ function TeacherDashboard() {
       <br />
       <br />
       <br />
-      <Grid container spacing={5} justify="center">
-        <Class />
-        <Class />
-        <Class />
-        <Class />
-      </Grid>
+      <div className="gridContainer">
+        <Grid Grid container spacing={3} mt={1} justify="center">
+          <Class />
+          <Class />
+          <Class />
+          <Class />
+        </Grid>
+      </div>
     </>
   );
 }
