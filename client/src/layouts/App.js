@@ -10,6 +10,7 @@ import Provider from "../context/FormOpen";
 import StudentClass from "../pages/StudentClass";
 import TeacherDashboard from "../pages/TeacherDashboard";
 
+
 export default function App(props) {
   // React router here
   return (

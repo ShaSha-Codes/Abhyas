@@ -6,6 +6,9 @@ import Category from "../components/Category";
 import Login from "../components/Login";
 import Certify from "../components/Certify";
 import "../assets/css/style.css";
+import Fade from "@mui/material/Fade";
+import kid from '../images/shauryastudying.png';
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -18,24 +21,34 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Landing() {
   const [formType, setFormType] = React.useState(1);
   const [darkMode, setDarkMode] = React.useState(false);
+  const [visible, setVisible] = React.useState(true);
 
   function selectForm(custom) {
     setFormType(parseInt(custom));
   }
 
+ 
+
   React.useEffect(() => {
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      document.body.classList.add("body-dark");
-      setDarkMode(true);
-    }
+    setTimeout(() => setVisible(false), 3000);
   }, []);
 
   return (
     <>
-      <Grid
+     <Fade in={visible===true}>{
+       <Paper
+       style={{
+         position:"absolute",
+         width:'100%',
+         height:'100%',
+         zIndex:"3"
+       }}
+       >
+         <img src={kid} className="kid"></img>
+       </Paper>
+     }</Fade>
+    
+      {!visible && <Grid
         container
         sx={{ minHeight: "100vh", paddingBottom: "4%" }}
         className="main"
@@ -78,7 +91,8 @@ export default function Landing() {
             </div>
           </Item>
         </Grid>
-      </Grid>
+      </Grid>}
+
       {/* footer */}
 
       <Grid container>
