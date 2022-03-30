@@ -7,6 +7,10 @@ import TeacherRegister from "../components/TeacherRegister";
 import VideoFill from "../components/VideoFill";
 import MarketPlace from "../pages/Marketplace";
 import Provider from "../context/FormOpen";
+import StudentClass from "../pages/StudentClass";
+import TeacherDashboard from "../pages/TeacherDashboard"
+
+
 
 export default function App(props) {
   // React router here
@@ -14,9 +18,9 @@ export default function App(props) {
     <Provider>
       <Routes>
         <Route path="/">
-          <Route path="/index" element={<Landing />}>
-            <Route path="studentregister" element={<StudentRegister />} />
-            <Route path="teacherregister" element={<TeacherRegister />} />
+          <Route path="/" element={<Landing />}>
+            <Route exact path="/studentregister" element={<StudentRegister />} />
+            <Route path="/teacherregister" element={<TeacherRegister />} />
           </Route>
           <Route path="videofill" element={<VideoFill />} />
           <Route
@@ -24,6 +28,9 @@ export default function App(props) {
             element={<Dashboard component={<MarketPlace />} />}
           />
         </Route>
+        <Route path="/teacher" element={<TeacherDashboard/>}/>
+
+       
       </Routes>
     </Provider>
   );

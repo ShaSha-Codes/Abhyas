@@ -17,7 +17,7 @@ export default function Login(props) {
     username: "",
     password: "",
   });
-
+  console.log("testing")
   //Gathering Login Data
   const handleLogin = (event) => {
     setLoginData((prevFormData) => {
@@ -84,7 +84,7 @@ export default function Login(props) {
       {props.name === "student" && (
         <h4>
           New User?{" "}
-          <Link to="/index/studentregister" onClick={handleStudentClickOpen}>
+          <Link to="/studentregister" onClick={handleStudentClickOpen}>
             register
           </Link>
         </h4>
@@ -92,7 +92,7 @@ export default function Login(props) {
       {props.name === "teacher" && (
         <h4>
           New User?{" "}
-          <Link to="/index/teacherregister" onClick={handleTeacherClickOpen}>
+          <Link to="/teacherregister" onClick={handleTeacherClickOpen}>
             register
           </Link>
         </h4>

@@ -15,6 +15,9 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import User from "./User"
+import { ReactSession } from "react-client-session";
+
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -97,8 +100,8 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Dashboard</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
     </Menu>
   );
 
@@ -153,7 +156,8 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-
+  ReactSession.setStoreType("sessionStorage");
+  console.log(ReactSession.get("data"));
   return (
     <Box mb={5} sx={{ flexGrow: 1 }}>
       <AppBar
@@ -216,7 +220,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+             <User userData={{gender:"male", firstName:"test", lastName:""}}/>
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
