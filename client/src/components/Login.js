@@ -6,18 +6,27 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { Context } from "../context/FormOpen";
 import { ReactSession } from "react-client-session";
-
+import { useNavigate } from "react-router";
 import axios from "axios";
 
 export default function Login(props) {
   ReactSession.setStoreType("sessionStorage");
+  console.log(ReactSession.get("data"));
+  let navigate = useNavigate();
+  const [switcher, setSwitcher] = React.useState(0);
+
+  React.useEffect(() => {
+    if (ReactSession.get("data") !== undefined) {
+      navigate("/teacher");
+    }
+  }, [switcher]);
 
   //Login Data
   const [loginData, setLoginData] = React.useState({
     username: "",
     password: "",
   });
-  console.log("testing");
+
   //Gathering Login Data
   const handleLogin = (event) => {
     setLoginData((prevFormData) => {
@@ -36,13 +45,15 @@ export default function Login(props) {
       url: "http://localhost:3000/login",
     }).then((res) => {
       ReactSession.set("data", res.data);
-      console.log(res);
+      setSwitcher((prevSwitcher) => {
+        return !prevSwitcher;
+      });
     });
   };
 
-  const Tester = async () => {
-    console.log(ReactSession.get("data"));
-  };
+  // const Tester = async () => {
+  //   console.log(ReactSession.get("data"));
+  // };
 
   const { studentOpen, setStudentOpen, teacherOpen, setTeacherOpen } =
     React.useContext(Context);
@@ -77,9 +88,9 @@ export default function Login(props) {
         <Button variant="contained" color="secondary" onClick={submitLoginForm}>
           Login
         </Button>
-        <Button variant="contained" color="secondary" onClick={Tester}>
+        {/* <Button variant="contained" color="secondary" onClick={Tester}>
           Tester
-        </Button>
+        </Button> */}
       </Stack>
       {props.name === "student" && (
         <h4>

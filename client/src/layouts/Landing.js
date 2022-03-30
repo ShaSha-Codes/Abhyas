@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import Category from "../components/Category";
 import Login from "../components/Login";
 import Certify from "../components/Certify";
+import { useNavigate } from "react-router";
 import "../assets/css/style.css";
 import Fade from "@mui/material/Fade";
 import kid from '../images/shauryastudying.png';
