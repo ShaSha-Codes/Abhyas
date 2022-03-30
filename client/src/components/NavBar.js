@@ -15,9 +15,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import User from "./User"
+import User from "./User";
 import { ReactSession } from "react-client-session";
-
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -220,7 +219,9 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-             <User userData={{gender:"male", firstName:"test", lastName:""}}/>
+              <User
+                userData={{ gender: "male", firstName: "test", lastName: "" }}
+              />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>

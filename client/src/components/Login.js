@@ -17,7 +17,7 @@ export default function Login(props) {
     username: "",
     password: "",
   });
-  console.log("testing")
+  console.log("testing");
   //Gathering Login Data
   const handleLogin = (event) => {
     setLoginData((prevFormData) => {
