@@ -3,10 +3,16 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import kid from "../images/shauryastudying.png";
+import Button from '@mui/material/Button';
+import CardActions from '@mui/material/CardActions';
 
 function Class() {
   const styler = {
-    height: "120px",
+    height: "365px",
     background: "rgb(229,228,249)",
     background:
       "linear-gradient(90deg, rgba(247,247,252,1) 0%, rgba(255,255,255,1) 35%, rgba(253,255,255,1) 100%)",
@@ -28,19 +34,34 @@ function Class() {
       }}
     >
       <Box>
-        <Paper variant="outlined" sx={styler}>
+        <Card variant="outlined" sx={styler}>
+        <CardMedia
+        component="img"
+        height="140"
+        image={kid}
+        alt="green iguana"
+      />
+      <hr/>
+      <CardContent>
+      
           <Typography
             sx={{
               position: "relative",
-              top: "10px",
               left: "10px",
               marginBottom: "15px",
             }}
           >
             Testing
           </Typography>
-          <hr />
-        </Paper>
+          
+          </CardContent>
+          <div style={{position:"relative", bottom:"-80px"}}>
+        <CardActions sx={{position:"relative", marginBottom:-500}}>
+        <Button size="small">Share</Button>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+      </div>
+        </Card>
       </Box>
     </Grid>
   );
