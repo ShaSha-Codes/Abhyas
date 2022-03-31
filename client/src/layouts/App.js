@@ -30,7 +30,7 @@ export default function App(props) {
             path="dashboard"
             element={<Dashboard component={<MarketPlace />} />}
           />
-           <Route path="questions" element={<AddQuestions />} />
+          <Route path="questions" element={<AddQuestions />} />
         </Route>
         <Route path="/teacher" element={<TeacherDashboard />} />
       </Routes>
