@@ -8,8 +8,7 @@ import Certify from "../components/Certify";
 import { useNavigate } from "react-router";
 import "../assets/css/style.css";
 import Fade from "@mui/material/Fade";
-import kid from '../images/shauryastudying.png';
-
+import kid from "../images/shauryastudying.png";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -28,71 +27,73 @@ export default function Landing() {
     setFormType(parseInt(custom));
   }
 
- 
-
   React.useEffect(() => {
     setTimeout(() => setVisible(false), 3000);
   }, []);
 
   return (
     <>
-     <Fade in={visible===true}>{
-       <Paper
-       style={{
-         position:"absolute",
-         width:'100%',
-         height:'100%',
-         zIndex:"3"
-       }}
-       >
-         <img src={kid} className="kid"></img>
-       </Paper>
-     }</Fade>
-    
-      {!visible && <Grid
-        container
-        sx={{ minHeight: "100vh", paddingBottom: "4%" }}
-        className="main"
-      >
-        <Grid item xs={12} md={6}>
-          <Item
-            disabled
-            sx={{
-              border: 0,
-              boxShadow: 0,
-              marginTop: "28%",
-              backgroundColor: "transparent",
-              padding: 0,
+      <Fade in={visible === true}>
+        {
+          <Paper
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              zIndex: "3",
             }}
-            className="indexpart1"
           >
-            <h1>Abhyas</h1>
-            <h2 sx={{ color: "#fff" }}>A place to learn and share</h2>
-          </Item>
+            <img src={kid} className="kid"></img>
+          </Paper>
+        }
+      </Fade>
+
+      {!visible && (
+        <Grid
+          container
+          sx={{ minHeight: "100vh", paddingBottom: "4%" }}
+          className="main"
+        >
+          <Grid item xs={12} md={6}>
+            <Item
+              disabled
+              sx={{
+                border: 0,
+                boxShadow: 0,
+                marginTop: "28%",
+                backgroundColor: "transparent",
+                padding: 0,
+              }}
+              className="indexpart1"
+            >
+              <h1>Abhyas</h1>
+              <h2 sx={{ color: "#fff" }}>A place to learn and share</h2>
+            </Item>
+          </Grid>
+          <Grid item xs={12} md={6} sx={{ padding: 0 }}>
+            <Item
+              sx={{
+                border: 0,
+                boxShadow: 0,
+                backgroundColor: "transparent",
+                padding: 0,
+                marginTop: "10%",
+              }}
+              className="indexpart2"
+            >
+              <Category name="Student" type="1" selectForm={selectForm} />
+              <Category name="Teacher" type="2" selectForm={selectForm} />
+              <Category name="Certificate" type="3" selectForm={selectForm} />
+              <br />
+              <div className="formPart">
+                {formType === 1 && <Login name="student" title="Username" />}
+                {formType === 2 && <Login name="teacher" title="Teacher ID" />}
+                {formType === 3 && <Certify />}
+              </div>
+            </Item>
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={6} sx={{ padding: 0 }}>
-          <Item
-            sx={{
-              border: 0,
-              boxShadow: 0,
-              backgroundColor: "transparent",
-              padding: 0,
-              marginTop: "10%",
-            }}
-            className="indexpart2"
-          >
-            <Category name="Student" type="1" selectForm={selectForm} />
-            <Category name="Teacher" type="2" selectForm={selectForm} />
-            <Category name="Certificate" type="3" selectForm={selectForm} />
-            <br />
-            <div className="formPart">
-              {formType === 1 && <Login name="student" title="Username" />}
-              {formType === 2 && <Login name="teacher" title="Teacher ID" />}
-              {formType === 3 && <Certify />}
-            </div>
-          </Item>
-        </Grid>
-      </Grid>}
+      )}
 
       {/* footer */}
 
