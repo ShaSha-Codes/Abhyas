@@ -9,6 +9,7 @@ import MarketPlace from "../pages/Marketplace";
 import Provider from "../context/FormOpen";
 import StudentClass from "../pages/StudentClass";
 import TeacherDashboard from "../pages/TeacherDashboard";
+import AddQuestions from "../pages/AddQuestions";
 
 export default function App(props) {
   // React router here
@@ -29,6 +30,7 @@ export default function App(props) {
             path="dashboard"
             element={<Dashboard component={<MarketPlace />} />}
           />
+           <Route path="questions" element={<AddQuestions />} />
         </Route>
         <Route path="/teacher" element={<TeacherDashboard />} />
       </Routes>

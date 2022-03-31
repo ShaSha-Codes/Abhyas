@@ -193,3 +193,14 @@ footer{
     width: 20%;
     margin-top: 30vh;
 }
+
+/* AddQuestions */
+.center-div{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.font-style{
+    font-family: 'Inter', sans-serif;
+}
