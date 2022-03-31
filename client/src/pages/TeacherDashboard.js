@@ -8,7 +8,6 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
-
 function TeacherDashboard() {
   ReactSession.setStoreType("sessionStorage");
   let navigate = useNavigate();

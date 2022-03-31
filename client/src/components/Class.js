@@ -3,12 +3,12 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
 import kid from "../images/shauryastudying.png";
-import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
 
 function Class() {
   const styler = {
@@ -35,32 +35,30 @@ function Class() {
     >
       <Box>
         <Card variant="outlined" sx={styler}>
-        <CardMedia
-        component="img"
-        height="140"
-        image={kid}
-        alt="green iguana"
-      />
-      <hr/>
-      <CardContent>
-      
-          <Typography
-            sx={{
-              position: "relative",
-              left: "10px",
-              marginBottom: "15px",
-            }}
-          >
-            Testing
-          </Typography>
-          
+          <CardMedia
+            component="img"
+            height="140"
+            image={kid}
+            alt="green iguana"
+          />
+          <hr />
+          <CardContent>
+            <Typography
+              sx={{
+                position: "relative",
+                left: "10px",
+                marginBottom: "15px",
+              }}
+            >
+              Testing
+            </Typography>
           </CardContent>
-          <div style={{position:"relative", bottom:"-80px"}}>
-        <CardActions sx={{position:"relative", marginBottom:-500}}>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-      </div>
+          <div style={{ position: "relative", bottom: "-80px" }}>
+            <CardActions sx={{ position: "relative", marginBottom: -500 }}>
+              <Button size="small">Share</Button>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </div>
         </Card>
       </Box>
     </Grid>
