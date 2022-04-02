@@ -10,6 +10,7 @@ import Provider from "../context/FormOpen";
 import StudentClass from "../pages/StudentClass";
 import TeacherDashboard from "../pages/TeacherDashboard";
 import AddQuestions from "../pages/AddQuestions";
+import Verify from "../components/Verify";
 
 export default function App(props) {
   // React router here
@@ -31,6 +32,7 @@ export default function App(props) {
             element={<Dashboard component={<MarketPlace />} />}
           />
           <Route path="questions" element={<AddQuestions />} />
+          <Route path="verify" element={<Verify />} />
         </Route>
         <Route path="/teacher" element={<TeacherDashboard />} />
       </Routes>

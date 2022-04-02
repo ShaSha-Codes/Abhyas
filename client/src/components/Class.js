@@ -9,8 +9,13 @@ import CardContent from '@mui/material/CardContent';
 import kid from "../images/shauryastudying.png";
 import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
+var GeoPattern = require('geopattern');
+
 
 function Class() {
+
+
+
   const styler = {
     height: "365px",
     background: "rgb(229,228,249)",
@@ -19,6 +24,8 @@ function Class() {
     boxShadow: "6px 6px 21px -14px rgba(77,77,77,1)",
     borderRadius: "12px",
   };
+  var pattern = GeoPattern.generate('GitHub');
+  var imgURL = pattern.toDataUrl();
   return (
     <Grid
       item
@@ -38,8 +45,8 @@ function Class() {
         <CardMedia
         component="img"
         height="140"
-        image={kid}
-        alt="green iguana"
+        image={imgURL}
+        alt="some pattern"
       />
       <hr/>
       <CardContent>
@@ -57,8 +64,7 @@ function Class() {
           </CardContent>
           <div style={{position:"relative", bottom:"-80px"}}>
         <CardActions sx={{position:"relative", marginBottom:-500}}>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button variant='outlined' size="small">Open Class</Button>
       </CardActions>
       </div>
         </Card>
