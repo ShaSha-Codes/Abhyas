@@ -7,15 +7,10 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import kid from "../images/shauryastudying.png";
-<<<<<<< HEAD
 import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 var GeoPattern = require('geopattern');
 
-=======
-import Button from "@mui/material/Button";
-import CardActions from "@mui/material/CardActions";
->>>>>>> b370a7283f43700b500c22f12ccb07fcf86adddb
 
 function Class() {
 
