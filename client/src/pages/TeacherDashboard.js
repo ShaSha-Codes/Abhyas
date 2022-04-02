@@ -9,7 +9,6 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 var GeoPattern = require('geopattern');
 
-
 function TeacherDashboard() {
   ReactSession.setStoreType("sessionStorage");
   let navigate = useNavigate();
