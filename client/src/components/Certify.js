@@ -6,7 +6,6 @@ import { ReactSession } from "react-client-session";
 import { useNavigate } from "react-router";
 import axios from "axios";
 
-
 export default function Certify() {
   ReactSession.setStoreType("sessionStorage");
   console.log(ReactSession.get("certi"));
@@ -47,12 +46,13 @@ export default function Certify() {
 
   return (
     <Stack spacing={2}>
-      <TextField 
-      id="outlined-basic" 
-      label="Credential ID" 
-      variant="outlined" 
-      value={certificateData.cred}
-      onChange={handleChange}/>
+      <TextField
+        id="outlined-basic"
+        label="Credential ID"
+        variant="outlined"
+        value={certificateData.cred}
+        onChange={handleChange}
+      />
       <Button variant="contained" color="secondary" onClick={verify}>
         Certify
       </Button>

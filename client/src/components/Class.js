@@ -7,15 +7,11 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import kid from "../images/shauryastudying.png";
-import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
-var GeoPattern = require('geopattern');
-
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
+var GeoPattern = require("geopattern");
 
 function Class() {
-
-
-
   const styler = {
     height: "365px",
     background: "rgb(229,228,249)",
@@ -24,7 +20,7 @@ function Class() {
     boxShadow: "6px 6px 21px -14px rgba(77,77,77,1)",
     borderRadius: "12px",
   };
-  var pattern = GeoPattern.generate('GitHub');
+  var pattern = GeoPattern.generate("GitHub");
   var imgURL = pattern.toDataUrl();
   return (
     <Grid

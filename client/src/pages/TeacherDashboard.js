@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-var GeoPattern = require('geopattern');
+var GeoPattern = require("geopattern");
 
 function TeacherDashboard() {
   ReactSession.setStoreType("sessionStorage");
@@ -17,9 +17,6 @@ function TeacherDashboard() {
       navigate("/");
     }
   }, [0]);
-
-
-
 
   return (
     <>
