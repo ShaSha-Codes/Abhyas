@@ -11,6 +11,7 @@ const session = require("express-session");
 const cors = require("cors");
 const classRouter=require("./routes/class");
 var indexRouter = require("./routes/index");
+var certificateRouter = require("./routes/certificate");
 var usersRouter = require("./routes/users");
 
 var app = express();
@@ -45,11 +46,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 mongoose.connect(URI).then(() => console.log("Connected to Database"));
 
-
-
-
-app.use("/", indexRouter);
+app.use("/certificate", certificateRouter);
 app.use("/class", classRouter);
+app.use("/", indexRouter);
+
 // app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler

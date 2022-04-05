@@ -1,11 +1,30 @@
 import React from "react";
 import "../assets/css/style.css";
 import axios from "axios";
-import { ReactSession } from "react-client-session";
+import {useParams } from 'react-router-dom';
+
 
 export default function Verify() {
+  let {cred} = useParams();
+  
+  const [certificateData,setCertificateData]=React.useState("")
+
+  React.useEffect(
+    ()=>{
+      axios.get("http://localhost:3000/certificate/verify/"+cred)
+      .then(res=>{
+        setCertificateData(res.data)
+      })
+    },[0]
+  )
+ 
+
   return (
+    <div>
+
+    { certificateData!=="" ?
     <div className="certificate-body">
+      
       <div className="container shadow-lg ">
         <div className="logo">
           <img
@@ -20,25 +39,29 @@ export default function Verify() {
 
         <div className="presented">This certificate is presented to</div>
 
-        <div className="person">{/* {fname} {lname} */}</div>
+        <div className="person">{certificateData.fname+" "+certificateData.lname}</div>
 
         <div className="reason">
           For the succesful completion of: <br />
-          {/* {title} */}
+          {certificateData.title}
         </div>
         <div className="date">
           Date of completion:
-          {/* {date} */}
+          {certificateData.doc}
         </div>
         <div className="date">
           Email verification:
-          {/* {email} */}
+          {certificateData.email}
         </div>
         <div className="cred">
           Credentials:
-          {/* {cred} */}
+          {certificateData.cred}
         </div>
       </div>
+    </div>
+      :<div className="notFound">
+            No Certificate with given Credentials Exist :(
+        </div>}
     </div>
   );
 }

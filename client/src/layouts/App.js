@@ -10,7 +10,7 @@ import Provider from "../context/FormOpen";
 import StudentClass from "../pages/StudentClass";
 import TeacherDashboard from "../pages/TeacherDashboard";
 import AddQuestions from "../pages/AddQuestions";
-import Verify from "../components/Verify";
+import Certificate from "../components/Certificate";
 
 export default function App(props) {
   // React router here
@@ -32,7 +32,7 @@ export default function App(props) {
             element={<Dashboard component={<MarketPlace />} />}
           />
           <Route path="questions" element={<AddQuestions />} />
-          <Route path="verify" element={<Verify />} />
+          <Route path="/certificate/:cred" element={<Certificate />} />
         </Route>
         <Route path="/teacher" element={<TeacherDashboard />} />
       </Routes>
