@@ -9,7 +9,7 @@ const passportLocal = require("passport-local").Strategy;
 const URI = require("./config/keys").URI;
 const session = require("express-session");
 const cors = require("cors");
-const classRouter=require("./routes/class");
+const classRouter = require("./routes/class");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
@@ -44,9 +44,6 @@ app.use(cookieParser("Big Secret"));
 app.use(express.static(path.join(__dirname, "public")));
 
 mongoose.connect(URI).then(() => console.log("Connected to Database"));
-
-
-
 
 app.use("/", indexRouter);
 app.use("/class", classRouter);
