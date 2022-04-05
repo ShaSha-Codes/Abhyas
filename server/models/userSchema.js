@@ -14,15 +14,16 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  courses: [{
-    code:String,
-    name: String,
-    description: String,
-    videos:[{name:String}],
-    assignments:[{name:String}],
-    quiz:[{name:String}],
- 
-  }],
+  courses: [
+    {
+      code: String,
+      name: String,
+      description: String,
+      videos: [{ name: String }],
+      assignments: [{ name: String }],
+      quiz: [{ name: String }],
+    },
+  ],
   type: {
     type: String,
     required: true,
