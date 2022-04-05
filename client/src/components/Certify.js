@@ -5,7 +5,6 @@ import Button from "@mui/material/Button";
 import { ReactSession } from "react-client-session";
 import { useNavigate } from "react-router";
 
-
 export default function Certify() {
   let navigate = useNavigate();
 
@@ -13,11 +12,8 @@ export default function Certify() {
     cred: "",
   });
 
-
-
-  
-  function verify(){
-    navigate("/certificate/"+certificateData.cred)
+  function verify() {
+    navigate("/certificate/" + certificateData.cred);
   }
 
   const handleChange = (event) => {

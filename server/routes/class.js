@@ -4,9 +4,6 @@ var userSchema = require("../models/userSchema");
 
 /* GET home page. */
 
-
-
-
 router.patch("/add", async (req, res) => {
   console.log(req.body.email);
   console.log(req.body.description);
