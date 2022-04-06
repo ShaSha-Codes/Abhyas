@@ -22,8 +22,8 @@ function Class(props) {
     borderRadius: "12px",
   };
   var pattern = GeoPattern.generate(props.title);
-  var imgURL = pattern.toDataUrl()
-  imgURL=imgURL.substring(5, imgURL.length - 2);
+  var imgURL = pattern.toDataUrl();
+  imgURL = imgURL.substring(5, imgURL.length - 2);
   return (
     <Grid
       item

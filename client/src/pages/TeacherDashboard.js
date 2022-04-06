@@ -109,9 +109,9 @@ function TeacherDashboard() {
       <br />
       <div className="gridContainer">
         <Grid Grid container spacing={3} mt={1} justify="center">
-          <Class title={"Class1"}/>
+          <Class title={"Class1"} />
           <Class title={"Class2"} />
-          <Class title={"Class3"}/>
+          <Class title={"Class3"} />
           <Class title={"Class4"} />
         </Grid>
       </div>
