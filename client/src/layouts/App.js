@@ -31,10 +31,7 @@ export default function App(props) {
             path="dashboard"
             element={<Dashboard component={<MarketPlace />} />}
           />
-          <Route
-            path="studentclass"
-            element={<StudentClass />}
-          />
+          <Route path="studentclass" element={<StudentClass />} />
           <Route path="questions" element={<AddQuestions />} />
           <Route path="/certificate/:cred" element={<Certificate />} />
         </Route>

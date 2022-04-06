@@ -41,7 +41,9 @@ function Class() {
           <CardMedia
             component="img"
             height="140"
-            image={"https://www.gifgit.com/site-images/toolpage-images/gradient-tool-example1.jpg"}
+            image={
+              "https://www.gifgit.com/site-images/toolpage-images/gradient-tool-example1.jpg"
+            }
             alt="green iguana"
           />
           <hr />
@@ -59,7 +61,6 @@ function Class() {
           <div style={{ position: "relative", bottom: "-20px" }}>
             <CardActions sx={{ position: "relative", marginBottom: -500 }}>
               <Button size="small">Go to</Button>
-             
             </CardActions>
           </div>
         </Card>
