@@ -11,7 +11,7 @@ var dummy = [
       "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
     tagname: "Physics",
     title: "Electromagnetism",
-    user: "Jazib Dawre",
+    user: "John Doe",
     postDate: "23/02/2021",
   },
   {
@@ -19,7 +19,7 @@ var dummy = [
       "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
     tagname: "Physics",
     title: "Electromagnetism",
-    user: "Jazib Dawre",
+    user: "John Doe",
     postDate: "23/02/2021",
   },
   {
@@ -27,7 +27,7 @@ var dummy = [
       "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
     tagname: "Physics",
     title: "Electromagnetism",
-    user: "Jazib Dawre",
+    user: "John Doe",
     postDate: "23/02/2021",
   },
   {
@@ -35,7 +35,7 @@ var dummy = [
       "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
     tagname: "Physics",
     title: "Electromagnetism",
-    user: "Jazib Dawre",
+    user: "John Doe",
     postDate: "23/02/2021",
   },
   {
@@ -43,7 +43,7 @@ var dummy = [
       "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
     tagname: "Physics",
     title: "Electromagnetism",
-    user: "Jazib Dawre",
+    user: "John Doe",
     postDate: "23/02/2021",
   },
 ];

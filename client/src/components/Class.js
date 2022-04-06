@@ -13,7 +13,7 @@ var GeoPattern = require("geopattern");
 
 function Class() {
   const styler = {
-    height: "365px",
+    height: "300px",
     background: "rgb(229,228,249)",
     background:
       "linear-gradient(90deg, rgba(247,247,252,1) 0%, rgba(255,255,255,1) 35%, rgba(253,255,255,1) 100%)",
@@ -41,7 +41,7 @@ function Class() {
           <CardMedia
             component="img"
             height="140"
-            image={kid}
+            image={"https://www.gifgit.com/site-images/toolpage-images/gradient-tool-example1.jpg"}
             alt="green iguana"
           />
           <hr />
@@ -50,16 +50,16 @@ function Class() {
               sx={{
                 position: "relative",
                 left: "10px",
-                marginBottom: "15px",
+                marginBottom: "5px",
               }}
             >
-              Testing
+              PBL(Project Based Learning)
             </Typography>
           </CardContent>
-          <div style={{ position: "relative", bottom: "-80px" }}>
+          <div style={{ position: "relative", bottom: "-20px" }}>
             <CardActions sx={{ position: "relative", marginBottom: -500 }}>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
+              <Button size="small">Go to</Button>
+             
             </CardActions>
           </div>
         </Card>
