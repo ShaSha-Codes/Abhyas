@@ -21,11 +21,11 @@ function TeacherDashboard(props) {
 
   ReactSession.setStoreType("sessionStorage");
   let navigate = useNavigate();
-  React.useEffect(() => {
-    if (props.checker) {
-      navigate("/");
-    }
-  },);
+  // React.useEffect(() => {
+  //   if (props.checker) {
+  //     navigate("/");
+  //   }
+  // },);
 
 
 
