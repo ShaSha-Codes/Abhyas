@@ -16,13 +16,15 @@ export default function Login(props) {
   const [switcher, setSwitcher] = React.useState(0);
 
   React.useEffect(() => {
-    if (ReactSession.get("data") !== undefined && ReactSession.get("data") !== "") {
-      if(ReactSession.get("data").type === "teacher"){
+    if (
+      ReactSession.get("data") !== undefined &&
+      ReactSession.get("data") !== ""
+    ) {
+      if (ReactSession.get("data").type === "teacher") {
         navigate("/teacher");
-      }else if(ReactSession.get("data").type === "student"){
+      } else if (ReactSession.get("data").type === "student") {
         navigate("/student");
       }
-      
     }
   }, [switcher]);
 

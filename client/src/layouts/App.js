@@ -13,26 +13,28 @@ import AddQuestions from "../pages/AddQuestions";
 import Certificate from "../components/Certificate";
 import { ReactSession } from "react-client-session";
 
-
 export default function App(props) {
   ReactSession.setStoreType("sessionStorage");
 
-  function checker(type){
+  function checker(type) {
     // console.log(ReactSession.get("data").type!=="");
     console.log(ReactSession.get("data").type);
     console.log(type);
-    if(ReactSession.get("data") === undefined || ReactSession.get("data") === ""){
-      return true
-    }else if(ReactSession.get("data").type!=="" &&  ReactSession.get("data").type!==type){
-      return true
-    }else{
-      console.log("BUT WHY")
-      return false
+    if (
+      ReactSession.get("data") === undefined ||
+      ReactSession.get("data") === ""
+    ) {
+      return true;
+    } else if (
+      ReactSession.get("data").type !== "" &&
+      ReactSession.get("data").type !== type
+    ) {
+      return true;
+    } else {
+      console.log("BUT WHY");
+      return false;
     }
   }
-
-
-
 
   // React router here
   return (
@@ -51,13 +53,16 @@ export default function App(props) {
           <Route
             path="marketplace"
             checker={checker("student")}
-            element={<Dashboard component={<MarketPlace />}  />}
+            element={<Dashboard component={<MarketPlace />} />}
           />
           <Route path="studentclass" element={<StudentClass />} />
           <Route path="questions" element={<AddQuestions />} />
           <Route path="/certificate/:cred" element={<Certificate />} />
         </Route>
-        <Route path="/teacher" element={<TeacherDashboard checker={checker("teacher")}/>} />
+        <Route
+          path="/teacher"
+          element={<TeacherDashboard checker={checker("teacher")} />}
+        />
       </Routes>
     </Provider>
   );

@@ -30,8 +30,6 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
-
-
 router.get("/users/:email", async (req, res, next) => {
   const email = req.params.email;
   const data = await userSchema.findOne({ email: email });

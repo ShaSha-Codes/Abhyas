@@ -16,22 +16,13 @@ import axios from "axios";
 var GeoPattern = require("geopattern");
 
 function TeacherDashboard(props) {
-
-
-
   ReactSession.setStoreType("sessionStorage");
   let navigate = useNavigate();
   React.useEffect(() => {
     if (props.checker) {
       navigate("/");
     }
-  },);
-
-
-
-
-
-
+  });
 
   //State Variable
   const [visibilityClassForm, setVisibilityClassForm] = React.useState(false);
