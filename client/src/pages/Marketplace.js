@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 
 import MarketItem from "../components/MarketItem";
 import { Grid } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 var dummy = [
   {
     backgroundImage:
@@ -48,7 +48,15 @@ var dummy = [
   },
 ];
 
-export default function Marketplace() {
+export default function Marketplace(props) {
+
+  let navigate = useNavigate();
+  React.useEffect(() => {
+    if (props.checker) {
+      navigate("/");
+    }
+  },[0]);
+
   return (
     <React.Fragment>
       <Typography variant="h4">Market Place</Typography>

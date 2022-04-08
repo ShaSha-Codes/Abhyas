@@ -19,7 +19,7 @@ router.post("/register", async (req, res, next) => {
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    if (!user) res.send("No User Exists");
+    if (!user) res.send(null);
     else {
       req.login(user, (err) => {
         if (err) throw err;
@@ -30,9 +30,7 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
-router.get("/users/timepass", async (req, res, next) => {
-  res.send(req.user);
-});
+
 
 router.get("/users/:email", async (req, res, next) => {
   const email = req.params.email;

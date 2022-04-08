@@ -5,6 +5,7 @@ import SideBar from "../components/Sidebar";
 import Footer from "../components/Footer";
 
 export default function Dashboard(props) {
+  
   return (
     <>
       <NavBar />
