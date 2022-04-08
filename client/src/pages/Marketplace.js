@@ -49,13 +49,12 @@ var dummy = [
 ];
 
 export default function Marketplace(props) {
-
   let navigate = useNavigate();
   React.useEffect(() => {
     if (props.checker) {
       navigate("/");
     }
-  },[0]);
+  }, [0]);
 
   return (
     <React.Fragment>
