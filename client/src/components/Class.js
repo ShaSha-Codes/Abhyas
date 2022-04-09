@@ -53,13 +53,22 @@ function Class(props) {
               sx={{
                 position: "relative",
                 left: "10px",
-                marginBottom: "15px",
+                marginBottom: "5px",
               }}
             >
-              Testing
+              {props.title}
+            </Typography>
+            <Typography
+              sx={{
+                position: "relative",
+                left: "10px",
+               
+              }}
+            >
+              {props.description}
             </Typography>
           </CardContent>
-          <div style={{ position: "relative", bottom: "-65px" }}>
+          <div style={{ position: "relative", bottom: "-20px" }}>
             <CardActions sx={{ position: "relative", marginBottom: -500 }}>
               <Button size="small">Go to</Button>
             </CardActions>
