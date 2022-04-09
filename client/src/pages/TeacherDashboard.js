@@ -20,15 +20,10 @@ function TeacherDashboard(props) {
   let navigate = useNavigate();
 
   React.useEffect(() => {
-    if(props.checker()){
+    if (props.checker()) {
       navigate("/");
     }
-  })
-
-
-
-
-
+  });
 
   //State Variable
   const [visibilityClassForm, setVisibilityClassForm] = React.useState(false);
