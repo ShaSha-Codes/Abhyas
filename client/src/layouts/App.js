@@ -15,21 +15,20 @@ import { ReactSession } from "react-client-session";
 
 export default function App(props) {
   ReactSession.setStoreType("sessionStorage");
-    function checker(type){
-        if(ReactSession.get("data") === undefined || ReactSession.get("data") === ""){
-         
-          return true
-        }
-        if(type===""){
-            return false
-        }
-        if(ReactSession.get("data").type!==type){
-          return true
-        }
-      }
-  
-
-
+  function checker(type) {
+    if (
+      ReactSession.get("data") === undefined ||
+      ReactSession.get("data") === ""
+    ) {
+      return true;
+    }
+    if (type === "") {
+      return false;
+    }
+    if (ReactSession.get("data").type !== type) {
+      return true;
+    }
+  }
 
   // React router here
   return (
@@ -47,13 +46,16 @@ export default function App(props) {
           <Route path="videofill" element={<VideoFill />} />
           <Route
             path="marketplace"
-            element={<Dashboard component={<MarketPlace />}  />}
+            element={<Dashboard component={<MarketPlace />} />}
           />
           <Route path="studentclass" element={<StudentClass />} />
           <Route path="questions" element={<AddQuestions />} />
           <Route path="/certificate/:cred" element={<Certificate />} />
         </Route>
-        <Route path="/teacher" element={<TeacherDashboard checker={()=>checker("teacher")}/>} />
+        <Route
+          path="/teacher"
+          element={<TeacherDashboard checker={() => checker("teacher")} />}
+        />
       </Routes>
     </Provider>
   );

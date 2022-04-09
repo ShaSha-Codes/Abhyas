@@ -20,7 +20,7 @@ function TeacherDashboard(props) {
   let navigate = useNavigate();
 
   React.useEffect(() => {
-    if(props.checker()){
+    if (props.checker()) {
       navigate("/");
     }
   })
