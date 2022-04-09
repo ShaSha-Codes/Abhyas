@@ -23,7 +23,7 @@ function TeacherDashboard(props) {
     if (props.checker()) {
       navigate("/");
     }
-  })
+  });
 
   //State Variable
   const [visibilityClassForm, setVisibilityClassForm] = React.useState(false);
@@ -34,20 +34,25 @@ function TeacherDashboard(props) {
   });
   const [classData, setClassData] = React.useState([]);
 
-
-  React.useEffect(async ()=>{
-    let tempData=await axios.post("http://localhost:3000/class/data",{email:ReactSession.get("data").email})
-    tempData=tempData.data
-
-
-    setClassData(()=>{
-      return tempData.map((item)=>{
-        return(
-          <Class key={item.code} title={item.name} description={item.description} code={item.code}/>
-        )})
+  React.useEffect(async () => {
+    let tempData = await axios.post("http://localhost:3000/class/data", {
+      email: ReactSession.get("data").email,
     });
-  },[visibilityClassForm])
+    tempData = tempData.data;
 
+    setClassData(() => {
+      return tempData.map((item) => {
+        return (
+          <Class
+            key={item.code}
+            title={item.name}
+            description={item.description}
+            code={item.code}
+          />
+        );
+      });
+    });
+  }, [visibilityClassForm]);
 
   //Functions
   function handleFormData(event) {
@@ -58,7 +63,7 @@ function TeacherDashboard(props) {
       };
     });
   }
-  console.log("Testing")
+  console.log("Testing");
   async function submitForm() {
     await setClassAddForm((prevClassForm) => {
       return {
@@ -73,7 +78,7 @@ function TeacherDashboard(props) {
       })
       .then((res) => {
         console.log(res);
-        setVisibilityClassForm(false)
+        setVisibilityClassForm(false);
       });
   }
 

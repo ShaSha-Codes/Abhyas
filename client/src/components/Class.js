@@ -62,7 +62,6 @@ function Class(props) {
               sx={{
                 position: "relative",
                 left: "10px",
-               
               }}
             >
               {props.description}

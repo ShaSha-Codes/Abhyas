@@ -14,7 +14,7 @@ export default function Login(props) {
   console.log(ReactSession.get("data"));
   let navigate = useNavigate();
   const [switcher, setSwitcher] = React.useState(0);
-  
+
   React.useEffect(() => {
     if (
       ReactSession.get("data") !== undefined &&
