@@ -9,6 +9,7 @@ import CardContent from "@mui/material/CardContent";
 import kid from "../images/shauryastudying.png";
 import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
+import { Link } from "react-router-dom"
 var GeoPattern = require("geopattern");
 
 function Class(props) {
@@ -23,6 +24,8 @@ function Class(props) {
   };
   var pattern = GeoPattern.generate(props.title);
   var imgURL = pattern.toDataUri();
+
+  
   // imgURL = imgURL.substring(5, imgURL.length - 2);
   return (
     <Grid
@@ -70,7 +73,9 @@ function Class(props) {
           </CardContent>
           <div style={{ position: "relative", bottom: "-20px" }}>
             <CardActions sx={{ position: "relative", marginBottom: -500 }}>
-              <Button size="small">Go to</Button>
+              <Button sx={{marginLeft:"auto",marginRight:"1em"}} variant="outlined" size="small">
+               <Link to={`/${props.type}/class/${props.code}`}>Go to</Link> 
+              </Button>
             </CardActions>
           </div>
         </Card>

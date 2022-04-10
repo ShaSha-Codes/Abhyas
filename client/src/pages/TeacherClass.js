@@ -3,6 +3,9 @@ import NavBar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
 import TeacherClassContent from "../components/TeacherClassContent";
 
+
+
+
 function TeacherClass() {
   const [visibility, setVisibility] = React.useState({
     videos: true,

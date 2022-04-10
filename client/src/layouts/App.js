@@ -9,6 +9,7 @@ import MarketPlace from "../pages/Marketplace";
 import Provider from "../context/FormOpen";
 import StudentClass from "../pages/StudentClass";
 import TeacherDashboard from "../pages/TeacherDashboard";
+import TeacherClass from "../pages/TeacherClass";
 import AddQuestions from "../pages/AddQuestions";
 import Certificate from "../components/Certificate";
 import { ReactSession } from "react-client-session";
@@ -29,7 +30,7 @@ export default function App(props) {
       return true;
     }
   }
-
+ 
   // React router here
   return (
     <Provider>
@@ -55,6 +56,10 @@ export default function App(props) {
         <Route
           path="/teacher"
           element={<TeacherDashboard checker={() => checker("teacher")} />}
+        />
+        <Route
+          path="/teacher/class/:code"
+          element={<TeacherClass />}
         />
       </Routes>
     </Provider>

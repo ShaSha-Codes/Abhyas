@@ -43,7 +43,7 @@ function TeacherDashboard(props) {
     setClassData(()=>{
       return tempData.map((item)=>{
         return(
-          <Class key={item.code} title={item.name} description={item.description} code={item.code}/>
+          <Class key={item.code} type={"teacher"} title={item.name} description={item.description} code={item.code}/>
         )})
     });
   },[visibilityClassForm])
