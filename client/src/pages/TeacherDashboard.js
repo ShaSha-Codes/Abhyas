@@ -23,7 +23,7 @@ function TeacherDashboard(props) {
     if (props.checker()) {
       navigate("/");
     }
-  })
+  });
 
   //State Variable
   const [visibilityClassForm, setVisibilityClassForm] = React.useState(false);
@@ -46,8 +46,21 @@ function TeacherDashboard(props) {
           <Class key={item.code} type={"teacher"} title={item.name} description={item.description} code={item.code}/>
         )})
     });
-  },[visibilityClassForm])
+    tempData = tempData.data;
 
+    setClassData(() => {
+      return tempData.map((item) => {
+        return (
+          <Class
+            key={item.code}
+            title={item.name}
+            description={item.description}
+            code={item.code}
+          />
+        );
+      });
+    });
+  }, [visibilityClassForm]);
 
   //Functions
   function handleFormData(event) {
@@ -58,7 +71,7 @@ function TeacherDashboard(props) {
       };
     });
   }
-  console.log("Testing")
+  console.log("Testing");
   async function submitForm() {
     await setClassAddForm((prevClassForm) => {
       return {
@@ -73,7 +86,7 @@ function TeacherDashboard(props) {
       })
       .then((res) => {
         console.log(res);
-        setVisibilityClassForm(false)
+        setVisibilityClassForm(false);
       });
   }
 

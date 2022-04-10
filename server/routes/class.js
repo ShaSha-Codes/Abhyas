@@ -24,11 +24,9 @@ router.patch("/add", async (req, res) => {
 });
 
 router.post("/data", async (req, res) => {
-  userSchema
-    .findOne({ email: req.body.email })
-    .then((data) => {
-      res.send(data.courses);
-    });
-})
+  userSchema.findOne({ email: req.body.email }).then((data) => {
+    res.send(data.courses);
+  });
+});
 
 module.exports = router;
