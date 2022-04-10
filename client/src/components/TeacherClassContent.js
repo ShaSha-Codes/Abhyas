@@ -15,7 +15,6 @@ import LiveButton from "./LiveButton";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
 import VideoFill from "./VideoFill";
 
-
 function TeacherClass(props) {
   const visibility = props.visibility;
 
@@ -66,8 +65,10 @@ function TeacherClass(props) {
         <VideoAssignment />
         <VideoFill />
         <video width="320" height="240" controls>
-          <source src="https://firebasestorage.googleapis.com/v0/b/abhyas-4663e.appspot.com/o/videos%2FPallas%20Cat%20discovers%20camera.mp4?alt=media&token=4f3d1612-7bc3-43cf-8f25-1dea908a6463" type="video/mp4"/>
-
+          <source
+            src="https://firebasestorage.googleapis.com/v0/b/abhyas-4663e.appspot.com/o/videos%2FPallas%20Cat%20discovers%20camera.mp4?alt=media&token=4f3d1612-7bc3-43cf-8f25-1dea908a6463"
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
         {visibility.videos && (

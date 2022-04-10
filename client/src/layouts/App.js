@@ -30,7 +30,7 @@ export default function App(props) {
       return true;
     }
   }
- 
+
   // React router here
   return (
     <Provider>
@@ -57,10 +57,7 @@ export default function App(props) {
           path="/teacher"
           element={<TeacherDashboard checker={() => checker("teacher")} />}
         />
-        <Route
-          path="/teacher/class/:code"
-          element={<TeacherClass />}
-        />
+        <Route path="/teacher/class/:code" element={<TeacherClass />} />
       </Routes>
     </Provider>
   );

@@ -34,17 +34,24 @@ function TeacherDashboard(props) {
   });
   const [classData, setClassData] = React.useState([]);
 
+  React.useEffect(async () => {
+    let tempData = await axios.post("http://localhost:3000/class/data", {
+      email: ReactSession.get("data").email,
+    });
+    tempData = tempData.data;
 
-  React.useEffect(async ()=>{
-    let tempData=await axios.post("http://localhost:3000/class/data",{email:ReactSession.get("data").email})
-    tempData=tempData.data
-
-
-    setClassData(()=>{
-      return tempData.map((item)=>{
-        return(
-          <Class key={item.code} type={"teacher"} title={item.name} description={item.description} code={item.code}/>
-        )})
+    setClassData(() => {
+      return tempData.map((item) => {
+        return (
+          <Class
+            key={item.code}
+            type={"teacher"}
+            title={item.name}
+            description={item.description}
+            code={item.code}
+          />
+        );
+      });
     });
     tempData = tempData.data;
 
