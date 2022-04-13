@@ -15,7 +15,6 @@ import Certificate from "../components/Certificate";
 import Container from "../components/container/Container";
 import { ReactSession } from "react-client-session";
 
-
 export default function App(props) {
   ReactSession.setStoreType("sessionStorage");
   function checker(type) {
@@ -55,9 +54,9 @@ export default function App(props) {
           <Route path="questions" element={<AddQuestions />} />
           <Route path="/certificate/:cred" element={<Certificate />} />
         </Route>
-       
+
         <Route path="/container" element={<Container />} />
-        
+
         <Route
           path="/teacher"
           element={<TeacherDashboard checker={() => checker("teacher")} />}
