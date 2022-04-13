@@ -14,41 +14,44 @@ import LiveButton from "./LiveButton";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
 import VideoFill from "./VideoFill";
 import { ReactSession } from "react-client-session";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function TeacherClass(props) {
   ReactSession.setStoreType("sessionStorage");
-  let {code}=useParams()
-
-
-
+  let { code } = useParams();
 
   const visibility = props.visibility;
+<<<<<<< HEAD
   const [videoVisibility,setVideoVisibility] = React.useState(true);
   const [content,setContent] = React.useState({videos:[]});
+=======
+  const [videoVisibility, setVideoVisibility] = React.useState(true);
+  const [content, setContent] = React.useState([]);
+>>>>>>> a4d803f51a5d8bce4279ac2aba59253134bd6175
 
+  React.useEffect(async () => {
+    let newContent = await axios.post("http://localhost:3000/class/get/info", {
+      email: ReactSession.get("data").email,
+      class: code,
+    });
+    setContent(newContent.data);
+  }, [0]);
 
-  React.useEffect(async ()=>{
-      let newContent=await axios.post("http://localhost:3000/class/get/info",{
-        email:ReactSession.get("data").email,
-        class:code
-      })
-      setContent(newContent.data)
-  },[0])
-  
-  console.log(content)
+  console.log(content);
 
-  function videoMaker(){
-    let videoContent=[]
+  function videoMaker() {
+    let videoContent = [];
     for (let i = 0; i < content.videos.length; i++) {
-        let videoData={title:content.videos[i].title,description:content.videos[i].description,upload:content.videos[i].upload}
-        videoContent.push(<Video data={videoData}/>)
-      }
-      return videoContent
+      let videoData = {
+        title: content.videos[i].title,
+        description: content.videos[i].description,
+        upload: content.videos[i].upload,
+      };
+      videoContent.push(<Video data={videoData} />);
     }
-  
-
+    return videoContent;
+  }
 
   const data = {
     thumbnail: ThumbNail,
@@ -93,12 +96,11 @@ function TeacherClass(props) {
   return (
     <div>
       <Container maxWidth="xl">
-        
         <VideoAssignment setVideoVisibility={setVideoVisibility} />
-        {videoVisibility 
-        && 
-        <VideoFill setVideoVisibility={setVideoVisibility} />}
-        
+        {videoVisibility && (
+          <VideoFill setVideoVisibility={setVideoVisibility} />
+        )}
+
         {visibility.videos && (
           <Box mb={10}>
             <Typography variant="h4" sx={{ margin: "1em" }} component="h2">

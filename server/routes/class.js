@@ -33,16 +33,13 @@ router.patch("/add/video", async (req, res) => {
     .updateOne(
       { email: req.body.email, "courses.code": req.body.class },
       {
-     
-                $push:{
-                "courses.$.videos": {
-                  title: req.body.title,
-                  description: req.body.description,
-                  upload: req.body.upload
-                }
-            
-           
+        $push: {
+          "courses.$.videos": {
+            title: req.body.title,
+            description: req.body.description,
+            upload: req.body.upload,
           },
+        },
       }
     )
     .then(() => {
@@ -51,20 +48,19 @@ router.patch("/add/video", async (req, res) => {
 });
 
 router.post("/get/info", async (req, res) => {
-  let resData
+  let resData;
   userSchema
     .findOne({ email: req.body.email, "courses.code": req.body.class })
     .then((data) => {
-      for(let i=0;i<data.courses.length;i++){
-        if(data.courses[i].code===req.body.class){
-          resData=data.courses[i];
-          break
+      for (let i = 0; i < data.courses.length; i++) {
+        if (data.courses[i].code === req.body.class) {
+          resData = data.courses[i];
+          break;
         }
       }
       res.send(resData);
     });
-})
-
+});
 
 router.post("/data", async (req, res) => {
   userSchema.findOne({ email: req.body.email }).then((data) => {

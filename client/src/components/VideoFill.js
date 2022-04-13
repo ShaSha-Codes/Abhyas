@@ -7,14 +7,13 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import axios from "axios";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import bcryptjs from "bcryptjs";
 import { Context } from "../context/FormOpen";
 import { app, storage } from "../config/firebaseConfig";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { nanoid } from "nanoid";
 import { ReactSession } from "react-client-session";
-
 
 export default function Videofill(props) {
   ReactSession.setStoreType("sessionStorage");
@@ -23,8 +22,8 @@ export default function Videofill(props) {
     description: "",
     upload: "",
   });
-  let {code}=useParams()
-  console.log(code)
+  let { code } = useParams();
+  console.log(code);
   const handleForm = (event) => {
     setVideoData((prevFormData) => {
       return {
@@ -51,36 +50,23 @@ export default function Videofill(props) {
       (err) => {
         console.log(err);
       },
-      
+
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-          await  axios
-          .patch("http://localhost:3000/class/add/video", {
-            email: ReactSession.get("data").email,
-            title: videoData.title,
-            description: videoData.description,
-            upload: downloadURL,
-            class: code
-          })
-          .then((res) => {
-            console.log(res);
-          });
-        })
+          await axios
+            .patch("http://localhost:3000/class/add/video", {
+              email: ReactSession.get("data").email,
+              title: videoData.title,
+              description: videoData.description,
+              upload: downloadURL,
+              class: code,
+            })
+            .then((res) => {
+              console.log(res);
+            });
+        });
       }
-
-
-
-
-
-
-
-    )
-   
-
-
-
-
-
+    );
   };
 
   return (

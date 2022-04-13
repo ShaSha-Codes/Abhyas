@@ -52,7 +52,6 @@ function TeacherDashboard(props) {
         );
       });
     });
- 
   }, [visibilityClassForm]);
 
   //Functions

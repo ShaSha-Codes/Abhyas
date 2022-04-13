@@ -14,7 +14,13 @@ function VideoAssignment(props) {
           variant="contained"
           aria-label="outlined primary button group"
         >
-          <Button onClick={()=>props.setVideoVisibility(prevVideoVisibility=>!prevVideoVisibility)}>
+          <Button
+            onClick={() =>
+              props.setVideoVisibility(
+                (prevVideoVisibility) => !prevVideoVisibility
+              )
+            }
+          >
             <VideoCallIcon fontSize="large" />
             Video
           </Button>
