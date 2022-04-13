@@ -15,16 +15,29 @@ function VideoAssignment(props) {
           aria-label="outlined primary button group"
         >
           <Button
-            onClick={() =>
-              props.setVideoVisibility(
-                (prevVideoVisibility) => !prevVideoVisibility
-              )
-            }
+            onClick={() => {
+              return (
+                props.setVideoVisibility(
+                  (prevVideoVisibility) => !prevVideoVisibility
+                ),
+                props.setAssignmentVisibility(false)
+              );
+            }}
           >
             <VideoCallIcon fontSize="large" />
             Video
           </Button>
-          <Button>
+
+          <Button
+            onClick={() => {
+              return (
+                props.setAssignmentVisibility(
+                  (prevAssignmentVisibility) => !prevAssignmentVisibility
+                ),
+                props.setVideoVisibility(false)
+              );
+            }}
+          >
             <AssignmentIcon fontSize="large" />
             Assignment
           </Button>

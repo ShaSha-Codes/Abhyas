@@ -13,6 +13,7 @@ import QuizIcon from "@mui/icons-material/Quiz";
 import LiveButton from "./LiveButton";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
 import VideoFill from "./VideoFill";
+import AssignmentFill from "./AssignmentFill";
 import { ReactSession } from "react-client-session";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -22,8 +23,9 @@ function TeacherClass(props) {
   let { code } = useParams();
 
   const visibility = props.visibility;
-  const [videoVisibility,setVideoVisibility] = React.useState(true);
-  const [content,setContent] = React.useState({videos:[]});
+  const [videoVisibility, setVideoVisibility] = React.useState(false);
+  const [assignmentVisibility, setAssignmentVisibility] = React.useState(false);
+  const [content, setContent] = React.useState({ videos: [] });
 
   React.useEffect(async () => {
     let newContent = await axios.post("http://localhost:3000/class/get/info", {
@@ -92,9 +94,15 @@ function TeacherClass(props) {
   return (
     <div>
       <Container maxWidth="xl">
-        <VideoAssignment setVideoVisibility={setVideoVisibility} />
+        <VideoAssignment
+          setVideoVisibility={setVideoVisibility}
+          setAssignmentVisibility={setAssignmentVisibility}
+        />
         {videoVisibility && (
           <VideoFill setVideoVisibility={setVideoVisibility} />
+        )}
+        {assignmentVisibility && (
+          <AssignmentFill setAssignment={setAssignmentVisibility} />
         )}
 
         {visibility.videos && (
