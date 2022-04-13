@@ -15,6 +15,17 @@ var certificateRouter = require("./routes/certificate");
 var usersRouter = require("./routes/users");
 
 var app = express();
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
+
+io.on('connection', (socket)=> {
+      console.log('User Online');
+
+      socket.on('canvas-data', (data)=> {
+            socket.broadcast.emit('canvas-data', data);
+            
+      })
+})
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

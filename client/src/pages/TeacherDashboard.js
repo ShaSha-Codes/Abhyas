@@ -18,7 +18,6 @@ var GeoPattern = require("geopattern");
 function TeacherDashboard(props) {
   ReactSession.setStoreType("sessionStorage");
   let navigate = useNavigate();
-<<<<<<< HEAD
   // React.useEffect(() => {
   //   if (props.checker) {
   //     navigate("/");
@@ -30,13 +29,6 @@ function TeacherDashboard(props) {
 
 
 
-=======
-  React.useEffect(() => {
-    if (props.checker) {
-      navigate("/");
-    }
-  });
->>>>>>> 52980fbdc9bb54a477f3c53c45b56d482d01c332
 
   //State Variable
   const [visibilityClassForm, setVisibilityClassForm] = React.useState(false);

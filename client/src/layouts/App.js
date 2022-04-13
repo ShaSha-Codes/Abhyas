@@ -11,12 +11,13 @@ import StudentClass from "../pages/StudentClass";
 import TeacherDashboard from "../pages/TeacherDashboard";
 import AddQuestions from "../pages/AddQuestions";
 import Certificate from "../components/Certificate";
+import Container from "../components/container/Container";
 import { ReactSession } from "react-client-session";
+
 
 export default function App(props) {
   ReactSession.setStoreType("sessionStorage");
 
-<<<<<<< HEAD
   // function checker(type){
     // console.log(ReactSession.get("data").type!=="");
  
@@ -29,27 +30,6 @@ export default function App(props) {
   //     return false
   //   }
   // }
-=======
-  function checker(type) {
-    // console.log(ReactSession.get("data").type!=="");
-    console.log(ReactSession.get("data").type);
-    console.log(type);
-    if (
-      ReactSession.get("data") === undefined ||
-      ReactSession.get("data") === ""
-    ) {
-      return true;
-    } else if (
-      ReactSession.get("data").type !== "" &&
-      ReactSession.get("data").type !== type
-    ) {
-      return true;
-    } else {
-      console.log("BUT WHY");
-      return false;
-    }
-  }
->>>>>>> 52980fbdc9bb54a477f3c53c45b56d482d01c332
 
   // React router here
   return (
@@ -67,26 +47,16 @@ export default function App(props) {
           <Route path="videofill" element={<VideoFill />} />
           <Route
             path="marketplace"
-<<<<<<< HEAD
             // checker={checker("student")}
             element={<Dashboard component={<MarketPlace />}  />}
-=======
-            checker={checker("student")}
-            element={<Dashboard component={<MarketPlace />} />}
->>>>>>> 52980fbdc9bb54a477f3c53c45b56d482d01c332
           />
           <Route path="studentclass" element={<StudentClass />} />
           <Route path="questions" element={<AddQuestions />} />
           <Route path="/certificate/:cred" element={<Certificate />} />
         </Route>
-<<<<<<< HEAD
         <Route path="/teacher" element={<TeacherDashboard />} />
-=======
-        <Route
-          path="/teacher"
-          element={<TeacherDashboard checker={checker("teacher")} />}
-        />
->>>>>>> 52980fbdc9bb54a477f3c53c45b56d482d01c332
+        <Route path="/container" element={<Container />} />
+        
       </Routes>
     </Provider>
   );
