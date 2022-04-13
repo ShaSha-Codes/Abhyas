@@ -22,13 +22,8 @@ function TeacherClass(props) {
   let { code } = useParams();
 
   const visibility = props.visibility;
-<<<<<<< HEAD
   const [videoVisibility,setVideoVisibility] = React.useState(true);
   const [content,setContent] = React.useState({videos:[]});
-=======
-  const [videoVisibility, setVideoVisibility] = React.useState(true);
-  const [content, setContent] = React.useState([]);
->>>>>>> a4d803f51a5d8bce4279ac2aba59253134bd6175
 
   React.useEffect(async () => {
     let newContent = await axios.post("http://localhost:3000/class/get/info", {
@@ -47,6 +42,7 @@ function TeacherClass(props) {
         title: content.videos[i].title,
         description: content.videos[i].description,
         upload: content.videos[i].upload,
+        number:i
       };
       videoContent.push(<Video data={videoData} />);
     }

@@ -57,7 +57,7 @@ export default function App(props) {
         </Route>
 
         <Route path="/container" element={<Container />} />
-        <Route path="/watchvideo" element={<WatchVideo />} />
+        <Route path="/watchvideo/:code" element={<WatchVideo />} />
         <Route
           path="/teacher"
           element={<TeacherDashboard checker={() => checker("teacher")} />}

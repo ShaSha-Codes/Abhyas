@@ -6,13 +6,18 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 
 function Video(props) {
+  let { code } = useParams();
+
+
   const { upload, title, description } = props.data;
 
   const navigate = useNavigate();
   const videoClicked = React.useCallback(
-    () => navigate("/watchvideo", { replace: true }),
+    () => navigate("/watchvideo/"+code+props.data.number, { replace: true }),
     [navigate]
   );
   return (
