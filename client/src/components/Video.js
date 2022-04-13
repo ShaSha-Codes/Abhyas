@@ -7,18 +7,18 @@ import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 
 function Video(props) {
-  const { thumbnail, title, desc } = props.data;
+  const { upload, title, description } = props.data;
   return (
     <Grid item xs={12} sm={12} md={6} lg={4}>
       <Card padding={5}>
         <Box p={1}>
-          <CardMedia component="img" height="100%" image={thumbnail} />
+          <CardMedia component="video" height="100%" image={upload} />
           <CardContent>
             <Typography variant="h6" component="p">
               {title}
             </Typography>
             <Typography variant="subtitle2" component="p">
-              {desc}
+              {description}
             </Typography>
           </CardContent>
         </Box>

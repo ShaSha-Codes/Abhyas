@@ -7,18 +7,24 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import axios from "axios";
+import { useParams} from "react-router-dom";
 import bcryptjs from "bcryptjs";
 import { Context } from "../context/FormOpen";
 import { app, storage } from "../config/firebaseConfig";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { nanoid } from "nanoid";
+import { ReactSession } from "react-client-session";
 
-export default function Videofill() {
+
+export default function Videofill(props) {
+  ReactSession.setStoreType("sessionStorage");
   const [videoData, setVideoData] = React.useState({
     title: "",
     description: "",
     upload: "",
   });
-
+  let {code}=useParams()
+  console.log(code)
   const handleForm = (event) => {
     setVideoData((prevFormData) => {
       return {
@@ -31,10 +37,10 @@ export default function Videofill() {
     });
   };
 
-  const handleSubmit = (event) => {
-    const storageRef = ref(storage, `videos/${videoData.upload.name}`);
+  const handleSubmit = async (event) => {
+    const storageRef = ref(storage, `videos/${nanoid(8)}`);
     const uploadTask = uploadBytesResumable(storageRef, videoData.upload);
-    uploadTask.on(
+    await uploadTask.on(
       "state_changed",
       (snapshot) => {
         const progress =
@@ -45,13 +51,36 @@ export default function Videofill() {
       (err) => {
         console.log(err);
       },
-
+      
       () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log("File available at", downloadURL);
-        });
+        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+          await  axios
+          .patch("http://localhost:3000/class/add/video", {
+            email: ReactSession.get("data").email,
+            title: videoData.title,
+            description: videoData.description,
+            upload: downloadURL,
+            class: code
+          })
+          .then((res) => {
+            console.log(res);
+          });
+        })
       }
-    );
+
+
+
+
+
+
+
+    )
+   
+
+
+
+
+
   };
 
   return (

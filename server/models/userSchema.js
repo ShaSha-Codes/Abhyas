@@ -19,7 +19,7 @@ const UserSchema = new mongoose.Schema({
       code: String,
       name: String,
       description: String,
-      videos: [{ name: String }],
+      videos: [{ title: String,description: String, upload: String }],
       assignments: [{ name: String }],
       quiz: [{ name: String }],
     },

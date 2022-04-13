@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import AssignmentIcon from "@mui/icons-material/AssignmentReturned";
 
-function VideoAssignment() {
+function VideoAssignment(props) {
   return (
     <Box sx={{ textAlign: "center" }}>
       <Typography variant="h5" sx={{ margin: "1em" }} component="h2">
@@ -14,7 +14,7 @@ function VideoAssignment() {
           variant="contained"
           aria-label="outlined primary button group"
         >
-          <Button>
+          <Button onClick={()=>props.setVideoVisibility(prevVideoVisibility=>!prevVideoVisibility)}>
             <VideoCallIcon fontSize="large" />
             Video
           </Button>

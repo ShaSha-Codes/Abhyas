@@ -39,7 +39,6 @@ function TeacherDashboard(props) {
       email: ReactSession.get("data").email,
     });
     tempData = tempData.data;
-
     setClassData(() => {
       return tempData.map((item) => {
         return (
@@ -53,20 +52,7 @@ function TeacherDashboard(props) {
         );
       });
     });
-    tempData = tempData.data;
-
-    setClassData(() => {
-      return tempData.map((item) => {
-        return (
-          <Class
-            key={item.code}
-            title={item.name}
-            description={item.description}
-            code={item.code}
-          />
-        );
-      });
-    });
+ 
   }, [visibilityClassForm]);
 
   //Functions
