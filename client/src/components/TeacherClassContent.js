@@ -44,7 +44,7 @@ function TeacherClass(props) {
         title: content.videos[i].title,
         description: content.videos[i].description,
         upload: content.videos[i].upload,
-        number:i
+        number: i,
       };
       videoContent.push(<Video data={videoData} />);
     }
