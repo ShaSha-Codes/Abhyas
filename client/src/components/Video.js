@@ -5,12 +5,19 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
+import { useNavigate } from "react-router-dom";
 
 function Video(props) {
   const { upload, title, description } = props.data;
+
+  const navigate = useNavigate();
+  const videoClicked = React.useCallback(
+    () => navigate("/watchvideo", { replace: true }),
+    [navigate]
+  );
   return (
     <Grid item xs={12} sm={12} md={6} lg={4}>
-      <Card padding={5}>
+      <Card padding={5} onClick={videoClicked}>
         <Box p={1}>
           <CardMedia component="video" height="100%" image={upload} />
           <CardContent>

@@ -14,6 +14,7 @@ import AddQuestions from "../pages/AddQuestions";
 import Certificate from "../components/Certificate";
 import Container from "../components/container/Container";
 import { ReactSession } from "react-client-session";
+import WatchVideo from "../components/WatchVideo";
 
 export default function App(props) {
   ReactSession.setStoreType("sessionStorage");
@@ -56,7 +57,7 @@ export default function App(props) {
         </Route>
 
         <Route path="/container" element={<Container />} />
-
+        <Route path="/watchvideo" element={<WatchVideo />} />
         <Route
           path="/teacher"
           element={<TeacherDashboard checker={() => checker("teacher")} />}
