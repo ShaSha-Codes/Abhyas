@@ -9,6 +9,7 @@ import MarketPlace from "../pages/Marketplace";
 import Provider from "../context/FormOpen";
 import StudentClass from "../pages/StudentClass";
 import TeacherDashboard from "../pages/TeacherDashboard";
+import TeacherClass from "../pages/TeacherClass";
 import AddQuestions from "../pages/AddQuestions";
 import Certificate from "../components/Certificate";
 import Container from "../components/container/Container";
@@ -17,19 +18,20 @@ import { ReactSession } from "react-client-session";
 
 export default function App(props) {
   ReactSession.setStoreType("sessionStorage");
-
-  // function checker(type){
-    // console.log(ReactSession.get("data").type!=="");
- 
-  //   if(ReactSession.get("data") === undefined || ReactSession.get("data") === ""){
-  //     return true
-  //   }else if(ReactSession.get("data").type!=="" &&  ReactSession.get("data").type!==type){
-  //     return true
-  //   }else{
-  //     console.log("BUT WHY")
-  //     return false
-  //   }
-  // }
+  function checker(type) {
+    if (
+      ReactSession.get("data") === undefined ||
+      ReactSession.get("data") === ""
+    ) {
+      return true;
+    }
+    if (type === "") {
+      return false;
+    }
+    if (ReactSession.get("data").type !== type) {
+      return true;
+    }
+  }
 
   // React router here
   return (
@@ -47,16 +49,20 @@ export default function App(props) {
           <Route path="videofill" element={<VideoFill />} />
           <Route
             path="marketplace"
-            // checker={checker("student")}
-            element={<Dashboard component={<MarketPlace />}  />}
+            element={<Dashboard component={<MarketPlace />} />}
           />
           <Route path="studentclass" element={<StudentClass />} />
           <Route path="questions" element={<AddQuestions />} />
           <Route path="/certificate/:cred" element={<Certificate />} />
         </Route>
-        <Route path="/teacher" element={<TeacherDashboard />} />
+       
         <Route path="/container" element={<Container />} />
         
+        <Route
+          path="/teacher"
+          element={<TeacherDashboard checker={() => checker("teacher")} />}
+        />
+        <Route path="/teacher/class/:code" element={<TeacherClass />} />
       </Routes>
     </Provider>
   );

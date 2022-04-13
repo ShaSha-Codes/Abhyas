@@ -5,10 +5,6 @@ var userSchema = require("../models/userSchema");
 /* GET home page. */
 
 router.patch("/add", async (req, res) => {
-  console.log(req.body.email);
-  console.log(req.body.description);
-  console.log(req.body.title);
-  console.log(req.body.code);
   userSchema
     .updateOne(
       { email: req.body.email },
@@ -25,6 +21,12 @@ router.patch("/add", async (req, res) => {
     .then(() => {
       res.send("success");
     });
+});
+
+router.post("/data", async (req, res) => {
+  userSchema.findOne({ email: req.body.email }).then((data) => {
+    res.send(data.courses);
+  });
 });
 
 module.exports = router;

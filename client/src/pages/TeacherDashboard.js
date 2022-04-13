@@ -18,25 +18,56 @@ var GeoPattern = require("geopattern");
 function TeacherDashboard(props) {
   ReactSession.setStoreType("sessionStorage");
   let navigate = useNavigate();
-  // React.useEffect(() => {
-  //   if (props.checker) {
-  //     navigate("/");
-  //   }
-  // },);
 
-
-
-
-
-
+  React.useEffect(() => {
+    if (props.checker()) {
+      navigate("/");
+    }
+  });
 
   //State Variable
   const [visibilityClassForm, setVisibilityClassForm] = React.useState(false);
   const [classAddForm, setClassAddForm] = React.useState({
     title: "",
     description: "",
-    code: "",
+    code: nanoid(8),
   });
+  const [classData, setClassData] = React.useState([]);
+
+  React.useEffect(async () => {
+    let tempData = await axios.post("http://localhost:3000/class/data", {
+      email: ReactSession.get("data").email,
+    });
+    tempData = tempData.data;
+
+    setClassData(() => {
+      return tempData.map((item) => {
+        return (
+          <Class
+            key={item.code}
+            type={"teacher"}
+            title={item.name}
+            description={item.description}
+            code={item.code}
+          />
+        );
+      });
+    });
+    tempData = tempData.data;
+
+    setClassData(() => {
+      return tempData.map((item) => {
+        return (
+          <Class
+            key={item.code}
+            title={item.name}
+            description={item.description}
+            code={item.code}
+          />
+        );
+      });
+    });
+  }, [visibilityClassForm]);
 
   //Functions
   function handleFormData(event) {
@@ -47,7 +78,7 @@ function TeacherDashboard(props) {
       };
     });
   }
-
+  console.log("Testing");
   async function submitForm() {
     await setClassAddForm((prevClassForm) => {
       return {
@@ -62,6 +93,7 @@ function TeacherDashboard(props) {
       })
       .then((res) => {
         console.log(res);
+        setVisibilityClassForm(false);
       });
   }
 
@@ -115,10 +147,7 @@ function TeacherDashboard(props) {
       <br />
       <div className="gridContainer">
         <Grid Grid container spacing={3} mt={1} justify="center">
-          <Class title={"Class1"} />
-          <Class title={"Class2"} />
-          <Class title={"Class3"} />
-          <Class title={"Class4"} />
+          {classData}
         </Grid>
       </div>
     </>

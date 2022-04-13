@@ -13,6 +13,7 @@ import QuizIcon from "@mui/icons-material/Quiz";
 import VideoUpload from "./VideoUpload";
 import LiveButton from "./LiveButton";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
+import VideoFill from "./VideoFill";
 
 function TeacherClass(props) {
   const visibility = props.visibility;
@@ -62,6 +63,14 @@ function TeacherClass(props) {
       <Container maxWidth="xl">
         <VideoUpload />
         <VideoAssignment />
+        <VideoFill />
+        <video width="320" height="240" controls>
+          <source
+            src="https://firebasestorage.googleapis.com/v0/b/abhyas-4663e.appspot.com/o/videos%2FPallas%20Cat%20discovers%20camera.mp4?alt=media&token=4f3d1612-7bc3-43cf-8f25-1dea908a6463"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
         {visibility.videos && (
           <Box mb={10}>
             <Typography variant="h4" sx={{ margin: "1em" }} component="h2">

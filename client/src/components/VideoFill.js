@@ -9,6 +9,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import axios from "axios";
 import bcryptjs from "bcryptjs";
 import { Context } from "../context/FormOpen";
+import { app, storage } from "../config/firebaseConfig";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 export default function Videofill() {
   const [videoData, setVideoData] = React.useState({
@@ -19,8 +21,37 @@ export default function Videofill() {
 
   const handleForm = (event) => {
     setVideoData((prevFormData) => {
-      return { ...prevFormData, [event.target.name]: event.target.value };
+      return {
+        ...prevFormData,
+        [event.target.name]:
+          event.target.type === "file"
+            ? event.target.files[0]
+            : event.target.value,
+      };
     });
+  };
+
+  const handleSubmit = (event) => {
+    const storageRef = ref(storage, `videos/${videoData.upload.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, videoData.upload);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+      },
+
+      (err) => {
+        console.log(err);
+      },
+
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log("File available at", downloadURL);
+        });
+      }
+    );
   };
 
   return (
@@ -51,10 +82,13 @@ export default function Videofill() {
               id="outlined-basic"
               variant="outlined"
               type="file"
-              value={videoData.upload}
               name="upload"
               onChange={handleForm}
+              inputProps={{ accept: ".mp4, .mov, .wmv, .avi, .avchd, .mkv" }}
             />
+            <Button variant="contained" onClick={handleSubmit}>
+              Submit
+            </Button>
           </Stack>
         </form>
       </div>
