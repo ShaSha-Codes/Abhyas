@@ -65,7 +65,7 @@ export default function Videofill(props) {
 
   return (
     <>
-      <div className="videoform">
+      <div className="assignmentform">
         <form>
           <Stack spacing={2}>
             <TextField
@@ -86,7 +86,7 @@ export default function Videofill(props) {
               name="description"
               onChange={handleForm}
             />
-            <label className="label">Upload:</label>
+            <label className="label">Notes  :</label>
             <TextField
               id="outlined-basic"
               variant="outlined"
