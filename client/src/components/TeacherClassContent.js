@@ -23,9 +23,9 @@ function TeacherClass(props) {
   let { code } = useParams();
 
   const visibility = props.visibility;
-  const [videoVisibility,setVideoVisibility] = React.useState(false);
-  const [assignmentVisibility,setAssignmentVisibility] = React.useState(false);
-  const [content,setContent] = React.useState({videos:[]});
+  const [videoVisibility, setVideoVisibility] = React.useState(false);
+  const [assignmentVisibility, setAssignmentVisibility] = React.useState(false);
+  const [content, setContent] = React.useState({ videos: [] });
 
   React.useEffect(async () => {
     let newContent = await axios.post("http://localhost:3000/class/get/info", {
@@ -93,7 +93,10 @@ function TeacherClass(props) {
   return (
     <div>
       <Container maxWidth="xl">
-        <VideoAssignment setVideoVisibility={setVideoVisibility} setAssignmentVisibility={setAssignmentVisibility} />
+        <VideoAssignment
+          setVideoVisibility={setVideoVisibility}
+          setAssignmentVisibility={setAssignmentVisibility}
+        />
         {videoVisibility && (
           <VideoFill setVideoVisibility={setVideoVisibility} />
         )}

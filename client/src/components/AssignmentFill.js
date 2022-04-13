@@ -86,7 +86,7 @@ export default function Videofill(props) {
               name="description"
               onChange={handleForm}
             />
-            <label className="label">Notes  :</label>
+            <label className="label">Notes :</label>
             <TextField
               id="outlined-basic"
               variant="outlined"
