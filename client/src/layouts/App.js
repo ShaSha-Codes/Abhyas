@@ -15,6 +15,7 @@ import Certificate from "../components/Certificate";
 import Container from "../components/container/Container";
 import { ReactSession } from "react-client-session";
 import WatchVideo from "../components/WatchVideo";
+import AssignmentContent from "../components/AssignmentContent";
 
 export default function App(props) {
   ReactSession.setStoreType("sessionStorage");
@@ -58,6 +59,7 @@ export default function App(props) {
 
         <Route path="/container" element={<Container />} />
         <Route path="/watchvideo/:code" element={<WatchVideo />} />
+        <Route path="/assignment" element={<AssignmentContent />} />
         <Route
           path="/teacher"
           element={<TeacherDashboard checker={() => checker("teacher")} />}
