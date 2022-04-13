@@ -26,7 +26,7 @@ function TeacherClass(props) {
 
   const visibility = props.visibility;
   const [videoVisibility,setVideoVisibility] = React.useState(true);
-  const [content,setContent] = React.useState([]);
+  const [content,setContent] = React.useState({videos:[]});
 
 
   React.useEffect(async ()=>{
