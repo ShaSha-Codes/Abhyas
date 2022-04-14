@@ -5,6 +5,8 @@ import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Assignment(props) {
   const { type, title, desc, icon } = props.data;
@@ -15,6 +17,11 @@ function Assignment(props) {
       },
     },
   });
+  const navigate = useNavigate();
+  const AssignmentClicked = React.useCallback(
+    () => navigate("/assignment", { replace: true }),
+    [navigate]
+  );
   return (
     <Grid item xs={12} smd={12} mdlg={12} lg={6}>
       <Card sx={{ minHeight: "160px", minWidth: "300px", maxWidth: "600px" }}>
@@ -29,7 +36,11 @@ function Assignment(props) {
             <Typography variant="subtitle2" component="h5">
               {desc}
             </Typography>
-            <Button sx={{ marginTop: "20px" }} variant="outlined">
+            <Button
+              sx={{ marginTop: "20px" }}
+              variant="outlined"
+              onClick={AssignmentClicked}
+            >
               View
             </Button>
           </Box>
