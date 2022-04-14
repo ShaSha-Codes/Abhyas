@@ -11,82 +11,88 @@ import axios from "axios";
 import { ReactSession } from "react-client-session";
 import { useParams } from "react-router-dom";
 
-
 export default function AddQuestions() {
   ReactSession.setStoreType("sessionStorage");
   let { code } = useParams();
   const [numberOfQuestions, setNumberOfQuestions] = React.useState(1);
-  const [metaData,setMetaData]=React.useState({
-    title:"",
-    description:""
-  })
-  const [questionData,setQuestionData]=React.useState([{ 
-    question:"",
-    option1:"",
-    option2:"",
-    option3:"",
-    option4:"",
-    answer:""
-  } ])
+  const [metaData, setMetaData] = React.useState({
+    title: "",
+    description: "",
+  });
+  const [questionData, setQuestionData] = React.useState([
+    {
+      question: "",
+      option1: "",
+      option2: "",
+      option3: "",
+      option4: "",
+      answer: "",
+    },
+  ]);
 
-  function metaDataChanger(event){
-    setMetaData((prevMetaData)=>{
-      return {...prevMetaData,[event.target.name]:event.target.value}
-    })
+  function metaDataChanger(event) {
+    setMetaData((prevMetaData) => {
+      return { ...prevMetaData, [event.target.name]: event.target.value };
+    });
   }
 
-
-  React.useEffect(()=>{
-    if(questionData.length<=numberOfQuestions){
-      let tempData=[...questionData]
-      for(let i=questionData.length;i<numberOfQuestions;i++){
-        tempData.push({ 
-          question:"",
-          option1:"",
-          option2:"",
-          option3:"",
-          option4:"",
-          answer:""
-        })
+  React.useEffect(() => {
+    if (questionData.length <= numberOfQuestions) {
+      let tempData = [...questionData];
+      for (let i = questionData.length; i < numberOfQuestions; i++) {
+        tempData.push({
+          question: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer: "",
+        });
       }
-      setQuestionData(tempData)
-    }else{
-      let tempData=[]
-      for(let i=0;i<numberOfQuestions;i++){
-        tempData.push(questionData[i])
+      setQuestionData(tempData);
+    } else {
+      let tempData = [];
+      for (let i = 0; i < numberOfQuestions; i++) {
+        tempData.push(questionData[i]);
       }
-      setQuestionData(tempData)
+      setQuestionData(tempData);
     }
-    },[numberOfQuestions])
-  
+  }, [numberOfQuestions]);
 
-  console.log(questionData)
+  console.log(questionData);
 
-
-  function handleNumberOfQuestions(event){
-    setNumberOfQuestions(event.target.value)
+  function handleNumberOfQuestions(event) {
+    setNumberOfQuestions(event.target.value);
   }
 
-  function questionMaker(){
-    let questions=[]
-    for(let i=0;i<numberOfQuestions;i++){
-      questions.push(<QuestionInput key={i} index={i} questionData={questionData} setQuestionData={setQuestionData}/>)
+  function questionMaker() {
+    let questions = [];
+    for (let i = 0; i < numberOfQuestions; i++) {
+      questions.push(
+        <QuestionInput
+          key={i}
+          index={i}
+          questionData={questionData}
+          setQuestionData={setQuestionData}
+        />
+      );
     }
-    return questions
+    return questions;
   }
 
-  function submitData(){
-    axios.patch("http://localhost:3000/class/add/quiz",{
-      ...metaData,
-      quiz:questionData,
-      code:nanoid(8),
-      class:code,
-      email:ReactSession.get("data").email
-    }).then(res=>console.log(res))
+  function submitData() {
+    axios
+      .patch("http://localhost:3000/class/add/quiz", {
+        ...metaData,
+        quiz: questionData,
+        code: nanoid(8),
+        class: code,
+        email: ReactSession.get("data").email,
+      })
+      .then((res) => console.log(res));
   }
 
-
-  console.log(numberOfQuestions)
+  console.log(numberOfQuestions);
   return (
     <div>
       <Navbabr />
@@ -100,10 +106,10 @@ export default function AddQuestions() {
         type="number"
         onChange={handleNumberOfQuestions}
       />
-      <br/>
-      <br/>
-       <TextField
-        sx={{width:"600px", marginTop: "5px", marginLeft: "20px" }}
+      <br />
+      <br />
+      <TextField
+        sx={{ width: "600px", marginTop: "5px", marginLeft: "20px" }}
         label="Title"
         placeholder="Enter Title"
         variant="outlined"
@@ -111,11 +117,12 @@ export default function AddQuestions() {
         onChange={metaDataChanger}
         name="title"
       />
-      <br/>
-      <br/>
+      <br />
+      <br />
       <TextField
-      multiline rows={3}
-        sx={{width:"600px" ,marginTop: "5px", marginLeft: "20px" }}
+        multiline
+        rows={3}
+        sx={{ width: "600px", marginTop: "5px", marginLeft: "20px" }}
         label="Description"
         placeholder="Enter Description"
         variant="outlined"
@@ -124,10 +131,13 @@ export default function AddQuestions() {
         onChange={metaDataChanger}
       />
       {questionMaker()}
-      <Stack sx={{marginTop:"20px"}} alignItems={"center"}>
-        <Button onClick={submitData} sx={{width:"70%"}} variant="contained">Submit</Button>
+      <Stack sx={{ marginTop: "20px" }} alignItems={"center"}>
+        <Button onClick={submitData} sx={{ width: "70%" }} variant="contained">
+          Submit
+        </Button>
       </Stack>
-      <br/><br/>
+      <br />
+      <br />
     </div>
   );
 }

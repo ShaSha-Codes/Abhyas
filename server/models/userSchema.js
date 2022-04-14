@@ -21,16 +21,23 @@ const UserSchema = new mongoose.Schema({
       description: String,
       videos: [{ title: String, description: String, upload: String }],
       assignments: [{ title: String, description: String, upload: String }],
-      quiz: [{ code:String,title: String, description: String, qa:[{
-        question: String,
-        option1:String,
-        option2:String,
-        option3:String,
-        option4:String,
-        answer:String
-      }
-        
-      ] }],
+      quiz: [
+        {
+          code: String,
+          title: String,
+          description: String,
+          qa: [
+            {
+              question: String,
+              option1: String,
+              option2: String,
+              option3: String,
+              option4: String,
+              answer: String,
+            },
+          ],
+        },
+      ],
     },
   ],
   type: {

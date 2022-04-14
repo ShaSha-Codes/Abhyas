@@ -5,14 +5,13 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import AssignmentIcon from "@mui/icons-material/AssignmentReturned";
-import QuizIcon from '@mui/icons-material/Quiz';
+import QuizIcon from "@mui/icons-material/Quiz";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
 
 function VideoAssignment(props) {
   let navigate = useNavigate();
   let { code } = useParams();
-
 
   return (
     <Box sx={{ textAlign: "center" }}>
@@ -35,17 +34,14 @@ function VideoAssignment(props) {
             Video
           </Button>
 
-
-
           <Button
-            onClick={() => {navigate("/teacher/questions/"+code)}}
+            onClick={() => {
+              navigate("/teacher/questions/" + code);
+            }}
           >
             <QuizIcon fontSize="large" />
             &nbsp;Quiz
           </Button>
-
-
-
 
           <Button
             onClick={() => {

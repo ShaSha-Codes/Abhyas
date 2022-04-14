@@ -5,27 +5,25 @@ import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 import CardContent from "@mui/material/CardContent";
 
-
 export default function QuestionInput(props) {
-  const {questionData, setQuestionData,index} = props
-  console.log(questionData)
+  const { questionData, setQuestionData, index } = props;
+  console.log(questionData);
 
-
-  function handleChange(event){
-    let tempData=[]
-    for(let i=0;i<questionData.length;i++){
-      if(i===index){
+  function handleChange(event) {
+    let tempData = [];
+    for (let i = 0; i < questionData.length; i++) {
+      if (i === index) {
         tempData.push({
-          ...questionData[i],[event.target.name]:event.target.value
-        })
+          ...questionData[i],
+          [event.target.name]: event.target.value,
+        });
+      } else {
+        tempData.push(questionData[i]);
       }
-      else{
-        tempData.push(questionData[i])
-      }
-      setQuestionData(tempData)
+      setQuestionData(tempData);
     }
   }
-  const card = ()=>(
+  const card = () => (
     <React.Fragment>
       <CardContent>
         <Stack spacing={2}>
@@ -34,9 +32,10 @@ export default function QuestionInput(props) {
             label="Question"
             variant="outlined"
             name="question"
-            value={questionData[index].question?questionData[index].question:""}
+            value={
+              questionData[index].question ? questionData[index].question : ""
+            }
             onChange={handleChange}
-          
           />
           <TextField
             sx={{ marginTop: "5px" }}
@@ -70,7 +69,7 @@ export default function QuestionInput(props) {
             value={questionData[index].option4}
             onChange={handleChange}
           />
-           <TextField
+          <TextField
             sx={{ marginTop: "5px" }}
             label="Answer"
             variant="outlined"
@@ -88,7 +87,9 @@ export default function QuestionInput(props) {
       className="center-div"
       sx={{ minWidth: 275, maxWidth: "75%", marginTop: 5 }}
     >
-      <Card variant="outlined">{questionData[index]!==undefined?card():""}</Card>
+      <Card variant="outlined">
+        {questionData[index] !== undefined ? card() : ""}
+      </Card>
     </Box>
   );
 }
