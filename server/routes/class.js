@@ -47,6 +47,55 @@ router.patch("/add/video", async (req, res) => {
     });
 });
 
+router.patch("/add/assignment", async (req, res) => {
+  console.log(req.body.class);
+  console.log(req.body.email);
+  console.log(req.body.title);
+  console.log(req.body.description);
+  console.log(req.body.upload);
+  userSchema
+    .updateOne(
+      { email: req.body.email, "courses.code": req.body.class },
+      {
+        $push: {
+          "courses.$.assignments": {
+            title: req.body.title,
+            description: req.body.description,
+            upload: req.body.upload,
+          },
+        },
+      }
+    )
+    .then(() => {
+      res.send("success Assignments saved on MongoDB");
+    });
+});
+
+router.patch("/add/quiz", async (req, res) => {
+  console.log(req.body.code);
+  console.log(req.body.title);
+  console.log(req.body.description);
+  console.log(req.body.quiz);
+  console.log(req.body.email);
+  userSchema
+    .updateOne(
+      { email: req.body.email, "courses.code": req.body.class },
+      {
+        $push: {
+          "courses.$.quiz": {
+            code: req.body.code,
+            title: req.body.title,
+            description: req.body.description,
+            qa: req.body.quiz,
+          },
+        },
+      }
+    )
+    .then(() => {
+      res.send("success Quiz saved on MongoDB");
+    });
+});
+
 router.post("/get/info", async (req, res) => {
   let resData;
   userSchema

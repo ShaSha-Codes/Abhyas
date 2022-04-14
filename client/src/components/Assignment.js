@@ -17,10 +17,9 @@ function Assignment(props) {
       },
     },
   });
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const AssignmentClicked = React.useCallback(
-    () =>
-      navigate("/assignment", { replace: true }),
+    () => navigate("/assignment", { replace: true }),
     [navigate]
   );
   return (
@@ -37,7 +36,11 @@ function Assignment(props) {
             <Typography variant="subtitle2" component="h5">
               {desc}
             </Typography>
-            <Button sx={{ marginTop: "20px" }} variant="outlined" onClick={AssignmentClicked}>
+            <Button
+              sx={{ marginTop: "20px" }}
+              variant="outlined"
+              onClick={AssignmentClicked}
+            >
               View
             </Button>
           </Box>

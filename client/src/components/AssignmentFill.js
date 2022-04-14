@@ -31,7 +31,7 @@ export default function Videofill(props) {
   };
 
   const handleSubmit = async (event) => {
-    const storageRef = ref(storage, `videos/${nanoid(8)}`);
+    const storageRef = ref(storage, `assignments/${nanoid(8)}`);
     const uploadTask = uploadBytesResumable(storageRef, videoData.upload);
     await uploadTask.on(
       "state_changed",
@@ -48,7 +48,7 @@ export default function Videofill(props) {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
           await axios
-            .patch("http://localhost:3000/class/add/video", {
+            .patch("http://localhost:3000/class/add/assignment", {
               email: ReactSession.get("data").email,
               title: videoData.title,
               description: videoData.description,
@@ -93,7 +93,7 @@ export default function Videofill(props) {
               type="file"
               name="upload"
               onChange={handleForm}
-              inputProps={{ accept: ".mp4, .mov, .wmv, .avi, .avchd, .mkv" }}
+              // inputProps={{ accept: ".mp4, .mov, .wmv, .avi, .avchd, .mkv" }}
             />
             <Button variant="contained" onClick={handleSubmit}>
               Submit
