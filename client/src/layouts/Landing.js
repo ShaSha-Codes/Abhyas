@@ -28,7 +28,7 @@ export default function Landing() {
   }
 
   React.useEffect(() => {
-    setTimeout(() => setVisible(false), 3000);
+    setTimeout(() => setVisible(false), 2000);
   }, []);
 
   return (
