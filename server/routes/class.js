@@ -76,17 +76,17 @@ router.patch("/add/quiz", async (req, res) => {
   console.log(req.body.title);
   console.log(req.body.description);
   console.log(req.body.quiz);
-  console.log( req.body.email);
+  console.log(req.body.email);
   userSchema
     .updateOne(
       { email: req.body.email, "courses.code": req.body.class },
       {
         $push: {
           "courses.$.quiz": {
-            code:req.body.code,
+            code: req.body.code,
             title: req.body.title,
             description: req.body.description,
-            qa:req.body.quiz
+            qa: req.body.quiz,
           },
         },
       }
@@ -95,7 +95,6 @@ router.patch("/add/quiz", async (req, res) => {
       res.send("success Quiz saved on MongoDB");
     });
 });
-
 
 router.post("/get/info", async (req, res) => {
   let resData;

@@ -5,14 +5,13 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import AssignmentIcon from "@mui/icons-material/AssignmentReturned";
-import QuizIcon from '@mui/icons-material/Quiz';
+import QuizIcon from "@mui/icons-material/Quiz";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
 
 function VideoAssignment(props) {
   let navigate = useNavigate();
   let { code } = useParams();
-
 
   return (
     <Box sx={{ textAlign: "center" }}>
@@ -27,7 +26,8 @@ function VideoAssignment(props) {
                 props.setVideoVisibility(
                   (prevVideoVisibility) => !prevVideoVisibility
                 ),
-                props.setAssignmentVisibility(false)
+                props.setAssignmentVisibility(false),
+                props.setNotesVisibility(false)
               );
             }}
           >
@@ -35,17 +35,14 @@ function VideoAssignment(props) {
             Video
           </Button>
 
-
-
           <Button
-            onClick={() => {navigate("/teacher/questions/"+code)}}
+            onClick={() => {
+              navigate("/teacher/questions/" + code);
+            }}
           >
             <QuizIcon fontSize="large" />
             &nbsp;Quiz
           </Button>
-
-
-
 
           <Button
             onClick={() => {
@@ -53,12 +50,28 @@ function VideoAssignment(props) {
                 props.setAssignmentVisibility(
                   (prevAssignmentVisibility) => !prevAssignmentVisibility
                 ),
-                props.setVideoVisibility(false)
+                props.setVideoVisibility(false),
+                props.setNotesVisibility(false)
               );
             }}
           >
             <AssignmentIcon fontSize="large" />
             Assignment
+          </Button>
+
+          <Button
+            onClick={() => {
+              return (
+                props.setNotesVisibility(
+                  (prevNotesVisibility) => !prevNotesVisibility
+                ),
+                props.setVideoVisibility(false),
+                props.setAssignmentVisibility(false)
+              );
+            }}
+          >
+            <AssignmentIcon fontSize="large" />
+            Notes
           </Button>
         </ButtonGroup>
       </Typography>
