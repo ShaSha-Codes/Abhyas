@@ -176,6 +176,17 @@ footer{
     border-radius:15px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); 
 }
+.notesform{
+    display:block;
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    background-color: rgb(244, 252, 242);
+    padding:40px;
+    border-radius:15px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); 
+}
 .label{
     color: #5c5c5c;
     font-family: 'Inter', sans-serif;

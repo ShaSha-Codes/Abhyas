@@ -13,6 +13,7 @@ import QuizIcon from "@mui/icons-material/Quiz";
 import LiveButton from "./LiveButton";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
 import VideoFill from "./VideoFill";
+import NotesFill from "./NotesFill";
 import AssignmentFill from "./AssignmentFill";
 import { ReactSession } from "react-client-session";
 import { useParams } from "react-router-dom";
@@ -25,6 +26,7 @@ function TeacherClass(props) {
   const visibility = props.visibility;
   const [videoVisibility, setVideoVisibility] = React.useState(false);
   const [assignmentVisibility, setAssignmentVisibility] = React.useState(false);
+  const [notesVisibility, setNotesVisibility] = React.useState(false);
   const [content, setContent] = React.useState({ videos: [] });
 
   React.useEffect(async () => {
@@ -97,12 +99,16 @@ function TeacherClass(props) {
         <VideoAssignment
           setVideoVisibility={setVideoVisibility}
           setAssignmentVisibility={setAssignmentVisibility}
+          setNotesVisibility={setNotesVisibility} 
         />
         {videoVisibility && (
           <VideoFill setVideoVisibility={setVideoVisibility} />
         )}
         {assignmentVisibility && (
           <AssignmentFill setAssignment={setAssignmentVisibility} />
+        )}
+        {notesVisibility && (
+          <NotesFill setNotes={setNotesVisibility} />
         )}
 
         {visibility.videos && (

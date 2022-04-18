@@ -26,7 +26,8 @@ function VideoAssignment(props) {
                 props.setVideoVisibility(
                   (prevVideoVisibility) => !prevVideoVisibility
                 ),
-                props.setAssignmentVisibility(false)
+                props.setAssignmentVisibility(false),
+                props.setNotesVisibility(false)
               );
             }}
           >
@@ -49,12 +50,28 @@ function VideoAssignment(props) {
                 props.setAssignmentVisibility(
                   (prevAssignmentVisibility) => !prevAssignmentVisibility
                 ),
-                props.setVideoVisibility(false)
+                props.setVideoVisibility(false),
+                props.setNotesVisibility(false)
               );
             }}
           >
             <AssignmentIcon fontSize="large" />
             Assignment
+          </Button>
+
+          <Button
+            onClick={() => {
+              return (
+                props.setNotesVisibility(
+                  (prevNotesVisibility) => !prevNotesVisibility
+                ),
+                props.setVideoVisibility(false),
+                props.setAssignmentVisibility(false)
+              );
+            }}
+          >
+            <AssignmentIcon fontSize="large" />
+            Notes
           </Button>
         </ButtonGroup>
       </Typography>
