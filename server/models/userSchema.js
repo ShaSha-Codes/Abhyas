@@ -29,8 +29,8 @@ const UserSchema = new mongoose.Schema({
         option4:String,
         answer:String
       }
-        
       ] }],
+      users: [{ email: String, name: String }]
     },
   ],
   type: {

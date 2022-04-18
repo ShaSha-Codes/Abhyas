@@ -16,6 +16,8 @@ import Container from "../components/container/Container";
 import { ReactSession } from "react-client-session";
 import WatchVideo from "../components/WatchVideo";
 import AssignmentContent from "../components/AssignmentContent";
+import StudentDashboard from "../pages/StudentDashboard";
+
 
 export default function App(props) {
   ReactSession.setStoreType("sessionStorage");
@@ -64,7 +66,12 @@ export default function App(props) {
           path="/teacher"
           element={<TeacherDashboard checker={() => checker("teacher")} />}
         />
+        <Route
+          path="/student"
+          element={<StudentDashboard checker={() => checker("student")} />}
+        />
         <Route path="/teacher/class/:code" element={<TeacherClass />} />
+        <Route path="/student/class/:code" element={<StudentClass />} />
       </Routes>
     </Provider>
   );

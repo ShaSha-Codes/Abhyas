@@ -13,7 +13,7 @@ const classRouter = require("./routes/class");
 var indexRouter = require("./routes/index");
 var certificateRouter = require("./routes/certificate");
 var usersRouter = require("./routes/users");
-
+var studentRouter=require("./routes/student");
 var app = express();
 var http = require("http").createServer(app);
 var io = require("socket.io")(http);
@@ -58,6 +58,7 @@ mongoose.connect(URI).then(() => console.log("Connected to Database"));
 
 app.use("/certificate", certificateRouter);
 app.use("/class", classRouter);
+app.use("/student",studentRouter);
 app.use("/", indexRouter);
 
 // app.use("/users", usersRouter);

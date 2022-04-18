@@ -11,10 +11,12 @@ import LiveButton from "./LiveButton";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import QuizIcon from "@mui/icons-material/Quiz";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
+import { useParams } from "react-router-dom";
 
-function TeacherClass(props) {
+function StudentClass(props) {
   const visibility = props.visibility;
-
+  let { code } = useParams();
+  console.log(code)
   const data = {
     thumbnail: ThumbNail,
     title: "React",
@@ -125,4 +127,4 @@ function TeacherClass(props) {
   );
 }
 
-export default TeacherClass;
+export default StudentClass;
