@@ -14,9 +14,10 @@ var indexRouter = require("./routes/index");
 var certificateRouter = require("./routes/certificate");
 var usersRouter = require("./routes/users");
 
+http = require('http');
 var app = express();
-var http = require("http").createServer(app);
-var io = require("socket.io")(http);
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
 
 io.on("connection", (socket) => {
   console.log("User Online");
@@ -44,7 +45,7 @@ require("./config/passportConfig")(passport);
 
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -77,5 +78,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
+
 
 module.exports = app;
