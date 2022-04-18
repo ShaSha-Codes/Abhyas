@@ -99,7 +99,7 @@ function TeacherClass(props) {
         <VideoAssignment
           setVideoVisibility={setVideoVisibility}
           setAssignmentVisibility={setAssignmentVisibility}
-          setNotesVisibility={setNotesVisibility} 
+          setNotesVisibility={setNotesVisibility}
         />
         {videoVisibility && (
           <VideoFill setVideoVisibility={setVideoVisibility} />
@@ -107,9 +107,7 @@ function TeacherClass(props) {
         {assignmentVisibility && (
           <AssignmentFill setAssignment={setAssignmentVisibility} />
         )}
-        {notesVisibility && (
-          <NotesFill setNotes={setNotesVisibility} />
-        )}
+        {notesVisibility && <NotesFill setNotes={setNotesVisibility} />}
 
         {visibility.videos && (
           <Box mb={10}>
