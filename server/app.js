@@ -13,12 +13,7 @@ const classRouter = require("./routes/class");
 var indexRouter = require("./routes/index");
 var certificateRouter = require("./routes/certificate");
 var usersRouter = require("./routes/users");
-<<<<<<< HEAD
 var studentRouter=require("./routes/student");
-=======
-
-http = require("http");
->>>>>>> 0657ada1131982f1aef9595b86771f8102add369
 var app = express();
 var http = require("http").createServer(app);
 var io = require("socket.io")(http);

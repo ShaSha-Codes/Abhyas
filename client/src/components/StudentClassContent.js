@@ -16,7 +16,7 @@ import { useParams } from "react-router-dom";
 function StudentClass(props) {
   const visibility = props.visibility;
   let { code } = useParams();
-  console.log(code)
+  
   const data = {
     thumbnail: ThumbNail,
     title: "React",
