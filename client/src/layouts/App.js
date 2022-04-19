@@ -59,8 +59,8 @@ export default function App(props) {
           <Route path="/certificate/:cred" element={<Certificate />} />
         </Route>
 
-        <Route path="/container" element={<Container />} />
-        <Route path="/studentcontainer" element={<StudentContainer />} />
+        <Route path="/whiteboard" element={<Container />} />
+        <Route path="/student-whiteboard" element={<StudentContainer />} />
         <Route path="/watchvideo/:code" element={<WatchVideo />} />
         <Route path="/assignment" element={<AssignmentContent />} />
         <Route

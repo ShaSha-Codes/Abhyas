@@ -11,18 +11,19 @@ import VideoAssignment from "./VideoAssignment";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import QuizIcon from "@mui/icons-material/Quiz";
 import LiveButton from "./LiveButton";
-import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
+import ImageAspectRatioIcon from '@mui/icons-material/ImageAspectRatio';
 import VideoFill from "./VideoFill";
 import NotesFill from "./NotesFill";
 import AssignmentFill from "./AssignmentFill";
 import { ReactSession } from "react-client-session";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
 function TeacherClass(props) {
   ReactSession.setStoreType("sessionStorage");
   let { code } = useParams();
-
+  const navigate = useNavigate();
   const visibility = props.visibility;
   const [videoVisibility, setVideoVisibility] = React.useState(false);
   const [assignmentVisibility, setAssignmentVisibility] = React.useState(false);
@@ -44,6 +45,12 @@ function TeacherClass(props) {
   }, [refresh]);
 
   console.log(content);
+
+  function goToWhiteboard() {
+    navigate("/whiteboard");
+    console.log("whiteboard");
+  }
+
 
   function videoMaker() {
     let videoContent = [];
@@ -179,7 +186,7 @@ function TeacherClass(props) {
             </Grid>
           </Box>
         )}
-        <LiveButton icon={<VideoCameraFrontIcon fontSize="large" />} />
+        <LiveButton onClick={goToWhiteboard} icon={<ImageAspectRatioIcon fontSize="large" />} />
       </Container>
     </div>
   );

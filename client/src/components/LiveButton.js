@@ -9,6 +9,7 @@ function GoLive(props) {
         size="large"
         aria-label="Go Live"
         component="span"
+        onClick={props.onClick}
       >
         {props.icon}
       </IconButton>
