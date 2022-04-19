@@ -96,6 +96,34 @@ router.patch("/add/quiz", async (req, res) => {
     });
 });
 
+router.patch("/add/notes", async (req, res) => {
+  console.log(req.body.code);
+  console.log(req.body.title);
+  console.log(req.body.description);
+  console.log(req.body.quiz);
+  console.log(req.body.email);
+  userSchema
+    .updateOne(
+      { email: req.body.email, "courses.code": req.body.class },
+      {
+        $push: {
+          "courses.$.notes": {
+            title: req.body.title,
+            description: req.body.description,
+            upload: req.body.upload,
+          },
+        },
+      }
+    )
+    .then(() => {
+      res.send("success Notes saved on MongoDB");
+    });
+});
+
+
+
+
+
 router.post("/get/info", async (req, res) => {
   let resData;
   userSchema

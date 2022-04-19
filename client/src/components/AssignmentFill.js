@@ -11,7 +11,7 @@ import { ReactSession } from "react-client-session";
 
 export default function Videofill(props) {
   ReactSession.setStoreType("sessionStorage");
-  const [videoData, setVideoData] = React.useState({
+  const [assignmentData, setAssignmentData] = React.useState({
     title: "",
     description: "",
     upload: "",
@@ -19,7 +19,7 @@ export default function Videofill(props) {
   let { code } = useParams();
   console.log(code);
   const handleForm = (event) => {
-    setVideoData((prevFormData) => {
+    setAssignmentData((prevFormData) => {
       return {
         ...prevFormData,
         [event.target.name]:
@@ -32,7 +32,7 @@ export default function Videofill(props) {
 
   const handleSubmit = async (event) => {
     const storageRef = ref(storage, `assignments/${nanoid(8)}`);
-    const uploadTask = uploadBytesResumable(storageRef, videoData.upload);
+    const uploadTask = uploadBytesResumable(storageRef, assignmentData.upload);
     await uploadTask.on(
       "state_changed",
       (snapshot) => {
@@ -50,8 +50,8 @@ export default function Videofill(props) {
           await axios
             .patch("http://localhost:3000/class/add/assignment", {
               email: ReactSession.get("data").email,
-              title: videoData.title,
-              description: videoData.description,
+              title: assignmentData.title,
+              description: assignmentData.description,
               upload: downloadURL,
               class: code,
             })
@@ -73,7 +73,7 @@ export default function Videofill(props) {
               id="outlined-basic"
               label="Title"
               variant="outlined"
-              value={videoData.title}
+              value={assignmentData.title}
               name="title"
               onChange={handleForm}
             />
@@ -82,7 +82,7 @@ export default function Videofill(props) {
               multiline
               label="Description"
               variant="outlined"
-              value={videoData.description}
+              value={assignmentData.description}
               name="description"
               onChange={handleForm}
             />

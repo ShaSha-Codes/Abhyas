@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 function Assignment(props) {
-  const { type, title, desc, icon } = props.data;
+  const { type, title, description, icon } = props.data;
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -34,7 +34,7 @@ function Assignment(props) {
               {title}
             </Typography>
             <Typography variant="subtitle2" component="h5">
-              {desc}
+              {description}
             </Typography>
             <Button
               sx={{ marginTop: "20px" }}

@@ -9,9 +9,9 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { nanoid } from "nanoid";
 import { ReactSession } from "react-client-session";
 
-export default function Videofill(props) {
+export default function Notesfill(props) {
   ReactSession.setStoreType("sessionStorage");
-  const [videoData, setVideoData] = React.useState({
+  const [notesData, setNotesData] = React.useState({
     title: "",
     description: "",
     upload: "",
@@ -19,7 +19,7 @@ export default function Videofill(props) {
   let { code } = useParams();
   console.log(code);
   const handleForm = (event) => {
-    setVideoData((prevFormData) => {
+    setNotesData((prevFormData) => {
       return {
         ...prevFormData,
         [event.target.name]:
@@ -31,8 +31,8 @@ export default function Videofill(props) {
   };
 
   const handleSubmit = async (event) => {
-    const storageRef = ref(storage, `assignments/${nanoid(8)}`);
-    const uploadTask = uploadBytesResumable(storageRef, videoData.upload);
+    const storageRef = ref(storage, `notes/${nanoid(8)}`);
+    const uploadTask = uploadBytesResumable(storageRef, notesData.upload);
     await uploadTask.on(
       "state_changed",
       (snapshot) => {
@@ -50,8 +50,8 @@ export default function Videofill(props) {
           await axios
             .patch("http://localhost:3000/class/add/notes", {
               email: ReactSession.get("data").email,
-              title: videoData.title,
-              description: videoData.description,
+              title: notesData.title,
+              description: notesData.description,
               upload: downloadURL,
               class: code,
             })
@@ -73,7 +73,7 @@ export default function Videofill(props) {
               id="outlined-basic"
               label="Title"
               variant="outlined"
-              value={videoData.title}
+              value={notesData.title}
               name="title"
               onChange={handleForm}
             />
@@ -82,7 +82,7 @@ export default function Videofill(props) {
               multiline
               label="Description"
               variant="outlined"
-              value={videoData.description}
+              value={notesData.description}
               name="description"
               onChange={handleForm}
             />

@@ -27,15 +27,15 @@ function TeacherClass(props) {
   const [videoVisibility, setVideoVisibility] = React.useState(false);
   const [assignmentVisibility, setAssignmentVisibility] = React.useState(false);
   const [notesVisibility, setNotesVisibility] = React.useState(false);
-  const [content, setContent] = React.useState({ videos: [] });
-
+  const [content, setContent] = React.useState({ videos: [], assignments: [], notes: [], quiz: [],users:[] });
+  const [refresh,setRefresh]=React.useState(false);
   React.useEffect(async () => {
     let newContent = await axios.post("http://localhost:3000/class/get/info", {
       email: ReactSession.get("data").email,
       class: code,
     });
     setContent(newContent.data);
-  }, [0]);
+  }, [refresh]);
 
   console.log(content);
 
@@ -51,6 +51,21 @@ function TeacherClass(props) {
       videoContent.push(<Video data={videoData} />);
     }
     return videoContent;
+  }
+
+  function assignmentMaker() {
+    let assignmentContent = [];
+    for (let i = 0; i < content.assignments.length; i++) {
+      let assignmentData = {
+        title: content.assignments[i].title,
+        description: content.assignments[i].description,
+        upload: content.assignments[i].upload,
+        number: i,
+      };
+      assignmentContent.push(<Assignment data={assignmentData} />);
+    }
+    return assignmentContent
+  
   }
 
   const data = {
@@ -127,14 +142,7 @@ function TeacherClass(props) {
               <hr />
             </Typography>
             <Grid container spacing={2} justify="center">
-              <Assignment data={objectAssignments} />
-              <Assignment data={objectQuiz} />
-              <Assignment data={objectAssignments} />
-              <Assignment data={objectQuiz} />
-              <Assignment data={objectAssignments} />
-              <Assignment data={objectQuiz} />
-              <Assignment data={objectAssignments} />
-              <Assignment data={objectQuiz} />
+             {assignmentMaker()}
             </Grid>
           </Box>
         )}

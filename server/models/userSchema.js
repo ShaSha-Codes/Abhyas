@@ -30,6 +30,7 @@ const UserSchema = new mongoose.Schema({
         answer:String
       }
       ] }],
+      notes: [{title: String, description: String, upload: String }],
       users: [{ email: String, name: String }]
     },
   ],
