@@ -27,8 +27,14 @@ function TeacherClass(props) {
   const [videoVisibility, setVideoVisibility] = React.useState(false);
   const [assignmentVisibility, setAssignmentVisibility] = React.useState(false);
   const [notesVisibility, setNotesVisibility] = React.useState(false);
-  const [content, setContent] = React.useState({ videos: [], assignments: [], notes: [], quiz: [],users:[] });
-  const [refresh,setRefresh]=React.useState(false);
+  const [content, setContent] = React.useState({
+    videos: [],
+    assignments: [],
+    notes: [],
+    quiz: [],
+    users: [],
+  });
+  const [refresh, setRefresh] = React.useState(false);
   React.useEffect(async () => {
     let newContent = await axios.post("http://localhost:3000/class/get/info", {
       email: ReactSession.get("data").email,
@@ -64,8 +70,7 @@ function TeacherClass(props) {
       };
       assignmentContent.push(<Assignment data={assignmentData} />);
     }
-    return assignmentContent
-  
+    return assignmentContent;
   }
 
   const data = {
@@ -142,7 +147,7 @@ function TeacherClass(props) {
               <hr />
             </Typography>
             <Grid container spacing={2} justify="center">
-             {assignmentMaker()}
+              {assignmentMaker()}
             </Grid>
           </Box>
         )}

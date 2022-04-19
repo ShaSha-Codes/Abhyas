@@ -120,10 +120,6 @@ router.patch("/add/notes", async (req, res) => {
     });
 });
 
-
-
-
-
 router.post("/get/info", async (req, res) => {
   let resData;
   userSchema
