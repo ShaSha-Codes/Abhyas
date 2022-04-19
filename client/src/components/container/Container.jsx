@@ -1,5 +1,6 @@
 import React from 'react';
 import Board from '../board/Board';
+import Button from "@mui/material/Button";
 
 import './style.css';
 
@@ -26,6 +27,15 @@ class Container extends React.Component
         })
     }
 
+    clearCanvas() {
+        var root = this;
+        var canvas = document.querySelector('#board');
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var base64ImageData = canvas.toDataURL("image/png");
+        root.socket.emit("canvas-data", base64ImageData);
+    }
+
     render() {
 
         return (
@@ -49,10 +59,18 @@ class Container extends React.Component
                         </select>
                     </div>
 
+                    <div className="brushsize-container"    >
+                        <Button variant='contained' onClick={this.changeColor.bind(this)} value="#ffffff">Eraser</Button>
+                    </div>
+
+                    <div className="brushsize-container"    >
+                        <Button variant='contained' onClick={this.clearCanvas}>Clear Board</Button>
+                    </div>
+
                 </div>
 
                 <div className="board-container">
-                    <Board color={this.state.color} size={this.state.size}></Board>
+                    <Board color={this.state.color} size={this.state.size} ></Board>
                 </div>
             </div>
         )

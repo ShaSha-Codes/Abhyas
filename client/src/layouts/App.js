@@ -13,6 +13,7 @@ import TeacherClass from "../pages/TeacherClass";
 import AddQuestions from "../pages/AddQuestions";
 import Certificate from "../components/Certificate";
 import Container from "../components/container/Container";
+import StudentContainer from "../components/studentContainer/StudentContainer";
 import { ReactSession } from "react-client-session";
 import WatchVideo from "../components/WatchVideo";
 import AssignmentContent from "../components/AssignmentContent";
@@ -59,6 +60,7 @@ export default function App(props) {
         </Route>
 
         <Route path="/container" element={<Container />} />
+        <Route path="/studentcontainer" element={<StudentContainer />} />
         <Route path="/watchvideo/:code" element={<WatchVideo />} />
         <Route path="/assignment" element={<AssignmentContent />} />
         <Route
