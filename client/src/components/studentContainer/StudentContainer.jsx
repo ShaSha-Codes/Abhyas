@@ -1,5 +1,6 @@
 import React from 'react';
 import StudentBoard from '../studentBoard/StudentBoard';
+import Button from "@mui/material/Button";
 
 import './style.css';
 
@@ -25,11 +26,25 @@ class Container extends React.Component
             size: params.target.value
         })
     }
+    
+    clearCanvas() {
+        var root = this;
+        var canvas = document.querySelector('#board');
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var base64ImageData = canvas.toDataURL("image/png");
+        root.socket.emit("canvas-data", base64ImageData);
+    }
 
     render() {
 
         return (
             <div className="container-board">
+                <div className="tools-section">
+                <div className="brushsize-container"    >
+                        <Button variant='contained' onClick={this.clearCanvas}>Clear Board</Button>
+                    </div>
+                </div>
                 <div className="board-container">
                     <StudentBoard color={this.state.color} size={this.state.size}></StudentBoard>
                 </div>
