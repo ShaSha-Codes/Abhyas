@@ -10,7 +10,7 @@ import Box from "@mui/material/Box";
 import LiveButton from "./LiveButton";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import QuizIcon from "@mui/icons-material/Quiz";
-import ImageAspectRatioIcon from '@mui/icons-material/ImageAspectRatio';
+import ImageAspectRatioIcon from "@mui/icons-material/ImageAspectRatio";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -18,7 +18,7 @@ function StudentClass(props) {
   const visibility = props.visibility;
   let { code } = useParams();
   const navigate = useNavigate();
-  function goToStudentWhiteboard(){
+  function goToStudentWhiteboard() {
     navigate("/student-whiteboard");
   }
 
@@ -126,7 +126,10 @@ function StudentClass(props) {
             </Grid>
           </Box>
         )}
-        <LiveButton onClick={goToStudentWhiteboard} icon={<ImageAspectRatioIcon fontSize="large" />} />
+        <LiveButton
+          onClick={goToStudentWhiteboard}
+          icon={<ImageAspectRatioIcon fontSize="large" />}
+        />
       </Container>
     </div>
   );
