@@ -13,9 +13,10 @@ const classRouter = require("./routes/class");
 var indexRouter = require("./routes/index");
 var certificateRouter = require("./routes/certificate");
 var usersRouter = require("./routes/users");
-var studentRouter=require("./routes/student");
+var studentRouter = require("./routes/student");
 var app = express();
 var http = require("http").createServer(app);
+http.listen(5000);
 var io = require("socket.io")(http);
 
 io.on("connection", (socket) => {
@@ -23,6 +24,7 @@ io.on("connection", (socket) => {
 
   socket.on("canvas-data", (data) => {
     socket.broadcast.emit("canvas-data", data);
+    console.log("image sent");
   });
 });
 
@@ -58,7 +60,7 @@ mongoose.connect(URI).then(() => console.log("Connected to Database"));
 
 app.use("/certificate", certificateRouter);
 app.use("/class", classRouter);
-app.use("/student",studentRouter);
+app.use("/student", studentRouter);
 app.use("/", indexRouter);
 
 // app.use("/users", usersRouter);

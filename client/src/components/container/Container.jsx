@@ -29,7 +29,7 @@ class Container extends React.Component
     render() {
 
         return (
-            <div className="container">
+            <div className="container-board">
                 <div className="tools-section">
                     <div className="color-picker-container">
                         Select Brush Color : &nbsp; 
@@ -39,6 +39,7 @@ class Container extends React.Component
                     <div className="brushsize-container">
                         Select Brush Size : &nbsp; 
                         <select value={this.state.size} onChange={this.changeSize.bind(this)}>
+                            <option> 1 </option>
                             <option> 5 </option>
                             <option> 10 </option>
                             <option> 15 </option>

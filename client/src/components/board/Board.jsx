@@ -6,7 +6,7 @@ import './style.css';
 class Board extends React.Component {
 
     timeout;
-    socket = io.connect("http://localhost:3000");
+    socket = io.connect("http://localhost:5000" ,{ transports : ['websocket'] });
 
     ctx;
     isDrawing = false;
@@ -60,9 +60,11 @@ class Board extends React.Component {
         canvas.addEventListener('mousemove', function(e) {
             last_mouse.x = mouse.x;
             last_mouse.y = mouse.y;
-
-            mouse.x = e.pageX - this.offsetLeft;
-            mouse.y = e.pageY - this.offsetTop;
+            var rect = canvas.getBoundingClientRect();
+            let scaleX = canvas.width / rect.width;    // relationship bitmap vs. element for x
+            let scaleY = canvas.height / rect.height;  // relationship bitmap vs. element for y
+            mouse.x = (e.pageX - rect.left) * scaleX;
+            mouse.y = (e.pageY - rect.top) * scaleY;
         }, false);
 
 

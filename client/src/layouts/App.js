@@ -18,7 +18,6 @@ import WatchVideo from "../components/WatchVideo";
 import AssignmentContent from "../components/AssignmentContent";
 import StudentDashboard from "../pages/StudentDashboard";
 
-
 export default function App(props) {
   ReactSession.setStoreType("sessionStorage");
   function checker(type) {
