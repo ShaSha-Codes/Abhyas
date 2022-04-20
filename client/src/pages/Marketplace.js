@@ -63,13 +63,13 @@ export default function Marketplace(props) {
   return (
     <React.Fragment>
       <MarketButtons
-          setVideoVisibility={setVideoVisibility}
-          setNotesVisibility={setNotesVisibility}
-        />
-         {videoVisibility && (
-          <MarketVideoForm setVideoVisibility={setVideoVisibility} />
-        )}
-        {notesVisibility && <MarketNotesForm setNotes={setNotesVisibility} />}
+        setVideoVisibility={setVideoVisibility}
+        setNotesVisibility={setNotesVisibility}
+      />
+      {videoVisibility && (
+        <MarketVideoForm setVideoVisibility={setVideoVisibility} />
+      )}
+      {notesVisibility && <MarketNotesForm setNotes={setNotesVisibility} />}
       <Typography variant="h4">Market Place</Typography>
       <Grid container spacing={2} mt={1}>
         {dummy.map((data) => (

@@ -69,7 +69,7 @@ export default function MarketNotesForm(props) {
       <div className="notesform">
         <form>
           <Stack spacing={2}>
-          <TextField
+            <TextField
               sx={{ marginTop: "5px" }}
               id="outlined-basic"
               label="Subject"
