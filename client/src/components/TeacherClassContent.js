@@ -11,7 +11,7 @@ import VideoAssignment from "./VideoAssignment";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import QuizIcon from "@mui/icons-material/Quiz";
 import LiveButton from "./LiveButton";
-import ImageAspectRatioIcon from '@mui/icons-material/ImageAspectRatio';
+import ImageAspectRatioIcon from "@mui/icons-material/ImageAspectRatio";
 import VideoFill from "./VideoFill";
 import NotesFill from "./NotesFill";
 import AssignmentFill from "./AssignmentFill";
@@ -50,7 +50,6 @@ function TeacherClass(props) {
     navigate("/whiteboard");
     console.log("whiteboard");
   }
-
 
   function videoMaker() {
     let videoContent = [];
@@ -181,7 +180,10 @@ function TeacherClass(props) {
             </Grid>
           </Box>
         )}
-        <LiveButton onClick={goToWhiteboard} icon={<ImageAspectRatioIcon fontSize="large" />} />
+        <LiveButton
+          onClick={goToWhiteboard}
+          icon={<ImageAspectRatioIcon fontSize="large" />}
+        />
       </Container>
     </div>
   );
