@@ -123,11 +123,6 @@ function TeacherClass(props) {
   return (
     <div>
       <Container maxWidth="xl">
-        <VideoAssignment
-          setVideoVisibility={setVideoVisibility}
-          setAssignmentVisibility={setAssignmentVisibility}
-          setNotesVisibility={setNotesVisibility}
-        />
         {videoVisibility && (
           <VideoFill setVideoVisibility={setVideoVisibility} />
         )}
