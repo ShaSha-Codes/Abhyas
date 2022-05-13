@@ -9,7 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 function Assignment(props) {
-  const { type, title, description, icon } = props.data;
+  const { type, title, description, icon, identity,id} = props.data;
+  console.log(id)
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -19,7 +20,7 @@ function Assignment(props) {
   });
   const navigate = useNavigate();
   const AssignmentClicked = React.useCallback(
-    () => navigate("/assignment", { replace: true }),
+    () => navigate(`/${identity}/${type}/${id}`, { replace: true }),
     [navigate]
   );
   return (
@@ -44,7 +45,7 @@ function Assignment(props) {
               View
             </Button>
           </Box>
-          <Box ml={10} sx={{ alignSelf: "center" }}>
+          <Box ml={10} sx={{ margin:"auto 20px auto auto" }}>
             {icon}
           </Box>
         </Box>

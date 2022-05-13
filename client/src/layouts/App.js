@@ -17,6 +17,10 @@ import { ReactSession } from "react-client-session";
 import WatchVideo from "../components/WatchVideo";
 import AssignmentContent from "../components/AssignmentContent";
 import StudentDashboard from "../pages/StudentDashboard";
+import Notes from "../pages/Notes"
+import Questions from "../pages/Questions";
+import Passed from "../pages/Passed";
+import Failed from "../pages/Failed";
 
 export default function App(props) {
   ReactSession.setStoreType("sessionStorage");
@@ -71,6 +75,12 @@ export default function App(props) {
         />
         <Route path="/teacher/class/:code" element={<TeacherClass />} />
         <Route path="/student/class/:code" element={<StudentClass />} />
+        <Route path="/teacher/Notes/:id" element={<Notes />} />
+        <Route path="/student/Notes/:id" element={<Notes />} />
+        <Route path="/student/Quiz/:code" element={<Questions />} />
+        <Route path="/passed" element={<Passed />} />
+        <Route path ="/failed" element={<Failed />} />
+
       </Routes>
     </Provider>
   );

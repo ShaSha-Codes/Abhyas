@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
       description: String,
       videos: [{ title: String, description: String, upload: String }],
       assignments: [{ title: String, description: String, upload: String }],
-      quiz: [{ code:String,title: String, description: String, qa:[{
+      quiz: [{ code:String,title: String, description: String,status:String,marks:Number, qa:[{
         question: String,
         option1:String,
         option2:String,

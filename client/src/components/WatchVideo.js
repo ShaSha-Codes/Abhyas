@@ -3,6 +3,9 @@ import NavBar from "../components/NavBar";
 import { ReactSession } from "react-client-session";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+
 
 export default function WatchVideo() {
   ReactSession.setStoreType("sessionStorage");
@@ -11,7 +14,6 @@ export default function WatchVideo() {
 
   React.useEffect(async () => {
     let newContent = await axios.post("http://localhost:3000/class/get/info", {
-      email: ReactSession.get("data").email,
       class: code.substring(0, code.length - 1),
     });
     setWatchVideoData(
@@ -21,19 +23,29 @@ export default function WatchVideo() {
 
   function videoPageMaker() {
     return (
-      <div>
-        <h1 className="video-title">Title of the Video</h1>
-        <div className="center-video">
-          <video width="60%" controls>
-            <source src={watchVideoData.upload} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <h3 className="video-title" style={{ marginTop: "2.2%" }}>
-          {watchVideoData.title}
-        </h3>
-        <div className="video-description">{watchVideoData.description}</div>
-      </div>
+      <Box  ml={5} mr={5} >
+        <Paper sx={{borderRadius:"20px",margin:"0",height:"85vh"}} elevation={4}>
+          <Box p={5}>
+          
+            <div>
+              <h1 className="video-title" style={{textAlign:"center"}}>{watchVideoData.title}</h1>
+              <hr/>
+              <div className="center-video">
+                <video height="500px" controls>
+                  <source src={watchVideoData.upload} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <h3 className="video-title" style={{ textAlign:"center",marginTop: "3.2%" }}>
+                Description
+                <h5 style={{ textAlign:"center",marginTop:"1%" }} className="video-description">{watchVideoData.description}</h5>
+              </h3>
+              
+            </div>
+              
+          </Box>
+        </Paper>
+      </Box>
     );
   }
 

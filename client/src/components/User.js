@@ -5,17 +5,17 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 function User(props) {
-  const { firstName, lastName, gender } = props.userData;
+  const { name,email } = props.data;
   return (
     <Grid item xs={6} sm={3} md={2}>
       <Paper>
         <Box className="User">
-          <img
-            src={`https://avatars.dicebear.com/api/${gender}/k${firstName} ${lastName}.svg`}
+          <img style={{borderRadius:"100px"}}
+            src={`https://avatars.dicebear.com/api/adventurer-neutral/${name}.svg`}
             className="UserPic"
           />
           <Typography variant="h6" component="h1">
-            {firstName} {lastName}
+            {name}
           </Typography>
         </Box>
       </Paper>

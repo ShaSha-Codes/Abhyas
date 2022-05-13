@@ -16,14 +16,14 @@ function Video(props) {
   const navigate = useNavigate();
   const videoClicked = React.useCallback(
     () =>
-      navigate("/watchvideo/" + code + props.data.number, { replace: true }),
+      navigate(`/watchvideo/` + code + props.data.number, { replace: true }),
     [navigate]
   );
   return (
     <Grid item xs={12} sm={12} md={6} lg={4}>
-      <Card padding={5} onClick={videoClicked}>
-        <Box p={1}>
-          <CardMedia component="video" height="100%" image={upload} />
+      <Card sx={{height:"300px",width:"400px"}}  padding={5} onClick={videoClicked}>
+        <Box  p={1}>
+          <CardMedia sx={{backgroundColor:"black",height:"200px"}} component="video" height="auto" image={upload} />
           <CardContent>
             <Typography variant="h6" component="p">
               {title}
