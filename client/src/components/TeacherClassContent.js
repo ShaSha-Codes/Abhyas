@@ -11,25 +11,32 @@ import VideoAssignment from "./VideoAssignment";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import QuizIcon from "@mui/icons-material/Quiz";
 import LiveButton from "./LiveButton";
-import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
+import ImageAspectRatioIcon from "@mui/icons-material/ImageAspectRatio";
 import VideoFill from "./VideoFill";
 import NotesFill from "./NotesFill";
 import AssignmentFill from "./AssignmentFill";
 import { ReactSession } from "react-client-session";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router";
 import axios from "axios";
 import NotesIcon from '@mui/icons-material/Notes';
 
 function TeacherClass(props) {
   ReactSession.setStoreType("sessionStorage");
   let { code } = useParams();
-
+  const navigate = useNavigate();
   const visibility = props.visibility;
   const [videoVisibility, setVideoVisibility] = React.useState(false);
   const [assignmentVisibility, setAssignmentVisibility] = React.useState(false);
   const [notesVisibility, setNotesVisibility] = React.useState(false);
-  const [content, setContent] = React.useState({ videos: [], assignments: [], notes: [], quiz: [],users:[] });
-  const [refresh,setRefresh]=React.useState(false);
+  const [content, setContent] = React.useState({
+    videos: [],
+    assignments: [],
+    notes: [],
+    quiz: [],
+    users: [],
+  });
+  const [refresh, setRefresh] = React.useState(false);
   React.useEffect(async () => {
     let newContent = await axios.post("http://localhost:3000/class/get/info", {
       email: ReactSession.get("data").email,
@@ -39,6 +46,11 @@ function TeacherClass(props) {
   }, [refresh]);
 
   console.log(content);
+
+  function goToWhiteboard() {
+    navigate("/whiteboard");
+    console.log("whiteboard");
+  }
 
   function videoMaker() {
     let videoContent = [];
@@ -67,7 +79,11 @@ function TeacherClass(props) {
       };
       assignmentContent.push(<Assignment data={assignmentData} />);
     }
+<<<<<<< HEAD
     return assignmentContent
+=======
+    return assignmentContent;
+>>>>>>> 64556f841fc8c60324524ba41c301b8f8d1a0f4d
   }
 
   
@@ -125,11 +141,6 @@ function TeacherClass(props) {
   return (
     <div>
       <Container maxWidth="xl">
-        <VideoAssignment
-          setVideoVisibility={setVideoVisibility}
-          setAssignmentVisibility={setAssignmentVisibility}
-          setNotesVisibility={setNotesVisibility}
-        />
         {videoVisibility && (
           <VideoFill setVideoVisibility={setVideoVisibility} />
         )}
@@ -156,7 +167,7 @@ function TeacherClass(props) {
               <hr />
             </Typography>
             <Grid container spacing={2} justify="center">
-             {assignmentMaker()}
+              {assignmentMaker()}
             </Grid>
           </Box>
         )}
@@ -197,7 +208,10 @@ function TeacherClass(props) {
             </Grid>
           </Box>
         )}
-        <LiveButton icon={<VideoCameraFrontIcon fontSize="large" />} />
+        <LiveButton
+          onClick={goToWhiteboard}
+          icon={<ImageAspectRatioIcon fontSize="large" />}
+        />
       </Container>
     </div>
   );

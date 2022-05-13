@@ -1,10 +1,12 @@
 import React from "react";
 import "../assets/css/style.css";
 import { Typography } from "@mui/material";
-
+import MarketNotesForm from "../components/MarketNotesForm";
+import MarketVideoForm from "../components/MarketVideoForm";
 import MarketItem from "../components/MarketItem";
 import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import MarketButtons from "../components/MarketButtons";
 var dummy = [
   {
     backgroundImage:
@@ -50,6 +52,8 @@ var dummy = [
 
 export default function Marketplace(props) {
   let navigate = useNavigate();
+  const [videoVisibility, setVideoVisibility] = React.useState(false);
+  const [notesVisibility, setNotesVisibility] = React.useState(false);
   React.useEffect(() => {
     if (props.checker) {
       navigate("/");
@@ -58,6 +62,14 @@ export default function Marketplace(props) {
 
   return (
     <React.Fragment>
+      <MarketButtons
+        setVideoVisibility={setVideoVisibility}
+        setNotesVisibility={setNotesVisibility}
+      />
+      {videoVisibility && (
+        <MarketVideoForm setVideoVisibility={setVideoVisibility} />
+      )}
+      {notesVisibility && <MarketNotesForm setNotes={setNotesVisibility} />}
       <Typography variant="h4">Market Place</Typography>
       <Grid container spacing={2} mt={1}>
         {dummy.map((data) => (

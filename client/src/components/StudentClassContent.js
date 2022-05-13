@@ -16,6 +16,8 @@ import VideoFill from "./VideoFill";
 import NotesFill from "./NotesFill";
 import AssignmentFill from "./AssignmentFill";
 import { ReactSession } from "react-client-session";
+import ImageAspectRatioIcon from "@mui/icons-material/ImageAspectRatio";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import NotesIcon from '@mui/icons-material/Notes';
@@ -24,6 +26,10 @@ import NotesIcon from '@mui/icons-material/Notes';
 function StudentClass(props) {
   ReactSession.setStoreType("sessionStorage");
   let { code } = useParams();
+  const navigate = useNavigate();
+  function goToStudentWhiteboard() {
+    navigate("/student-whiteboard");
+  }
 
   const visibility = props.visibility;
   const [videoVisibility, setVideoVisibility] = React.useState(false);
@@ -188,7 +194,14 @@ function StudentClass(props) {
             </Grid>
           </Box>
         )}
+<<<<<<< HEAD
         <LiveButton icon={<VideoCameraFrontIcon fontSize="large" />} />
+=======
+        <LiveButton
+          onClick={goToStudentWhiteboard}
+          icon={<ImageAspectRatioIcon fontSize="large" />}
+        />
+>>>>>>> 64556f841fc8c60324524ba41c301b8f8d1a0f4d
       </Container>
     </div>
   );

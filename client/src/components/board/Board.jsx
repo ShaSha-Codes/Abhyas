@@ -98,6 +98,8 @@ class Board extends React.Component {
         };
     }
 
+    
+
     render() {
         return (
             <div className="sketch" id="sketch">
