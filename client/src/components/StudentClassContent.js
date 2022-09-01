@@ -194,14 +194,10 @@ function StudentClass(props) {
             </Grid>
           </Box>
         )}
-<<<<<<< HEAD
-        <LiveButton icon={<VideoCameraFrontIcon fontSize="large" />} />
-=======
         <LiveButton
           onClick={goToStudentWhiteboard}
           icon={<ImageAspectRatioIcon fontSize="large" />}
         />
->>>>>>> 64556f841fc8c60324524ba41c301b8f8d1a0f4d
       </Container>
     </div>
   );

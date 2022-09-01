@@ -7,6 +7,7 @@ import ThumbNail from "../tempImages/Thumbnail.png";
 import Assignment from "./Assignment";
 import User from "./User";
 import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
 import VideoAssignment from "./VideoAssignment";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import QuizIcon from "@mui/icons-material/Quiz";
@@ -79,11 +80,7 @@ function TeacherClass(props) {
       };
       assignmentContent.push(<Assignment data={assignmentData} />);
     }
-<<<<<<< HEAD
-    return assignmentContent
-=======
     return assignmentContent;
->>>>>>> 64556f841fc8c60324524ba41c301b8f8d1a0f4d
   }
 
   
@@ -141,6 +138,12 @@ function TeacherClass(props) {
   return (
     <div>
       <Container maxWidth="xl">
+        <Box>
+          <Paper elevation={6} sx={{width:"300px",height:"30px"}}>
+            Class Code {code}
+          </Paper>
+        </Box>
+        <VideoAssignment setVideoVisibility={setVideoVisibility} setAssignment={setAssignmentVisibility} setNotes={setNotesVisibility}/>
         {videoVisibility && (
           <VideoFill setVideoVisibility={setVideoVisibility} />
         )}
