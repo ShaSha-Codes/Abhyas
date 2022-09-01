@@ -72,7 +72,6 @@ router.patch("/add/assignment", async (req, res) => {
 });
 
 router.patch("/add/quiz", async (req, res) => {
-
   userSchema
     .updateOne(
       { email: req.body.email, "courses.code": req.body.class },
@@ -126,25 +125,22 @@ router.post("/get/info", async (req, res) => {
     });
 });
 
-
-
-
 router.post("/data", async (req, res) => {
   userSchema.findOne({ email: req.body.email }).then((data) => {
     res.send(data.courses);
   });
 });
 
-router.post("/getNotes",async(req,res)=>{
-  userSchema.findOne({ "courses.notes._id":req.body.id }).then((data) => {
-    for(let i=0;i<data.courses.length;i++){
-      for(let j=0;j<data.courses[i].notes.length;j++){
-        if(data.courses[i].notes[j]._id==req.body.id){
+router.post("/getNotes", async (req, res) => {
+  userSchema.findOne({ "courses.notes._id": req.body.id }).then((data) => {
+    for (let i = 0; i < data.courses.length; i++) {
+      for (let j = 0; j < data.courses[i].notes.length; j++) {
+        if (data.courses[i].notes[j]._id == req.body.id) {
           res.send(data.courses[i].notes[j]);
         }
       }
     }
   });
-})
+});
 
 module.exports = router;

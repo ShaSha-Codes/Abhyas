@@ -20,8 +20,7 @@ import ImageAspectRatioIcon from "@mui/icons-material/ImageAspectRatio";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import NotesIcon from '@mui/icons-material/Notes';
-
+import NotesIcon from "@mui/icons-material/Notes";
 
 function StudentClass(props) {
   ReactSession.setStoreType("sessionStorage");
@@ -35,8 +34,14 @@ function StudentClass(props) {
   const [videoVisibility, setVideoVisibility] = React.useState(false);
   const [assignmentVisibility, setAssignmentVisibility] = React.useState(false);
   const [notesVisibility, setNotesVisibility] = React.useState(false);
-  const [content, setContent] = React.useState({ videos: [], assignments: [], notes: [], quiz: [],users:[] });
-  const [refresh,setRefresh]=React.useState(false);
+  const [content, setContent] = React.useState({
+    videos: [],
+    assignments: [],
+    notes: [],
+    quiz: [],
+    users: [],
+  });
+  const [refresh, setRefresh] = React.useState(false);
 
   React.useEffect(async () => {
     let newContent = await axios.post("http://localhost:3000/class/get/info", {
@@ -55,9 +60,8 @@ function StudentClass(props) {
         description: content.videos[i].description,
         upload: content.videos[i].upload,
         number: i,
-        
       };
-      console.log(videoData)
+      console.log(videoData);
       videoContent.push(<Video data={videoData} />);
     }
     return videoContent;
@@ -70,15 +74,14 @@ function StudentClass(props) {
         title: content.assignments[i].title,
         description: content.assignments[i].description,
         number: i,
-        type:"Assignment", 
-        icon: <AssignmentIcon sx={{ fontSize: "60px" }} fontSize="large" />
+        type: "Assignment",
+        icon: <AssignmentIcon sx={{ fontSize: "60px" }} fontSize="large" />,
       };
       assignmentContent.push(<Assignment data={assignmentData} />);
     }
-    return assignmentContent
+    return assignmentContent;
   }
 
-  
   function quizMaker() {
     let quizContent = [];
     for (let i = 0; i < content.quiz.length; i++) {
@@ -87,13 +90,13 @@ function StudentClass(props) {
         description: content.quiz[i].description,
         number: i,
         type: "Quiz",
-        identity:"student",
-        id:content.quiz[i].code,
+        identity: "student",
+        id: content.quiz[i].code,
         icon: <QuizIcon sx={{ fontSize: "60px" }} fontSize="large" />,
       };
       quizContent.push(<Assignment data={quizData} />);
     }
-    return quizContent
+    return quizContent;
   }
 
   function notesMaker() {
@@ -104,16 +107,15 @@ function StudentClass(props) {
         description: content.notes[i].description,
         number: i,
         type: "Notes",
-        identity:"student",
-        id:content.notes[i]._id,
+        identity: "student",
+        id: content.notes[i]._id,
         icon: <NotesIcon sx={{ fontSize: "60px" }} fontSize="large" />,
       };
       notesContent.push(<Assignment data={notesData} />);
     }
-    return notesContent
+    return notesContent;
   }
 
-  
   function userMaker() {
     let userContent = [];
     for (let i = 0; i < content.users.length; i++) {
@@ -122,19 +124,15 @@ function StudentClass(props) {
         email: content.users[i].email,
         number: i,
       };
-      console.log("what")
+      console.log("what");
       userContent.push(<User data={userData} />);
     }
-    return userContent
+    return userContent;
   }
 
-
-  
-
-  return(
+  return (
     <div>
       <Container maxWidth="xl">
-       
         {visibility.videos && (
           <Box mb={10}>
             <Typography variant="h4" sx={{ margin: "1em" }} component="h2">
@@ -153,31 +151,31 @@ function StudentClass(props) {
               <hr />
             </Typography>
             <Grid container spacing={2} justify="center">
-             {assignmentMaker()}
+              {assignmentMaker()}
             </Grid>
           </Box>
         )}
 
-      {visibility.quizzes && (
+        {visibility.quizzes && (
           <Box mb={10}>
             <Typography variant="h4" sx={{ margin: "1em" }} component="h2">
               Quiz
               <hr />
             </Typography>
             <Grid container spacing={2} justify="center">
-             {quizMaker()}
+              {quizMaker()}
             </Grid>
           </Box>
         )}
 
-      {visibility.notes && (
+        {visibility.notes && (
           <Box mb={10}>
             <Typography variant="h4" sx={{ margin: "1em" }} component="h2">
               Notes
               <hr />
             </Typography>
             <Grid container spacing={2} justify="center">
-             {notesMaker()}
+              {notesMaker()}
             </Grid>
           </Box>
         )}
@@ -190,7 +188,7 @@ function StudentClass(props) {
             </Typography>
 
             <Grid container spacing={2} justify="center">
-             {userMaker()}
+              {userMaker()}
             </Grid>
           </Box>
         )}

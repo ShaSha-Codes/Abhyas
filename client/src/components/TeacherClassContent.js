@@ -20,7 +20,7 @@ import { ReactSession } from "react-client-session";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
 import axios from "axios";
-import NotesIcon from '@mui/icons-material/Notes';
+import NotesIcon from "@mui/icons-material/Notes";
 
 function TeacherClass(props) {
   ReactSession.setStoreType("sessionStorage");
@@ -61,7 +61,6 @@ function TeacherClass(props) {
         description: content.videos[i].description,
         upload: content.videos[i].upload,
         number: i,
-       
       };
       videoContent.push(<Video data={videoData} />);
     }
@@ -75,15 +74,14 @@ function TeacherClass(props) {
         title: content.assignments[i].title,
         description: content.assignments[i].description,
         number: i,
-        type:"Assignment", 
-        icon: <AssignmentIcon sx={{ fontSize: "60px" }} fontSize="large" />
+        type: "Assignment",
+        icon: <AssignmentIcon sx={{ fontSize: "60px" }} fontSize="large" />,
       };
       assignmentContent.push(<Assignment data={assignmentData} />);
     }
     return assignmentContent;
   }
 
-  
   function quizMaker() {
     let quizContent = [];
     for (let i = 0; i < content.quiz.length; i++) {
@@ -96,7 +94,7 @@ function TeacherClass(props) {
       };
       quizContent.push(<Assignment data={quizData} />);
     }
-    return quizContent
+    return quizContent;
   }
 
   function notesMaker() {
@@ -107,16 +105,15 @@ function TeacherClass(props) {
         description: content.notes[i].description,
         number: i,
         type: "Notes",
-        identity:"teacher",
-        id:content.notes[i]._id,
+        identity: "teacher",
+        id: content.notes[i]._id,
         icon: <NotesIcon sx={{ fontSize: "60px" }} fontSize="large" />,
       };
       notesContent.push(<Assignment data={notesData} />);
     }
-    return notesContent
+    return notesContent;
   }
 
-  
   function userMaker() {
     let userContent = [];
     for (let i = 0; i < content.users.length; i++) {
@@ -125,25 +122,25 @@ function TeacherClass(props) {
         email: content.users[i].email,
         number: i,
       };
-      console.log("what")
+      console.log("what");
       userContent.push(<User data={userData} />);
     }
-    return userContent
+    return userContent;
   }
 
-
-  
-  
-  
   return (
     <div>
       <Container maxWidth="xl">
         <Box>
-          <Paper elevation={6} sx={{width:"300px",height:"30px"}}>
+          <Paper elevation={6} sx={{ width: "300px", height: "30px" }}>
             Class Code {code}
           </Paper>
         </Box>
-        <VideoAssignment setVideoVisibility={setVideoVisibility} setAssignment={setAssignmentVisibility} setNotes={setNotesVisibility}/>
+        <VideoAssignment
+          setVideoVisibility={setVideoVisibility}
+          setAssignment={setAssignmentVisibility}
+          setNotes={setNotesVisibility}
+        />
         {videoVisibility && (
           <VideoFill setVideoVisibility={setVideoVisibility} />
         )}
@@ -175,26 +172,26 @@ function TeacherClass(props) {
           </Box>
         )}
 
-      {visibility.quizzes && (
+        {visibility.quizzes && (
           <Box mb={10}>
             <Typography variant="h4" sx={{ margin: "1em" }} component="h2">
               Quiz
               <hr />
             </Typography>
             <Grid container spacing={2} justify="center">
-             {quizMaker()}
+              {quizMaker()}
             </Grid>
           </Box>
         )}
 
-      {visibility.notes && (
+        {visibility.notes && (
           <Box mb={10}>
             <Typography variant="h4" sx={{ margin: "1em" }} component="h2">
               Notes
               <hr />
             </Typography>
             <Grid container spacing={2} justify="center">
-             {notesMaker()}
+              {notesMaker()}
             </Grid>
           </Box>
         )}
@@ -207,7 +204,7 @@ function TeacherClass(props) {
             </Typography>
 
             <Grid container spacing={2} justify="center">
-             {userMaker()}
+              {userMaker()}
             </Grid>
           </Box>
         )}

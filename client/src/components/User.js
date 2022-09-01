@@ -5,12 +5,13 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 function User(props) {
-  const { name,email } = props.data;
+  const { name, email } = props.data;
   return (
     <Grid item xs={6} sm={3} md={2}>
       <Paper>
         <Box className="User">
-          <img style={{borderRadius:"100px"}}
+          <img
+            style={{ borderRadius: "100px" }}
             src={`https://avatars.dicebear.com/api/adventurer-neutral/${name}.svg`}
             className="UserPic"
           />

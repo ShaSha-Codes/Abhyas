@@ -9,8 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 function Assignment(props) {
-  const { type, title, description, icon, identity,id} = props.data;
-  console.log(id)
+  const { type, title, description, icon, identity, id } = props.data;
+  console.log(id);
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -45,7 +45,7 @@ function Assignment(props) {
               View
             </Button>
           </Box>
-          <Box ml={10} sx={{ margin:"auto 20px auto auto" }}>
+          <Box ml={10} sx={{ margin: "auto 20px auto auto" }}>
             {icon}
           </Box>
         </Box>

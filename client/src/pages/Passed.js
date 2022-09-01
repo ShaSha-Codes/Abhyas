@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Passed() {
-  return (
-    <div>Passed</div>
-  )
+  return <div>Passed</div>;
 }
 
-export default Passed
+export default Passed;

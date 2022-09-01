@@ -21,9 +21,18 @@ function Video(props) {
   );
   return (
     <Grid item xs={12} sm={12} md={6} lg={4}>
-      <Card sx={{height:"300px",width:"400px"}}  padding={5} onClick={videoClicked}>
-        <Box  p={1}>
-          <CardMedia sx={{backgroundColor:"black",height:"200px"}} component="video" height="auto" image={upload} />
+      <Card
+        sx={{ height: "300px", width: "400px" }}
+        padding={5}
+        onClick={videoClicked}
+      >
+        <Box p={1}>
+          <CardMedia
+            sx={{ backgroundColor: "black", height: "200px" }}
+            component="video"
+            height="auto"
+            image={upload}
+          />
           <CardContent>
             <Typography variant="h6" component="p">
               {title}

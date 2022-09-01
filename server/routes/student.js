@@ -10,7 +10,6 @@ router.post("/get", async (req, res) => {
   });
 });
 
-
 router.post("/getClass", async (req, res) => {
   userSchema
     .findOne({ "courses.code": req.body.code })
@@ -22,7 +21,6 @@ router.post("/getClass", async (req, res) => {
     });
 });
 
-
 router.post("/get/quiz", async (req, res) => {
   let resData;
   let courseCode;
@@ -30,48 +28,44 @@ router.post("/get/quiz", async (req, res) => {
     .findOne({ type: "teacher", "courses.quiz.code": req.body.code })
     .then((data) => {
       for (let i = 0; i < data.courses.length; i++) {
-        for(let j=0; j<data.courses[i].quiz.length; j++){
+        for (let j = 0; j < data.courses[i].quiz.length; j++) {
           if (data.courses[i].quiz[j].code === req.body.code) {
-            courseCode=data.courses[i].code
+            courseCode = data.courses[i].code;
             resData = data.courses[i].quiz[j];
             break;
           }
         }
       }
 
-      res.send([courseCode,resData]);
+      res.send([courseCode, resData]);
     });
 });
 
-
-
 router.patch("/submit/quiz", async (req, res) => {
-  console.log(req.body.code)
-  console.log(req.body.marks)
-  console.log(req.body.qa)
-  console.log(req.body.status)
-  console.log(req.body.email)
-  console.log(req.body.courseCode)
-    userSchema
-      .updateOne(
-        { email: req.body.email,"courses.code":req.body.courseCode },
-        {
-          $push: {
-            "courses.$.quiz": {
-              code: req.body.code,
-              qa: req.body.qa,
-              marks: req.body.marks,
-              status: req.body.status,
-
-            },
+  console.log(req.body.code);
+  console.log(req.body.marks);
+  console.log(req.body.qa);
+  console.log(req.body.status);
+  console.log(req.body.email);
+  console.log(req.body.courseCode);
+  userSchema
+    .updateOne(
+      { email: req.body.email, "courses.code": req.body.courseCode },
+      {
+        $push: {
+          "courses.$.quiz": {
+            code: req.body.code,
+            qa: req.body.qa,
+            marks: req.body.marks,
+            status: req.body.status,
           },
-        }
-      )
-      .then(() => {
-        res.send(true);
-      });
-  });
-  
+        },
+      }
+    )
+    .then(() => {
+      res.send(true);
+    });
+});
 
 router.patch("/add/teacher", async (req, res) => {
   userSchema
@@ -113,7 +107,7 @@ router.patch("/addClass", async (req, res) => {
 router.post("/get/info", async (req, res) => {
   let resData;
   userSchema
-    .findOne({ "courses.code": req.body.code,type:"student" })
+    .findOne({ "courses.code": req.body.code, type: "student" })
     .then((data) => {
       for (let i = 0; i < data.courses.length; i++) {
         if (data.courses[i].code === req.body.class) {
@@ -124,6 +118,5 @@ router.post("/get/info", async (req, res) => {
       res.send(resData);
     });
 });
-
 
 module.exports = router;

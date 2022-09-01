@@ -8,8 +8,8 @@ function StudentClass() {
     videos: true,
     assignments: true,
     students: true,
-    quizzes:true,
-    notes: true
+    quizzes: true,
+    notes: true,
   });
 
   function toggler(text) {
@@ -18,7 +18,7 @@ function StudentClass() {
       for (let key in visibility) {
         data[key] = false;
       }
-      console.log(text.toLowerCase())
+      console.log(text.toLowerCase());
       data[text.toLowerCase()] = true;
       return data;
     });
