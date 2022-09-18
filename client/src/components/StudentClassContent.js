@@ -12,7 +12,7 @@ import AssignmentIcon from "@mui/icons-material/Assignment";
 import QuizIcon from "@mui/icons-material/Quiz";
 import LiveButton from "./LiveButton";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
-import VideoFill from "./VideoFill";
+import PointsFill from "./PointsFill";
 import NotesFill from "./NotesFill";
 import AssignmentFill from "./AssignmentFill";
 import { ReactSession } from "react-client-session";
@@ -21,6 +21,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import NotesIcon from "@mui/icons-material/Notes";
+import PointsToggle from "./PointsToggle";
 
 function StudentClass(props) {
   ReactSession.setStoreType("sessionStorage");
@@ -31,9 +32,7 @@ function StudentClass(props) {
   }
 
   const visibility = props.visibility;
-  const [videoVisibility, setVideoVisibility] = React.useState(false);
-  const [assignmentVisibility, setAssignmentVisibility] = React.useState(false);
-  const [notesVisibility, setNotesVisibility] = React.useState(false);
+  const [pointsVisibility, setPointsVisibility] = React.useState(false);
   const [content, setContent] = React.useState({
     videos: [],
     assignments: [],
@@ -132,7 +131,14 @@ function StudentClass(props) {
 
   return (
     <div>
+
       <Container maxWidth="xl">
+        <PointsToggle 
+        setPointsVisibility={setPointsVisibility}
+        />
+        {pointsVisibility && (
+          <PointsFill setPointsVisibility={setPointsVisibility} />
+        )}
         {visibility.videos && (
           <Box mb={10}>
             <Typography variant="h4" sx={{ margin: "1em" }} component="h2">
