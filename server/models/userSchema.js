@@ -53,6 +53,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  points: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
 });
 
 const User = mongoose.model("User", UserSchema);
