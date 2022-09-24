@@ -16,7 +16,6 @@ export default function Pointsfill(props) {
     description: "",
     hours: "",
     date: "",
-    
   });
   const [refresh, setRefresh] = React.useState(false);
   React.useEffect(async () => {
@@ -25,7 +24,7 @@ export default function Pointsfill(props) {
     });
     setContent(newContent.data);
   }, [refresh]);
-  
+
   console.log(content);
 
   const [pointsData, setPointsData] = React.useState({
@@ -100,7 +99,7 @@ export default function Pointsfill(props) {
               name="HoursAttended"
               onChange={handlePoints}
             />
-            <TextField 
+            <TextField
               id="outlined-multiline-flexible"
               multiline
               label="Date"

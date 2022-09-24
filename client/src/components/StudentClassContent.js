@@ -131,11 +131,8 @@ function StudentClass(props) {
 
   return (
     <div>
-
       <Container maxWidth="xl">
-        <PointsToggle 
-        setPointsVisibility={setPointsVisibility}
-        />
+        <PointsToggle setPointsVisibility={setPointsVisibility} />
         {pointsVisibility && (
           <PointsFill setPointsVisibility={setPointsVisibility} />
         )}

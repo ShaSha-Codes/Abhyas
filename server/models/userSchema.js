@@ -14,13 +14,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  activity: [
-    { name: String,
-      description: String,
-      hours: Number,
-      Date: Date,
-    },
-  ],
+  activity: [{ name: String, description: String, hours: Number, Date: Date }],
   courses: [
     {
       code: String,
