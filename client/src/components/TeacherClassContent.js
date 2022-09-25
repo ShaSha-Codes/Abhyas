@@ -146,7 +146,9 @@ function TeacherClass(props) {
         {assignmentVisibility && (
           <AssignmentFill setAssignmentVisibility={setAssignmentVisibility} />
         )}
-        {notesVisibility && <NotesFill setNotesVisibility={setNotesVisibility} />}
+        {notesVisibility && (
+          <NotesFill setNotesVisibility={setNotesVisibility} />
+        )}
 
         {visibility.videos && (
           <Box mb={10}>
