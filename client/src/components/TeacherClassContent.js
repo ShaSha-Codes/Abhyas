@@ -46,8 +46,6 @@ function TeacherClass(props) {
     setContent(newContent.data);
   }, [refresh]);
 
-  
-
   function goToWhiteboard() {
     navigate("/whiteboard");
     console.log("whiteboard");
@@ -122,7 +120,7 @@ function TeacherClass(props) {
         email: content.users[i].email,
         points: content.users[i].points,
         number: i,
-      }; 
+      };
       console.log("what");
       userContent.push(<User data={userData} />);
     }
