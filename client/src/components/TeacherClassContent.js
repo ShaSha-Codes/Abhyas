@@ -14,7 +14,7 @@ import QuizIcon from "@mui/icons-material/Quiz";
 import LiveButton from "./LiveButton";
 import MarketButton from "./MarketButton";
 import ImageAspectRatioIcon from "@mui/icons-material/ImageAspectRatio";
-import StoreFrontIcon from '@mui/icons-material/Storefront';
+import StoreFrontIcon from "@mui/icons-material/Storefront";
 import VideoFill from "./VideoFill";
 import NotesFill from "./NotesFill";
 import AssignmentFill from "./AssignmentFill";
