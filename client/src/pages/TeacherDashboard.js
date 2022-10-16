@@ -47,6 +47,8 @@ function TeacherDashboard(props) {
             type={"teacher"}
             title={item.name}
             description={item.description}
+            year={item.year}
+            subject={item.subject}
             code={item.code}
           />
         );
@@ -105,8 +107,22 @@ function TeacherDashboard(props) {
                   <TextField
                     required
                     id="outlined-required"
-                    label="Title"
+                    label="Class Name"
                     name="title"
+                    onChange={handleFormData}
+                  />
+                  <TextField
+                    required
+                    id="outlined-required"
+                    label="Year and Department"
+                    name="year"
+                    onChange={handleFormData}
+                  />
+                  <TextField
+                    required
+                    id="outlined-required"
+                    label="Subject"
+                    name="subject"
                     onChange={handleFormData}
                   />
                   <TextField

@@ -56,6 +56,7 @@ function Class(props) {
                 position: "relative",
                 left: "10px",
                 marginBottom: "5px",
+                fontWeight: "bold",
               }}
             >
               {props.title}
@@ -64,9 +65,19 @@ function Class(props) {
               sx={{
                 position: "relative",
                 left: "10px",
+                fontSize: "14px",
               }}
             >
-              {props.description}
+              {props.year}
+            </Typography>
+            <Typography
+              sx={{
+                position: "relative",
+                left: "10px",
+                fontSize: "12px",
+              }}
+            >
+              {props.subject}
             </Typography>
           </CardContent>
           <div style={{ position: "relative", bottom: "-20px" }}>

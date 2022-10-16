@@ -13,6 +13,8 @@ router.patch("/add", async (req, res) => {
           courses: {
             name: req.body.title,
             code: req.body.code,
+            subject: req.body.subject,
+            year: req.body.year,
             description: req.body.description,
           },
         },

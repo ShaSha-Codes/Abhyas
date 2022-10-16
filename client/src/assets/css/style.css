@@ -153,6 +153,11 @@ footer{
     right:10px;
     top:100px;
 }
+.GoMarket{
+    position:fixed;
+    right:10px;
+    top:200px;
+}
 
 .videoform{
     display:block;

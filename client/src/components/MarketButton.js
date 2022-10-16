@@ -1,9 +1,10 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
+import MarketButtons from "./MarketButtons";
 
-function GoLive(props) {
+function MarketButton(props) {
   return (
-    <label htmlFor="icon-button-file" className="GoLive">
+    <label htmlFor="icon-button-file" className="GoMarket">
       <IconButton
         color="primary"
         size="large"
@@ -18,4 +19,4 @@ function GoLive(props) {
   );
 }
 
-export default GoLive;
+export default MarketButton;

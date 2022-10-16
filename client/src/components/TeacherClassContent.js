@@ -12,7 +12,9 @@ import VideoAssignment from "./VideoAssignment";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import QuizIcon from "@mui/icons-material/Quiz";
 import LiveButton from "./LiveButton";
+import MarketButton from "./MarketButton";
 import ImageAspectRatioIcon from "@mui/icons-material/ImageAspectRatio";
+import StoreFrontIcon from '@mui/icons-material/Storefront';
 import VideoFill from "./VideoFill";
 import NotesFill from "./NotesFill";
 import AssignmentFill from "./AssignmentFill";
@@ -50,7 +52,10 @@ function TeacherClass(props) {
     navigate("/whiteboard");
     console.log("whiteboard");
   }
-
+  function goToMarket() {
+    navigate("/marketplace");
+    console.log("market");
+  }
   function videoMaker() {
     let videoContent = [];
     for (let i = 0; i < content.videos.length; i++) {
@@ -118,7 +123,8 @@ function TeacherClass(props) {
       let userData = {
         name: content.users[i].name,
         email: content.users[i].email,
-        points: content.users[i].points,
+        activities: content.users[i].activities,
+
         number: i,
       };
       console.log("what");
@@ -210,6 +216,10 @@ function TeacherClass(props) {
         <LiveButton
           onClick={goToWhiteboard}
           icon={<ImageAspectRatioIcon fontSize="large" />}
+        />
+        <MarketButton
+          onClick={goToMarket}
+          icon={<StoreFrontIcon fontSize="large" />}
         />
       </Container>
     </div>
