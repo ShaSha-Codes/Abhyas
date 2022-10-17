@@ -12,7 +12,6 @@ function MarketButton(props) {
         component="span"
         onClick={props.onClick}
       >
-        
         {props.icon}
       </IconButton>
     </label>

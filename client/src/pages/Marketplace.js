@@ -15,7 +15,7 @@ var dummy = [
     title: "Electromagnetism",
     user: "Aditya Sharma",
     postDate: "07/08/2021",
-    avatar:"https://avatars.dicebear.com/api/adventurer-neutral/Aditya.svg",
+    avatar: "https://avatars.dicebear.com/api/adventurer-neutral/Aditya.svg",
   },
   {
     backgroundImage:
@@ -24,7 +24,7 @@ var dummy = [
     title: "Chemical Reactions",
     user: "Musaddiq Shaikh",
     postDate: "30/08/2022",
-    avatar:"https://avatars.dicebear.com/api/adventurer-neutral/Musaddiq.svg",
+    avatar: "https://avatars.dicebear.com/api/adventurer-neutral/Musaddiq.svg",
   },
   {
     backgroundImage:
@@ -33,7 +33,7 @@ var dummy = [
     title: "Calculus",
     user: "John Doe",
     postDate: "23/07/2021",
-    avatar:"https://avatars.dicebear.com/api/adventurer-neutral/John.svg",
+    avatar: "https://avatars.dicebear.com/api/adventurer-neutral/John.svg",
   },
   {
     backgroundImage:
@@ -42,7 +42,7 @@ var dummy = [
     title: "Climate Change",
     user: "Shaurya Sharma",
     postDate: "16/02/2021",
-    avatar:"https://avatars.dicebear.com/api/adventurer-neutral/Shaurya.svg",
+    avatar: "https://avatars.dicebear.com/api/adventurer-neutral/Shaurya.svg",
   },
   {
     backgroundImage:
@@ -51,7 +51,7 @@ var dummy = [
     title: "Music Theory",
     user: "Mihir Tayshete",
     postDate: "23/02/2021",
-    avatar:"https://avatars.dicebear.com/api/adventurer-neutral/Tayshete.svg",
+    avatar: "https://avatars.dicebear.com/api/adventurer-neutral/Tayshete.svg",
   },
 ];
 

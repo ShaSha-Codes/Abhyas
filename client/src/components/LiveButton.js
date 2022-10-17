@@ -11,7 +11,6 @@ function GoLive(props) {
         component="span"
         onClick={props.onClick}
       >
-        
         {props.icon}
       </IconButton>
     </label>

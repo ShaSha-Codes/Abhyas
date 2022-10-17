@@ -111,7 +111,8 @@ export const ItemCard = (props) => {
   const styles = useStyles();
   const mediaStyles = useCoverCardMediaStyles();
 
-  const { backgroundImage, tagname, title, user, postDate,avatar } = props.itemdata;
+  const { backgroundImage, tagname, title, user, postDate, avatar } =
+    props.itemdata;
 
   return (
     <>
@@ -137,10 +138,7 @@ export const ItemCard = (props) => {
           bgcolor={"common.white"}
         >
           <Item>
-            <Avatar
-              className={styles.avatar}
-              src={avatar}
-            />
+            <Avatar className={styles.avatar} src={avatar} />
           </Item>
           <Info position={"middle"} useStyles={useNewsInfoStyles}>
             <InfoTitle>{user}</InfoTitle>
