@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import AssignmentIcon from "@mui/icons-material/AssignmentReturned";
-import DescriptionIcon from '@mui/icons-material/Description';
+import DescriptionIcon from "@mui/icons-material/Description";
 import QuizIcon from "@mui/icons-material/Quiz";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
