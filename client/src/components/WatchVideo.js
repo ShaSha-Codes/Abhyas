@@ -34,7 +34,7 @@ export default function WatchVideo() {
               </h1>
               <hr />
               <div className="center-video">
-                <video height="500px" controls>
+                <video height="350px" controls>
                   <source src={watchVideoData.upload} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
